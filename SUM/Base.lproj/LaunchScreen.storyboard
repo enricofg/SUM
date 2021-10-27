@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Smart Urban Moving-logos" translatesAutoresizingMaskIntoConstraints="NO" id="cLG-R7-4Qf">
+                                <rect key="frame" x="82" y="94" width="250" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="DX8-v9-uDd"/>
+                                    <constraint firstAttribute="width" constant="250" id="b4H-Ep-E1R"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="pombus" translatesAutoresizingMaskIntoConstraints="NO" id="pnE-8H-38H">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logótipo_Politécnico_Leiria_01" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-xM-QNR">
+                                <rect key="frame" x="194" y="732" width="200" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="2Sy-6O-2yU"/>
+                                    <constraint firstAttribute="width" constant="200" id="4jW-wa-ETf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e7V-xM-QNR" secondAttribute="trailing" constant="20" id="H5x-gt-8ka"/>
+                            <constraint firstItem="pnE-8H-38H" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="I5S-Cy-4Ww"/>
+                            <constraint firstItem="cLG-R7-4Qf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="NKW-tK-sRE"/>
+                            <constraint firstItem="pnE-8H-38H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O3E-LV-DWh"/>
+                            <constraint firstItem="e7V-xM-QNR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="20" id="RNt-rb-ZDZ"/>
+                            <constraint firstAttribute="bottom" secondItem="pnE-8H-38H" secondAttribute="bottom" id="fqI-Zn-a17"/>
+                            <constraint firstItem="cLG-R7-4Qf" firstAttribute="centerX" secondItem="pnE-8H-38H" secondAttribute="centerX" id="iGe-1q-ZNn"/>
+                            <constraint firstItem="pnE-8H-38H" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="jTl-y9-I08"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logótipo_Politécnico_Leiria_01" width="2063" height="813"/>
+        <image name="Smart Urban Moving-logos" width="1200" height="1200"/>
+        <image name="pombus" width="800" height="450"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
