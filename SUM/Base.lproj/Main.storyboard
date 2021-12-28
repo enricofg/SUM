@@ -186,6 +186,26 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="tZr-ES-DKZ">
+                                                <rect key="frame" x="20" y="777" width="205.5" height="50"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7O5-fP-8IQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autocarro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5V-9j-Due">
+                                                        <rect key="frame" x="79" y="7" width="126.5" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G86-gU-yJw">
+                                                <rect key="frame" x="20" y="847" width="374" height="350"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="350" id="kut-OP-aUc"/>
+                                                </constraints>
+                                            </mapView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -193,12 +213,17 @@
                                             <constraint firstItem="Uce-sY-dtv" firstAttribute="top" secondItem="FIK-Sw-IxR" secondAttribute="bottom" constant="50" id="4GT-O9-HFn"/>
                                             <constraint firstItem="5jc-Tq-Gi2" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="9ci-hD-pKC"/>
                                             <constraint firstItem="9Bb-0f-66W" firstAttribute="top" secondItem="KqN-29-jKK" secondAttribute="top" constant="50" id="9j4-fH-rC0"/>
+                                            <constraint firstItem="tZr-ES-DKZ" firstAttribute="top" secondItem="5jc-Tq-Gi2" secondAttribute="bottom" constant="50" id="D37-tD-7ri"/>
                                             <constraint firstItem="Uce-sY-dtv" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="DpP-Nd-azR"/>
                                             <constraint firstAttribute="height" constant="1200" id="G2w-qP-8Qq"/>
                                             <constraint firstItem="FIK-Sw-IxR" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="JKM-PX-xZD"/>
+                                            <constraint firstAttribute="trailing" secondItem="G86-gU-yJw" secondAttribute="trailing" constant="20" id="Jdk-zu-YEf"/>
+                                            <constraint firstItem="tZr-ES-DKZ" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="LkD-iH-6uE"/>
                                             <constraint firstItem="FIK-Sw-IxR" firstAttribute="top" secondItem="9Bb-0f-66W" secondAttribute="bottom" constant="50" id="W3p-SU-m8D"/>
+                                            <constraint firstItem="G86-gU-yJw" firstAttribute="top" secondItem="tZr-ES-DKZ" secondAttribute="bottom" constant="20" id="WSc-Ed-Ky1"/>
                                             <constraint firstAttribute="trailing" secondItem="5jc-Tq-Gi2" secondAttribute="trailing" constant="20" id="faL-LC-GhA"/>
                                             <constraint firstItem="5jc-Tq-Gi2" firstAttribute="top" secondItem="Uce-sY-dtv" secondAttribute="bottom" constant="8" symbolic="YES" id="giP-KE-j8r"/>
+                                            <constraint firstItem="G86-gU-yJw" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="i3W-yt-EI1"/>
                                             <constraint firstItem="9Bb-0f-66W" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="kLB-kz-iQP"/>
                                             <constraint firstAttribute="trailing" secondItem="9Bb-0f-66W" secondAttribute="trailing" constant="20" id="kil-1j-ejC"/>
                                         </constraints>
@@ -228,6 +253,7 @@
                         <outlet property="DataLB" destination="yoo-83-Pkj" id="sXS-tC-c7O"/>
                         <outlet property="OrigemTF" destination="Duq-nL-msD" id="aoY-f4-ZPI"/>
                         <outlet property="lotacaoLB" destination="TFT-7k-vC6" id="W5r-Kv-yQq"/>
+                        <outlet property="mapView" destination="G86-gU-yJw" id="bSB-ym-39g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aON-nG-cqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -537,6 +563,7 @@
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="locationIcon" width="50" height="50"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
