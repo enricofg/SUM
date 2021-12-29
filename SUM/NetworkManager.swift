@@ -3,7 +3,7 @@
 //  SUM
 //
 //  Created by Jose Machado on 24/12/2021.
-//
+//  Updated by Luis Sousa on 29/12/2021.
 
 import Foundation
 
@@ -38,6 +38,38 @@ class NetworkManager {
                         completionHandler(toDos)
                     } catch let decoderError {
                      print(decoderError)
+                    }
+                  }
+        })
+        task.resume()
+      }
+
+    func fetchStops(completionHandler: @escaping ([Stops]) -> Void) {
+        let url = URL(string: domainUrl + "api/stops")!
+        
+
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+          if let error = error {
+            print("Error with fetching stops: \(error)")
+            return
+          }
+            
+            /*
+          guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+            print("Error with the response, unexpected status code: \(response)")
+            return
+          }
+             */
+           
+
+            
+            if let data = data {
+                    do {
+                        let toDos = try JSONDecoder().decode([Stops].self, from: data)
+                        completionHandler(toDos)
+                    } catch let decoderError {
+                        print(decoderError)
                     }
                   }
         })

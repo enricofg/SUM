@@ -18,8 +18,8 @@ struct Bus: Decodable {
 struct Stops: Decodable {
     var Stop_Id: Int
     var Stop_Name: String
-    var Longitude: Double
-    var Latitude: Double
+    var Longitude: Double?
+    var Latitude: Double?
     var Line_Id: Int
     var sc: [Schedule]
 }

@@ -61,7 +61,7 @@
     <resources>
         <image name="Logótipo_Politécnico_Leiria_01" width="2063" height="813"/>
         <image name="Smart Urban Moving-logos" width="1200" height="1200"/>
-        <image name="pombus" width="800" height="450"/>
+        <image name="pombus" width="150" height="56.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
