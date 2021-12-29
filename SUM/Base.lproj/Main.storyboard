@@ -76,16 +76,16 @@
             </objects>
             <point key="canvasLocation" x="-1655" y="-792"/>
         </scene>
-        <!--Bus View Controller-->
+        <!--Item-->
         <scene sceneID="gDt-HK-ITC">
             <objects>
                 <viewController id="Te1-a0-ZtA" customClass="BusViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwY-Go-IGX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1217"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnW-WV-eOZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1256"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1173"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqN-29-jKK" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
@@ -247,6 +247,7 @@
                             <constraint firstItem="KqN-29-jKK" firstAttribute="width" secondItem="wwY-Go-IGX" secondAttribute="width" id="weH-1o-DQZ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Se1-Tj-RfY"/>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <outlet property="AutocarroTF" destination="QR7-UH-CzS" id="BC8-cY-2uS"/>
@@ -258,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aON-nG-cqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-655.07246376811599" y="-484.15178571428567"/>
+            <point key="canvasLocation" x="-5226" y="-1709"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Rt9-5c-atv">
@@ -280,8 +281,8 @@
                     <connections>
                         <segue destination="pMU-MW-unN" kind="relationship" relationship="viewControllers" id="n3g-dP-D9W"/>
                         <segue destination="Sto-le-U7S" kind="relationship" relationship="viewControllers" id="XZi-tJ-7U1"/>
-                        <segue destination="r16-0b-LGC" kind="relationship" relationship="viewControllers" id="0Z3-V9-R6o"/>
                         <segue destination="VBR-g0-QRw" kind="relationship" relationship="viewControllers" id="g9e-od-mEC"/>
+                        <segue destination="Te1-a0-ZtA" kind="relationship" relationship="viewControllers" id="A2U-tp-zkn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzu-Xg-1kt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -553,9 +554,6 @@
             <point key="canvasLocation" x="-2433.3333333333335" y="-1515.4017857142856"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="aoQ-pi-1nJ"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="bus" catalog="system" width="128" height="122"/>
         <image name="bus-Portugal" width="500" height="375"/>
