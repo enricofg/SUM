@@ -9,11 +9,10 @@ import UIKit
 import CoreLocation
 
 
-class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource
+class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate
 {
     
     @IBOutlet var table: UITableView!
-    let data = ["first","second"]
     @IBOutlet weak var Origin: UITextField!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var OrigemTF: UITextField!
@@ -23,8 +22,9 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     private var _stops: [Stops]?
     private var _stopsSchedules: [StopSchedules]?
     var selectedRating : Int = 0
+    @IBOutlet weak var txtOrigin: UITextField!
     let networkManager = NetworkManager()
- 
+    var pickerView = UIPickerView()
     //My location
     var locationManager: CLLocationManager?
    
@@ -42,7 +42,7 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         networkManager.fetchStops { [weak self] (stops) in
             self?._stops = stops
             DispatchQueue.main.async {
-                self?._Origin.reloadComponent(0)
+                self?.pickerView.reloadComponent(0)
 
             }
         }
@@ -50,19 +50,20 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         table.isHidden = true
         table.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         table.delegate = self
-        
-        _Origin.delegate = self
-        _Origin.dataSource = self
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        txtOrigin.inputView = pickerView
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         
+        locationManager?.requestWhenInUseAuthorization()
+        getUserLocation()
         
         //let locationImage=UIImage(systemName: "location.fill")
         //addLeftImageTo(txtField: Origin, andImage: locationImage!)
         
-        locationManager?.requestWhenInUseAuthorization()
-        getUserLocation()
+       
         
 /*        var currentLoc: CLLocation!
         currentLoc = locationManager?.location
@@ -111,15 +112,6 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
             }
         }
-
-        /*let currentLoc = locationManager?.location
-        let deviceLocation = CLLocation(latitude: (currentLoc?.coordinate.latitude)! , longitude: (currentLoc?.coordinate.longitude)!)
-        
-        let myBuddysLocation = CLLocation(latitude: 59.326354, longitude: 18.072310)
-
-        //Measuring my distance to my buddy's (in km)
-        let distance = deviceLocation.distance(from: myBuddysLocation) / 1000
-        */
         table.isHidden = false
         
     }
@@ -143,11 +135,20 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
           return cell
         
     }
+  
+    func addLeftImageTo(txtField: UITextField, andImage img:UIImage){
+        let leftImageView = UIImageView(frame:CGRect(x:0.0,y:0.0,width:img.size.width,height:img.size.height))
+        leftImageView.image = img;
+        txtField.leftView = leftImageView;
+        txtField.leftViewMode = .always;
+    }
+}
+
+extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (_stops == nil)
         {
@@ -167,16 +168,8 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         if (_stops != nil)
         {
             selectedRating = _stops![row].Stop_Id
+            txtOrigin.text = _stops![row].Stop_Name
+            txtOrigin.resignFirstResponder()
         }
-           
-      
-        }
-    
-    
-    func addLeftImageTo(txtField: UITextField, andImage img:UIImage){
-        let leftImageView = UIImageView(frame:CGRect(x:0.0,y:0.0,width:img.size.width,height:img.size.height))
-        leftImageView.image = img;
-        txtField.leftView = leftImageView;
-        txtField.leftViewMode = .always;
     }
 }
