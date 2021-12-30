@@ -76,5 +76,38 @@ class NetworkManager {
         task.resume()
       }
 
+    
+    func fetchStopsSchedule(compID : Int,  completionHandler: @escaping ([StopSchedules]) -> Void) {
+       
+        let url = URL(string: domainUrl + "api/stopsschedules/"+String(compID))!
+        
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+          if let error = error {
+            print("Error with fetching stops: \(error)")
+            return
+          }
+            
+            /*
+          guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+            print("Error with the response, unexpected status code: \(response)")
+            return
+          }
+             */
+           
+
+            
+            if let data = data {
+                    do {
+                        let toDos = try JSONDecoder().decode([StopSchedules].self, from: data)
+                        completionHandler(toDos)
+                    } catch let decoderError {
+                        print(decoderError)
+                    }
+                  }
+        })
+        task.resume()
+      }
+
 
 }
