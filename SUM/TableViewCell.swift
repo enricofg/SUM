@@ -15,10 +15,9 @@ class TableViewCell: UITableViewCell {
         return UINib(nibName: "TableViewCell", bundle: nil)
     }
     @IBOutlet var button: UIButton!
-    @IBAction func didTapButton(){
-        
-    }
+    @IBOutlet weak var btnShare: UIButton!
     
+
     func configure(with title: String){
         button.setTitle(title, for: .normal)
     }

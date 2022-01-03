@@ -191,7 +191,11 @@ extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource,UIT
             return nil
         }
         let currentLoc = locationManager?.location
-
+        
+        if(currentLoc == nil)
+        {
+            return  "\(_stops![row].Stop_Name)"
+        }
         return "\(_stops![row].Stop_Name) \(getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
     }
    
@@ -209,12 +213,25 @@ extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource,UIT
         let busToShow = _stopsSchedules?[indexPath.section].StopSchedule[indexPath.row]
     //    let distance = getDistance(myPositionLatitude: (currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, //pointPositionLatitude: busToShow!.Latitude, pointPositionLongitude: busToShow!.Longitude)
         cell.textLabel?.text = busToShow!.Schedule_Time //+ String(distance)
-
+        cell.btnShare.tag = indexPath.row
+        cell.btnShare.titleLabel!.tag = indexPath.section
+        cell.btnShare.addTarget(self, action: #selector(addToButton), for: .touchUpInside)
         cell.detailTextLabel?.text = String(busToShow!.Stop_Id )
           return cell
         
     }
+    @objc func addToButton(sender:UIButton)
+    {
+        let indexpath = IndexPath(row: sender.tag, section: sender.titleLabel!.tag)
+        let title = "Autocarro disponível na linha \(_stopsSchedules![indexpath.section].Line_Name) às  \(_stopsSchedules![indexpath.section].StopSchedule[indexpath.row].Schedule_Time) horas"
+        let activityViewController = UIActivityViewController(activityItems: [title] , applicationActivities: nil)
+       
+         activityViewController.popoverPresentationController?.sourceView = self.view
+         self.present(activityViewController, animated: true, completion: nil)
+        
+    }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return _stopsSchedules![section].Line_Name
+        
      }
 }
