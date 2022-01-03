@@ -6,6 +6,8 @@
 	<string>You location is shared to the admin for efficient purposes</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>You location is shared to the admin for efficient purposes</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Camera usage description</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

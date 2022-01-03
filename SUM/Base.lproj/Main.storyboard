@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Im-Qe-emC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4265" y="-556"/>
+            <point key="canvasLocation" x="-3357" y="652"/>
         </scene>
         <!--Item-->
         <scene sceneID="gDt-HK-ITC">
@@ -242,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aON-nG-cqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3351" y="-1294"/>
+            <point key="canvasLocation" x="-3355" y="-150"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Rt9-5c-atv">
@@ -269,11 +269,12 @@
                         <segue destination="nB7-wa-eOQ" kind="relationship" relationship="viewControllers" id="Pe7-xb-vmr"/>
                         <segue destination="SbA-2A-3zH" kind="relationship" relationship="viewControllers" id="hNM-vJ-F6P"/>
                         <segue destination="Te1-a0-ZtA" kind="relationship" relationship="viewControllers" id="gSH-Wi-BIu"/>
+                        <segue destination="kbe-Mz-2FX" kind="relationship" relationship="viewControllers" id="bYD-pR-S9W"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzu-Xg-1kt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4870" y="-1425"/>
+            <point key="canvasLocation" x="-5132" y="-974"/>
         </scene>
         <!--Horários-->
         <scene sceneID="D1U-Wx-SNb">
@@ -411,7 +412,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCZ-Xj-lMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3433.3333333333335" y="-2146.2053571428569"/>
+            <point key="canvasLocation" x="-3355" y="-1672"/>
+        </scene>
+        <!--AR-->
+        <scene sceneID="0wz-v8-95J">
+            <objects>
+                <viewController id="kbe-Mz-2FX" customClass="ARViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mnu-V7-ZJB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiX-cT-ZeV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="a1l-zs-U5G"/>
+                                </constraints>
+                                <items/>
+                                <color key="barTintColor" name="AccentColor"/>
+                            </toolbar>
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAx-Tf-GHU">
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                            </arView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0XI-tK-ae5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yiX-cT-ZeV" firstAttribute="top" secondItem="Mnu-V7-ZJB" secondAttribute="top" id="2PT-1Q-pKY"/>
+                            <constraint firstItem="FAx-Tf-GHU" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" id="9su-S0-Eh1"/>
+                            <constraint firstItem="FAx-Tf-GHU" firstAttribute="trailing" secondItem="0XI-tK-ae5" secondAttribute="trailing" id="BsW-2f-796"/>
+                            <constraint firstItem="yiX-cT-ZeV" firstAttribute="trailing" secondItem="0XI-tK-ae5" secondAttribute="trailing" id="CCa-B0-f79"/>
+                            <constraint firstItem="yiX-cT-ZeV" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" id="K0d-fy-xA6"/>
+                            <constraint firstItem="FAx-Tf-GHU" firstAttribute="top" secondItem="yiX-cT-ZeV" secondAttribute="bottom" id="Yxt-0R-Qnv"/>
+                            <constraint firstItem="FAx-Tf-GHU" firstAttribute="bottom" secondItem="0XI-tK-ae5" secondAttribute="bottom" id="lRP-5b-2gn"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="AR" selectedImage="camera.circle.fill" catalog="system" id="RKA-2I-wAZ"/>
+                    <connections>
+                        <outlet property="arView" destination="FAx-Tf-GHU" id="wyo-Zl-hTf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MfV-mQ-HLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3355.072463768116" y="-974.33035714285711"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8Xe-S9-7lX">
@@ -443,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2I-nn-O2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2445" y="-2146"/>
+            <point key="canvasLocation" x="-2430" y="-1672"/>
         </scene>
         <!--Home-->
         <scene sceneID="CKM-5a-gHA">
@@ -477,13 +520,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4S-xb-Phe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4117" y="-2531"/>
+            <point key="canvasLocation" x="-3354" y="-2386"/>
         </scene>
     </scenes>
     <resources>
         <image name="bus-Portugal" width="500" height="375"/>
         <image name="bus.fill" catalog="system" width="128" height="122"/>
         <image name="busIconBlack" width="50" height="50"/>
+        <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>

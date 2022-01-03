@@ -10,13 +10,15 @@ import Foundation
 class NetworkManager {
     
     let domainUrl = "https://smarturbanmoving.azurewebsites.net/"
+  
+    func fetchBus(busNumber: Int? = nil, completionHandler: @escaping ([Bus]) -> Void) {
+        var url = URL(string: domainUrl + "api/buses")!
 
-    
-    
-    func fetchBus(completionHandler: @escaping ([Bus]) -> Void) {
-        let url = URL(string: domainUrl + "api/buses")!
+        if busNumber ?? -1>=0 {
+            url = URL(string: domainUrl + "api/buses/\(busNumber ?? 0)")!
+            print(url)
+        }
         
-
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
           if let error = error {
             print("Error with fetching buses: \(error)")
