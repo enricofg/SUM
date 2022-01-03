@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 
-class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate
+class StopsViewController: UIViewController,CLLocationManagerDelegate
 {
     
     @IBOutlet var table: UITableView!
@@ -23,8 +23,12 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     private var _stopsSchedules: [StopSchedules]?
     var selectedRating : Int = 0
     @IBOutlet weak var txtOrigin: UITextField!
+    @IBOutlet weak var txtHours: UITextField!
+    
     let networkManager = NetworkManager()
+    let tableView = UITableView()
     var pickerView = UIPickerView()
+    let datePicker = UIDatePicker()
     //My location
     var locationManager: CLLocationManager?
    
@@ -39,6 +43,9 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
       
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(tableView)
+        tableView.delegate=self
+        tableView.dataSource=self
         networkManager.fetchStops { [weak self] (stops) in
             self?._stops = stops
             DispatchQueue.main.async {
@@ -53,15 +60,18 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         pickerView.delegate = self
         pickerView.dataSource = self
         txtOrigin.inputView = pickerView
+        txtHours.inputView = datePicker
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         
         locationManager?.requestWhenInUseAuthorization()
         getUserLocation()
-        
-        //let locationImage=UIImage(systemName: "location.fill")
-        //addLeftImageTo(txtField: Origin, andImage: locationImage!)
+        createDatePicker()
+        let locationImage=UIImage(systemName: "location.fill")
+        addLeftImageTo(txtField: txtOrigin, andImage: locationImage!)
+        let hourImage=UIImage(systemName: "calendar")
+        addLeftImageTo(txtField: txtHours, andImage: hourImage!)
         
        
         
@@ -80,6 +90,27 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     */
         
       }
+    func createToolBar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneBtn], animated: true)
+        
+        return toolbar
+    }
+    func createDatePicker(){
+        
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .dateAndTime
+        txtHours.inputAccessoryView = createToolBar()
+        txtHours.inputView = datePicker
+    }
+    @objc func donePressed(){
+        self.txtHours.text = "\(datePicker.date)"
+        self.view.endEditing(true)
+    }
+    
      func getUserLocation() {
           locationManager = CLLocationManager()
           locationManager?.requestAlwaysAuthorization()
@@ -104,47 +135,44 @@ class StopsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
        //     $0.Stop == selectedRating
         //}
         
- 
         networkManager.fetchStopsSchedule(compID: selectedRating){[weak self] (stopsschedules) in
             self?._stopsSchedules = stopsschedules
             DispatchQueue.main.async {
                 self?.table.reloadData()
-
             }
         }
+
         table.isHidden = false
         
     }
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (_stops == nil)
+        if (_stopsSchedules == nil)
+        {
+            return 0
+        }
+        return (_stopsSchedules![section].StopSchedule.count)
+       
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if (_stopsSchedules == nil)
         {
             return 0
         }
         return _stopsSchedules!.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:TableViewCell.identifier, for: indexPath) as! TableViewCell
-        let busToShow = _stopsSchedules?[indexPath.row]
-        let currentLoc = locationManager?.location
-    //    let distance = getDistance(myPositionLatitude: (currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, //pointPositionLatitude: busToShow!.Latitude, pointPositionLongitude: busToShow!.Longitude)
-        cell.textLabel?.text = busToShow!.Schedule_Time //+ String(distance)
-        
-        cell.detailTextLabel?.text = String(busToShow!.Stop_Id )
-          return cell
-        
-    }
-  
+
     func addLeftImageTo(txtField: UITextField, andImage img:UIImage){
         let leftImageView = UIImageView(frame:CGRect(x:0.0,y:0.0,width:img.size.width,height:img.size.height))
         leftImageView.image = img;
-        txtField.leftView = leftImageView;
-        txtField.leftViewMode = .always;
+        txtField.rightView = leftImageView;
+        txtField.rightViewMode = .always;
     }
 }
 
-extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource{
+extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -157,19 +185,36 @@ extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource{
         return _stops!.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+       
         if (_stops == nil)
         {
             return nil
         }
-        return _stops![row].Stop_Name
+        let currentLoc = locationManager?.location
+
+        return "\(_stops![row].Stop_Name) \(getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
     }
    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (_stops != nil)
         {
             selectedRating = _stops![row].Stop_Id
-            txtOrigin.text = _stops![row].Stop_Name
+            txtOrigin.text = "\(_stops![row].Stop_Name)"
+
             txtOrigin.resignFirstResponder()
         }
     }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier:TableViewCell.identifier, for: indexPath) as! TableViewCell
+        let busToShow = _stopsSchedules?[indexPath.section].StopSchedule[indexPath.row]
+    //    let distance = getDistance(myPositionLatitude: (currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, //pointPositionLatitude: busToShow!.Latitude, pointPositionLongitude: busToShow!.Longitude)
+        cell.textLabel?.text = busToShow!.Schedule_Time //+ String(distance)
+
+        cell.detailTextLabel?.text = String(busToShow!.Stop_Id )
+          return cell
+        
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return _stopsSchedules![section].Line_Name
+     }
 }

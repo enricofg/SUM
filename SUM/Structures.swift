@@ -38,7 +38,14 @@ struct Lines: Decodable {
 }
 
 struct StopSchedules: Decodable{
+    var Line_Name : String
+    var StopSchedule : [StopSchedule]
+}
+
+struct StopSchedule: Decodable{
     var ScheduleId : Int
     var Stop_Id : Int
     var Schedule_Time : String
 }
+
+
