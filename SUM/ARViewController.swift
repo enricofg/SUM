@@ -54,6 +54,7 @@ class ARViewController: UIViewController {
         valueMaterial.color = .init(tint: (self.hexStringToUIColor(hex: "#FFFFFF"))).self
         valueModelComp.materials[0] = valueMaterial
         
+        //Set default 3D model parameters
         valueModelComp.mesh = .generateText("\(description)",
                                                 extrusionDepth: 0.001,
                                         font: .systemFont(ofSize: 0.03),
@@ -63,10 +64,12 @@ class ARViewController: UIViewController {
         
         progressBar?.children[0].children[0].children[0].components.set(valueModelComp)
         progressBar?.children[1].children[0].components.set(barModelComp)
-        
+    
+        //HTTP Request
         networkManager.fetchBus(busNumber: 5) { [weak self] (bus) in
             DispatchQueue.main.async {
                 
+                //Handle requested data
                 capacity = bus.first?.Bus_Capacity ?? 0
                 if(capacity<40){
                     barMaterial.color = .init(tint: (self?.hexStringToUIColor(hex: "#3e9a2c"))!).self
@@ -83,6 +86,7 @@ class ARViewController: UIViewController {
                 }
                     barModelComp.materials[0] = barMaterial
                 
+                //Set 3D model updated parameters
                 valueModelComp.mesh = .generateText("\(description)",
                                                         extrusionDepth: 0.001,
                                                 font: .systemFont(ofSize: 0.03),
