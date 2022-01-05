@@ -16,7 +16,7 @@ class ARViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Configure the AR session for horizontal plane tracking
         let arConfiguration = ARWorldTrackingConfiguration()
         arConfiguration.planeDetection = .horizontal
@@ -27,6 +27,24 @@ class ARViewController: UIViewController {
         
         // Add the BusScene anchor to the scene
         arView.scene.anchors.append(busScene)
+        
+        let rect1 = CGRect(x: 50, y: 150, width: 50, height: 50)
+        let rect2 = CGRect(x: 120, y: 150, width: 50, height: 50)
+
+        // Like BUTTON
+        let likeButton = UIButton(frame: rect1)
+        likeButton.setTitle("Vou", for: .normal)
+        likeButton.setImage(UIImage(named: "like"), for:[])
+        likeButton.addTarget(self, action: #selector(play), for: .touchUpInside)
+
+        // Dislike BUTTON
+        let dislikeButton = UIButton(frame: rect2)
+        dislikeButton.setTitle("Não vou", for: .normal)
+        dislikeButton.setImage(UIImage(named: "dislike"), for:[])
+        dislikeButton.addTarget(self, action: #selector(stop), for: .touchUpInside)
+       
+        self.view.addSubview(likeButton)
+        self.view.addSubview(dislikeButton)
         
         //Remove useless bars
         let progressBar = busScene.progress
@@ -99,7 +117,11 @@ class ARViewController: UIViewController {
             }
         }
     }
-    
+    @objc func play(sender: UIButton!) {
+           
+       }
+       @objc func stop(sender: UIButton!) {
+       }
     //function to convert Hex value to UIColor class
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -122,4 +144,6 @@ class ARViewController: UIViewController {
             alpha: CGFloat(1.0)
         )
     }
+    
+    
 }
