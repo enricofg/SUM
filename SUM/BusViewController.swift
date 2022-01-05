@@ -18,11 +18,15 @@ class BusViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     let networkManager = NetworkManager()
+    let helper = Helper()
     let customPin = MKPointAnnotation()
     private var _stops: [Stops]?
+    private var _buses: [Bus]?
+    private var _stopsSchedules: [StopSchedules]?
     var locationManager: CLLocationManager?
     var selectedRating : Int = 0
     var pickerView = UIPickerView()
+    var filteredBuses: [Bus]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,21 +50,84 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         mapView.setRegion(region, animated: true)
         
         networkManager.fetchBus { [weak self] (bus) in
+            self?._buses = bus
+            
             DispatchQueue.main.async {
-              
+               
+               
+                /*
                 self?.AutocarroTF.text = bus.first?.Bus_Name
+                if let lotacao = bus.first?.Bus_Capacity
+                {
+                    self?.lotacaoLB.text = String(lotacao)
+                }
+                 */
+
             }
         }
+        
+        networkManager.fetchStopsSchedule(compID: selectedRating){[weak self] (stopsschedules) in
+            self?._stopsSchedules = stopsschedules
+            
+        }
+        
+        
         
         DataLB.text = getDate()
         
         pickerView.delegate = self
         pickerView.dataSource = self
+        
         OrigemTF.inputView = pickerView
         
         let locationImage=UIImage(systemName: "location.fill")
-        addLeftImageTo(txtField: OrigemTF, andImage: locationImage!)
+        helper.addLeftImageTo(txtField: OrigemTF, andImage: locationImage!)
         
+        //Create dummy points
+        let loc1 = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
+        let loc2 = CLLocationCoordinate2D(latitude: 39.738082, longitude: -8.820454)
+        let loc3 = CLLocationCoordinate2D(latitude: 39.738524, longitude: -8.819262)
+
+        let lineCoordinates: [CLLocationCoordinate2D] = [loc1, loc2, loc3]
+
+        let polyline = MKPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
+        mapView.addOverlay(polyline)
+        
+        
+        addCustomPin()
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+
+        if let routePolyline = overlay as? MKPolyline {
+            let renderer = MKPolylineRenderer(polyline: routePolyline)
+            renderer.strokeColor = UIColor.systemBlue
+            renderer.lineWidth = 5
+            return renderer
+        }
+
+        return MKOverlayRenderer()
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
+        
+        if(annotationView == nil) {
+            //Create the view
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        annotationView?.image = UIImage(named: "busIcon")
+        
+        return annotationView
     }
     
     func getDate() -> String {
@@ -81,23 +148,14 @@ class BusViewController: UIViewController, MKMapViewDelegate {
          locationManager?.requestAlwaysAuthorization()
          locationManager?.startUpdatingLocation()
      }
-   
-   func getDistance(myPositionLatitude: CLLocationDegrees , myPositionLongitude: CLLocationDegrees , pointPositionLatitude:CLLocationDegrees?, pointPositionLongitude:CLLocationDegrees?)->Double
-   {
-       let deviceLocation = CLLocation(latitude: myPositionLatitude , longitude: myPositionLongitude)
-       let pointLocation = CLLocation(latitude: pointPositionLatitude ?? myPositionLatitude, longitude: pointPositionLongitude ?? myPositionLongitude)
-
-       let distance = deviceLocation.distance(from: pointLocation) / 1000
-       return distance
-       
-   }
     
-    func addLeftImageTo(txtField: UITextField, andImage img:UIImage){
-        let leftImageView = UIImageView(frame:CGRect(x:0.0,y:0.0,width:img.size.width,height:img.size.height))
-        leftImageView.image = img;
-        txtField.rightView = leftImageView;
-        txtField.rightViewMode = .always;
+    private func addCustomPin(){
+        customPin.coordinate = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
+        customPin.title = "Autocarro"
+    //    customPin.subtitle = "Clica para ver mais"
+        mapView.addAnnotation(customPin)
     }
+    
     
 
 }
@@ -123,7 +181,7 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
         }
         let currentLoc = locationManager?.location
 
-        return "\(_stops![row].Stop_Name) \(getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
+        return "\(_stops![row].Stop_Name) \(helper.getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
     }
    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -133,6 +191,28 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
             OrigemTF.text = "\(_stops![row].Stop_Name)"
 
             OrigemTF.resignFirstResponder()
+            
+            
+            let filteredStops = _stopsSchedules?.filter({ StopSchedules in
+                StopSchedules.StopSchedule.contains { StopSchedule in
+                    StopSchedule.Stop_Id == selectedRating
+                }
+            })
+            
+            var filteredLines: [Int] = []
+            
+            filteredStops?.forEach({ StopSchedules in
+                filteredLines.append(StopSchedules.Line_Id)
+            })
+            
+            
+            filteredBuses = _buses?.filter({ Bus in
+                filteredLines.contains { line in
+                    Bus.Line_Id == line
+                }
+            })
+           
+           
         }
     }
 
