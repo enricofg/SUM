@@ -13,6 +13,7 @@ struct Bus: Decodable {
     var Bus_Number: Int
     var Bus_Capacity: Int
     var Client_Id: Int
+    var Line_Id: Int
 }
 
 struct Stops: Decodable {

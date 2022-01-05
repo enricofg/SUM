@@ -11,6 +11,7 @@
 		08453683277B730800319AF9 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08453681277B730800319AF9 /* TableViewCell.xib */; };
 		08453684277B730800319AF9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08453682277B730800319AF9 /* TableViewCell.swift */; };
 		08F9BD5A277CE9240061BF6A /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F9BD58277CE9240061BF6A /* test.storyboard */; };
+		A20324C22786153B00CF033F /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20324C12786153B00CF033F /* Helper.swift */; };
 		A251E5AD27230627008C8A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251E5AC27230627008C8A6C /* AppDelegate.swift */; };
 		A251E5AF27230627008C8A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251E5AE27230627008C8A6C /* SceneDelegate.swift */; };
 		A251E5B127230627008C8A6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251E5B027230627008C8A6C /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		08453681277B730800319AF9 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		08453682277B730800319AF9 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		08F9BD59277CE9240061BF6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/test.storyboard; sourceTree = "<group>"; };
+		A20324C12786153B00CF033F /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		A251E5A927230627008C8A6C /* SUM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A251E5AC27230627008C8A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A251E5AE27230627008C8A6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				A859C8C42783690400C64E98 /* ARViewController.swift */,
 				A85FBBC627836DEF0036A86D /* Experience copy.rcproject */,
 				A25E20F52775CF0200FAAE7B /* NetworkManager.swift */,
+				A20324C12786153B00CF033F /* Helper.swift */,
 				A25E20F72775CF4B00FAAE7B /* Structures.swift */,
 				A25E20F32775CC1A00FAAE7B /* BusViewController.swift */,
 				A251E5B52723062C008C8A6C /* Assets.xcassets */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20324C22786153B00CF033F /* Helper.swift in Sources */,
 				A251E5B127230627008C8A6C /* ViewController.swift in Sources */,
 				08453684277B730800319AF9 /* TableViewCell.swift in Sources */,
 				A85FBBCA27836DEF0036A86D /* Experience copy.rcproject in Sources */,
