@@ -25,6 +25,14 @@ struct Stops: Decodable {
     var sc: [Schedule]
 }
 
+struct StopsList: Decodable {
+    var Stop_Id: Int
+    var Stop_Name: String
+    var Longitude: Double?
+    var Latitude: Double?
+    var Line_Id: Int
+}
+
 struct Schedule: Decodable {
     var Schedule_Weekday: String
     var Schedule_Time: String
@@ -49,5 +57,3 @@ struct StopSchedule: Decodable{
     var Stop_Id : Int
     var Schedule_Time : String
 }
-
-

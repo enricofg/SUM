@@ -67,7 +67,30 @@ class NetworkManager {
         })
         task.resume()
       }
+    
+    
 
+    func fetchStopsList(completionHandler: @escaping ([StopsList]) -> Void) {
+        let url = URL(string: domainUrl + "api/stopsList")!
+        
+
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+          if let error = error {
+            print("Error with fetching StopsList: \(error)")
+            return
+          }
+            
+            if let data = data {
+                    do {
+                        let toDos = try JSONDecoder().decode([StopsList].self, from: data)
+                        completionHandler(toDos)
+                    } catch let decoderError {
+                        print(decoderError)
+                    }
+                  }
+        })
+        task.resume()
+      }
     
     func fetchStopsSchedule(compID : Int,  completionHandler: @escaping ([StopSchedules]) -> Void) {
        
