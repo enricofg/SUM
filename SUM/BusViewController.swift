@@ -25,8 +25,11 @@ class BusViewController: UIViewController, MKMapViewDelegate {
     private var _stopsSchedules: [StopSchedules]?
     var locationManager: CLLocationManager?
     var selectedRating : Int = 0
-    var pickerView = UIPickerView()
+    var selectedRatingBus : Int = 0
+    var pickerView1 = UIPickerView()
+    var pickerView2 = UIPickerView()
     var filteredBuses: [Bus]?
+    typealias FinishedExecute = () -> ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         networkManager.fetchStops { [weak self] (stops) in
             self?._stops = stops
             DispatchQueue.main.async {
-                self?.pickerView.reloadComponent(0)
+                self?.pickerView1.reloadComponent(0)
 
             }
         }
@@ -53,7 +56,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
             self?._buses = bus
             
             DispatchQueue.main.async {
-               
+                self?.pickerView2.reloadComponent(0)
                
                 /*
                 self?.AutocarroTF.text = bus.first?.Bus_Name
@@ -66,19 +69,22 @@ class BusViewController: UIViewController, MKMapViewDelegate {
             }
         }
         
-        networkManager.fetchStopsSchedule(compID: selectedRating){[weak self] (stopsschedules) in
-            self?._stopsSchedules = stopsschedules
-            
-        }
+       
         
         
         
         DataLB.text = getDate()
         
-        pickerView.delegate = self
-        pickerView.dataSource = self
+        pickerView1.delegate = self
+        pickerView2.delegate = self
+
+        pickerView1.dataSource = self
+        pickerView2.dataSource = self
+
         
-        OrigemTF.inputView = pickerView
+        OrigemTF.inputView = pickerView1
+        AutocarroTF.inputView = pickerView2
+        
         
         let locationImage=UIImage(systemName: "location.fill")
         helper.addLeftImageTo(txtField: OrigemTF, andImage: locationImage!)
@@ -95,6 +101,8 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         
         
         addCustomPin()
+        
+     //   moveCustomPin(lineCoordinates: lineCoordinates)
         
     }
     
@@ -125,7 +133,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
         
-        annotationView?.image = UIImage(named: "busIcon")
+   //     annotationView?.image = UIImage(named: "busIcon2")
         
         return annotationView
     }
@@ -156,6 +164,26 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(customPin)
     }
     
+    private func moveCustomPin(lineCoordinates: [CLLocationCoordinate2D]) {
+        var index = 0
+         Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
+            UIView.animate(withDuration: 3) {
+                index = index + 1
+                self.customPin.coordinate = lineCoordinates[index]
+            }
+             if(index == 2) {
+                 timer.invalidate()
+             }
+        }
+    }
+    
+    private func fetchSchedules(completed: @escaping FinishedExecute) {
+        networkManager.fetchStopsSchedule(compID: selectedRating){[weak self] (stopsschedules) in
+            self?._stopsSchedules = stopsschedules
+            completed()
+        }
+    }
+    
     
 
 }
@@ -167,53 +195,90 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if (_stops == nil)
-        {
-            return 1
+        if(pickerView == pickerView1){
+            if (_stops == nil)
+            {
+                return 1
+            }
+            return _stops!.count
+        } else {
+            if (filteredBuses == nil)
+            {
+                return 1
+            }
+            return filteredBuses!.count
         }
-        return _stops!.count
+       
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       
-        if (_stops == nil)
-        {
-            return nil
-        }
-        let currentLoc = locationManager?.location
+        if(pickerView == pickerView1){
+            if (_stops == nil)
+            {
+                return nil
+            }
+            let currentLoc = locationManager?.location
 
-        return "\(_stops![row].Stop_Name) \(helper.getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
+            return "\(_stops![row].Stop_Name) \(helper.getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
+        } else {
+            if (filteredBuses == nil)
+            {
+                return nil
+            }
+            
+            return filteredBuses![row].Bus_Name
+        }
+       
     }
    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if (_stops != nil)
-        {
-            selectedRating = _stops![row].Stop_Id
-            OrigemTF.text = "\(_stops![row].Stop_Name)"
+        if(pickerView == pickerView1){
+            if (_stops != nil)
+            {
+                selectedRating = _stops![row].Stop_Id
+                OrigemTF.text = "\(_stops![row].Stop_Name)"
+                AutocarroTF.text = ""
 
-            OrigemTF.resignFirstResponder()
-            
-            
-            let filteredStops = _stopsSchedules?.filter({ StopSchedules in
-                StopSchedules.StopSchedule.contains { StopSchedule in
-                    StopSchedule.Stop_Id == selectedRating
+                OrigemTF.resignFirstResponder()
+                
+                fetchSchedules{ () -> () in
+                    let filteredStops = self._stopsSchedules?.filter({ StopSchedules in
+                        StopSchedules.StopSchedule.contains { StopSchedule in
+                            StopSchedule.Stop_Id == self.selectedRating
+                        }
+                    })
+                    
+                    var filteredLines: [Int] = []
+                    
+                    filteredStops?.forEach({ StopSchedules in
+                        filteredLines.append(StopSchedules.Line_Id)
+                    })
+                    
+                    
+                    self.filteredBuses = self._buses?.filter({ Bus in
+                        filteredLines.contains { line in
+                            Bus.Line_Id == line
+                        }
+                    })
+                                        
                 }
-            })
-            
-            var filteredLines: [Int] = []
-            
-            filteredStops?.forEach({ StopSchedules in
-                filteredLines.append(StopSchedules.Line_Id)
-            })
-            
-            
-            filteredBuses = _buses?.filter({ Bus in
-                filteredLines.contains { line in
-                    Bus.Line_Id == line
-                }
-            })
-           
-           
+               
+               
+            }
+        } else {
+            if (filteredBuses != nil)
+            {
+                selectedRatingBus = filteredBuses![row].Bus_Number
+                AutocarroTF.text = "\(filteredBuses![row].Bus_Name)"
+
+                AutocarroTF.resignFirstResponder()
+               
+                lotacaoLB.text = "\(filteredBuses![row].Bus_Capacity)"
+                
+                DataLB.text = getDate()
+               
+            }
         }
+       
     }
 
 }
