@@ -12,11 +12,16 @@ import CoreLocation
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var homeMapView: MKMapView!
+    @IBOutlet var mapButtons: [UIButton]!
+    @IBOutlet var buttonsView: UIStackView!
     let networkManager = NetworkManager()
-    var locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
+    var mapMode = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //request permissions
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -26,57 +31,80 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
-            
-//            //get access to current location permission check
-//            switch locationManager.authorizationStatus {
-//                case .restricted, .denied, .notDetermined:
-//                    CLLocationManager().requestWhenInUseAuthorization()
-//                default:
-//                    print()
-//            }
         } else {
             print("Location services are not enabled.")
         }
         
+        //home map view config parameters
         homeMapView.delegate = self
-        homeMapView.mapType = .standard
         homeMapView.isZoomEnabled = true
+        homeMapView.isRotateEnabled = true
         homeMapView.isScrollEnabled = true
+        homeMapView.showsBuildings = true
+        homeMapView.mapType = MKMapType.standard
+        mapButtons.first?.isSelected=true
         
-        if let coor = homeMapView.userLocation.location?.coordinate{
-            homeMapView.setCenter(coor, animated: true)
-           }
+        //allow map mode buttons view overlay
+        homeMapView.addSubview(buttonsView)
         
+        if let coordinate = homeMapView.userLocation.location?.coordinate{
+            homeMapView.setCenter(coordinate, animated: true)
+        }
+        
+        addStops()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-
-        homeMapView.mapType = MKMapType.standard
-
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: locValue, span: span)
+        //set map on user's current location
+        let currentLocation:CLLocationCoordinate2D = manager.location!.coordinate
+        let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+        let region = MKCoordinateRegion(center: currentLocation, span: span)
         homeMapView.setRegion(region, animated: true)
-
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locValue
-        annotation.title = "Javed Multani"
-        annotation.subtitle = "current location"
-        homeMapView.addAnnotation(annotation)
-
-        //centerMap(locValue)
+    }
+    
+    func addStops(){
+        networkManager.fetchStops { [weak self] (_stops) in
+            let stops = _stops
+            DispatchQueue.main.async {
+                for stop in stops{
+                    //add stop info on map
+                    print("Stop#\(stop.Stop_Id), name:\(stop.Stop_Name) -> Latitude:\(stop.Latitude!) and longitude:\(stop.Longitude!)")
+                    let annotation = MKPointAnnotation()
+                    let coordinate2d = CLLocationCoordinate2DMake(stop.Latitude!, stop.Longitude!)
+                    annotation.coordinate = coordinate2d
+                    annotation.title = stop.Stop_Name
+                    //annotation.subtitle = ""
+                    self!.homeMapView.addAnnotation(annotation)
+                }
+            }
+        }
+    }
+    
+    //function called by any map mode button
+    @IBAction func mapButtonPressed(_ sender: UIButton) {
+        //sender.isSelected=true
+        mapMode = sender.titleLabel!.text?.lowercased() ?? "standard"
+       
+        print(mapMode)
+        
+        for button in mapButtons{
+            button.isSelected=false
+            button.backgroundColor?.setFill()
+        }
+        
+        switch mapMode{
+        case "satellite":
+            homeMapView.mapType = .satellite
+            mapButtons[1].isSelected = true
+            
+        case "hybrid":
+            homeMapView.mapType = .hybrid
+            mapButtons.last?.isSelected=true
+        default:
+            homeMapView.mapType = .standard
+            mapButtons.first?.isSelected=true
+        }
     }
 }
 
-private extension MKMapView {
-  func centerToLocation(
-    _ location: CLLocation,
-    regionRadius: CLLocationDistance = 1000
-  ) {
-    let coordinateRegion = MKCoordinateRegion(
-      center: location.coordinate,
-      latitudinalMeters: regionRadius,
-      longitudinalMeters: regionRadius)
-    setRegion(coordinateRegion, animated: true)
-  }
-}
+

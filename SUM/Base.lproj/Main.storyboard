@@ -50,7 +50,7 @@
             <objects>
                 <viewController id="Te1-a0-ZtA" customClass="BusViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwY-Go-IGX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnW-WV-eOZ">
@@ -281,7 +281,7 @@
             <objects>
                 <viewController id="nB7-wa-eOQ" customClass="StopsViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZFm-kw-kd0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7S-Ij-s6q">
@@ -493,7 +493,7 @@
             <objects>
                 <viewController title="Home" id="SbA-2A-3zH" customClass="HomeViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="obt-1h-BZn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOy-tY-ioe">
@@ -505,6 +505,56 @@
                                 <items/>
                                 <color key="barTintColor" name="AccentColor"/>
                             </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="b37-G9-R8f">
+                                <rect key="frame" x="55" y="145" width="304" height="31"/>
+                                <subviews>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfb-fX-tdk" userLabel="Standard Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="102.5" height="31"/>
+                                        <color key="backgroundColor" red="0.98186905690000004" green="0.98640179269999995" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Standard">
+                                            <backgroundConfiguration key="background" cornerRadius="1">
+                                                <color key="strokeColor" name="AccentColor"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="mapButtonPressed:" destination="SbA-2A-3zH" eventType="touchUpInside" id="kXL-0Z-ljp"/>
+                                        </connections>
+                                    </button>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-dp-7Jq" userLabel="Satellite Button">
+                                        <rect key="frame" x="100.5" y="0.0" width="103" height="31"/>
+                                        <color key="backgroundColor" red="0.98186905690000004" green="0.98640179269999995" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Satellite">
+                                            <backgroundConfiguration key="background" cornerRadius="0.0">
+                                                <color key="strokeColor" name="AccentColor"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="mapButtonPressed:" destination="SbA-2A-3zH" eventType="touchUpInside" id="DsF-fT-ZQu"/>
+                                        </connections>
+                                    </button>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiS-yI-a3H" userLabel="Hybrid Button">
+                                        <rect key="frame" x="201.5" y="0.0" width="102.5" height="31"/>
+                                        <color key="backgroundColor" red="0.98186905690000004" green="0.98640179269999995" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Hybrid">
+                                            <backgroundConfiguration key="background" cornerRadius="1">
+                                                <color key="strokeColor" name="AccentColor"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="mapButtonPressed:" destination="SbA-2A-3zH" eventType="touchUpInside" id="u2b-ta-nsc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Lc-qO-KoY">
                                 <rect key="frame" x="20" y="130" width="374" height="653"/>
                             </mapView>
@@ -515,17 +565,24 @@
                             <constraint firstItem="DOy-tY-ioe" firstAttribute="top" secondItem="obt-1h-BZn" secondAttribute="top" id="1Vd-qg-raN"/>
                             <constraint firstItem="DOy-tY-ioe" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leading" id="EYa-P9-gaV"/>
                             <constraint firstItem="2Lc-qO-KoY" firstAttribute="top" secondItem="DOy-tY-ioe" secondAttribute="bottom" constant="30" id="HtB-nD-lxy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b37-G9-R8f" secondAttribute="trailing" constant="35" id="J1T-yz-1tU"/>
                             <constraint firstItem="2Lc-qO-KoY" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leadingMargin" id="KGS-SC-GFo"/>
                             <constraint firstAttribute="trailing" secondItem="DOy-tY-ioe" secondAttribute="trailing" id="ZDe-hN-wKY"/>
                             <constraint firstAttribute="bottomMargin" secondItem="2Lc-qO-KoY" secondAttribute="bottom" constant="30" id="caf-TB-32X"/>
+                            <constraint firstItem="b37-G9-R8f" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leadingMargin" constant="35" id="ezQ-KE-r8e"/>
                             <constraint firstItem="2Lc-qO-KoY" firstAttribute="trailing" secondItem="obt-1h-BZn" secondAttribute="trailingMargin" id="mM6-YV-bAW"/>
+                            <constraint firstItem="b37-G9-R8f" firstAttribute="top" secondItem="DOy-tY-ioe" secondAttribute="bottom" constant="45" id="wL4-0F-0Yy"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="gt2-Th-G44">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="buttonsView" destination="b37-G9-R8f" id="d47-F3-S8V"/>
                         <outlet property="homeMapView" destination="2Lc-qO-KoY" id="NdY-8c-VtP"/>
+                        <outletCollection property="mapButtons" destination="sfb-fX-tdk" collectionClass="NSMutableArray" id="dRM-8b-GPu"/>
+                        <outletCollection property="mapButtons" destination="dJl-dp-7Jq" collectionClass="NSMutableArray" id="JX1-D5-Z2C"/>
+                        <outletCollection property="mapButtons" destination="jiS-yI-a3H" collectionClass="NSMutableArray" id="oay-Ra-MKH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4S-xb-Phe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
