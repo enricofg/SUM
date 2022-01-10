@@ -50,7 +50,7 @@
             <objects>
                 <viewController id="Te1-a0-ZtA" customClass="BusViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwY-Go-IGX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnW-WV-eOZ">
@@ -281,7 +281,7 @@
             <objects>
                 <viewController id="nB7-wa-eOQ" customClass="StopsViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZFm-kw-kd0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7S-Ij-s6q">
@@ -491,9 +491,9 @@
         <!--Home-->
         <scene sceneID="CKM-5a-gHA">
             <objects>
-                <viewController title="Home" id="SbA-2A-3zH" sceneMemberID="viewController">
+                <viewController title="Home" id="SbA-2A-3zH" customClass="HomeViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="obt-1h-BZn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOy-tY-ioe">
@@ -505,22 +505,32 @@
                                 <items/>
                                 <color key="barTintColor" name="AccentColor"/>
                             </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Lc-qO-KoY">
+                                <rect key="frame" x="20" y="130" width="374" height="653"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c6Z-ba-nkd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DOy-tY-ioe" firstAttribute="top" secondItem="obt-1h-BZn" secondAttribute="top" id="1Vd-qg-raN"/>
                             <constraint firstItem="DOy-tY-ioe" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leading" id="EYa-P9-gaV"/>
+                            <constraint firstItem="2Lc-qO-KoY" firstAttribute="top" secondItem="DOy-tY-ioe" secondAttribute="bottom" constant="30" id="HtB-nD-lxy"/>
+                            <constraint firstItem="2Lc-qO-KoY" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leadingMargin" id="KGS-SC-GFo"/>
                             <constraint firstAttribute="trailing" secondItem="DOy-tY-ioe" secondAttribute="trailing" id="ZDe-hN-wKY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="2Lc-qO-KoY" secondAttribute="bottom" constant="30" id="caf-TB-32X"/>
+                            <constraint firstItem="2Lc-qO-KoY" firstAttribute="trailing" secondItem="obt-1h-BZn" secondAttribute="trailingMargin" id="mM6-YV-bAW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="gt2-Th-G44">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="homeMapView" destination="2Lc-qO-KoY" id="NdY-8c-VtP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4S-xb-Phe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3354" y="-2386"/>
+            <point key="canvasLocation" x="-3355.072463768116" y="-2386.6071428571427"/>
         </scene>
     </scenes>
     <resources>
