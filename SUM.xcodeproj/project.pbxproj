@@ -23,6 +23,7 @@
 		A25E20F82775CF4B00FAAE7B /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E20F72775CF4B00FAAE7B /* Structures.swift */; };
 		A859C8C52783690400C64E98 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A859C8C42783690400C64E98 /* ARViewController.swift */; };
 		A85FBBCA27836DEF0036A86D /* Experience copy.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = A85FBBC627836DEF0036A86D /* Experience copy.rcproject */; };
+		A8FDA453278C979500DE9F59 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FDA452278C979500DE9F59 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		A25E20F72775CF4B00FAAE7B /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		A859C8C42783690400C64E98 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		A85FBBC627836DEF0036A86D /* Experience copy.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = "Experience copy.rcproject"; sourceTree = "<group>"; };
+		A8FDA452278C979500DE9F59 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,23 +78,24 @@
 		A251E5AB27230627008C8A6C /* SUM */ = {
 			isa = PBXGroup;
 			children = (
+				A251E5AC27230627008C8A6C /* AppDelegate.swift */,
+				A859C8C42783690400C64E98 /* ARViewController.swift */,
+				A251E5B52723062C008C8A6C /* Assets.xcassets */,
+				A25E20F32775CC1A00FAAE7B /* BusViewController.swift */,
+				A85FBBC627836DEF0036A86D /* Experience copy.rcproject */,
+				A20324C12786153B00CF033F /* Helper.swift */,
+				A8FDA452278C979500DE9F59 /* HomeViewController.swift */,
+				A251E5BA2723062C008C8A6C /* Info.plist */,
+				A251E5B72723062C008C8A6C /* LaunchScreen.storyboard */,
+				A251E5B227230627008C8A6C /* Main.storyboard */,
+				A25E20F52775CF0200FAAE7B /* NetworkManager.swift */,
+				A251E5AE27230627008C8A6C /* SceneDelegate.swift */,
+				0845367F277B4FB700319AF9 /* StopsViewController.swift */,
+				A25E20F72775CF4B00FAAE7B /* Structures.swift */,
 				08453682277B730800319AF9 /* TableViewCell.swift */,
 				08453681277B730800319AF9 /* TableViewCell.xib */,
-				A251E5AC27230627008C8A6C /* AppDelegate.swift */,
-				A251E5AE27230627008C8A6C /* SceneDelegate.swift */,
-				A251E5B027230627008C8A6C /* ViewController.swift */,
-				A251E5B227230627008C8A6C /* Main.storyboard */,
-				A859C8C42783690400C64E98 /* ARViewController.swift */,
-				A85FBBC627836DEF0036A86D /* Experience copy.rcproject */,
-				A25E20F52775CF0200FAAE7B /* NetworkManager.swift */,
-				A20324C12786153B00CF033F /* Helper.swift */,
-				A25E20F72775CF4B00FAAE7B /* Structures.swift */,
-				A25E20F32775CC1A00FAAE7B /* BusViewController.swift */,
-				A251E5B52723062C008C8A6C /* Assets.xcassets */,
-				A251E5B72723062C008C8A6C /* LaunchScreen.storyboard */,
-				A251E5BA2723062C008C8A6C /* Info.plist */,
-				0845367F277B4FB700319AF9 /* StopsViewController.swift */,
 				08F9BD58277CE9240061BF6A /* test.storyboard */,
+				A251E5B027230627008C8A6C /* ViewController.swift */,
 			);
 			path = SUM;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				A25E20F62775CF0200FAAE7B /* NetworkManager.swift in Sources */,
 				A251E5AF27230627008C8A6C /* SceneDelegate.swift in Sources */,
 				A25E20F42775CC1A00FAAE7B /* BusViewController.swift in Sources */,
+				A8FDA453278C979500DE9F59 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
