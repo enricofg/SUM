@@ -9,14 +9,21 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol HandleMapSearch {
+    func zoomInOnResult(placemark:MKPlacemark)
+}
+
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var homeMapView: MKMapView!
     @IBOutlet var mapButtons: [UIButton]!
     @IBOutlet var buttonsView: UIStackView!
+    
     let networkManager = NetworkManager()
     let locationManager = CLLocationManager()
     var mapMode = ""
+    var resultSearchController:UISearchController? = nil
+    var resultLocation:MKPlacemark? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,19 +58,40 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             homeMapView.setCenter(coordinate, animated: true)
         }
         
+        //add stops to map
         addStops()
+        
+        //set up search bar results table
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        
+        //set up search bar
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Buscar localizações"
+        navigationItem.titleView = resultSearchController?.searchBar
+        
+        //search controller appearance parameters
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.obscuresBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        
+        //pass home map view to the one on locationSearchTable
+        locationSearchTable.handleMapSearchDelegate = self
+        locationSearchTable.mapView = homeMapView
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //set map on user's current location
         let currentLocation:CLLocationCoordinate2D = manager.location!.coordinate
-        let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: currentLocation, span: span)
         homeMapView.setRegion(region, animated: true)
     }
     
     func addStops(){
-        networkManager.fetchStops { [weak self] (_stops) in
+        networkManager.fetchStopsList { [weak self] (_stops) in
             let stops = _stops
             DispatchQueue.main.async {
                 for stop in stops{
@@ -107,4 +135,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
 }
 
-
+extension HomeViewController: HandleMapSearch {
+    func zoomInOnResult(placemark:MKPlacemark){
+        resultLocation = placemark
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        homeMapView.setRegion(region, animated: true)
+    }
+}
