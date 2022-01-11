@@ -82,6 +82,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		081FAE98278E328E00EAE631 /* Bus */ = {
+			isa = PBXGroup;
+			children = (
+				A25E20F32775CC1A00FAAE7B /* BusViewController.swift */,
+			);
+			path = Bus;
+			sourceTree = "<group>";
+		};
 		A251E5A027230627008C8A6C = {
 			isa = PBXGroup;
 			children = (
@@ -101,12 +109,12 @@
 		A251E5AB27230627008C8A6C /* SUM */ = {
 			isa = PBXGroup;
 			children = (
+				081FAE98278E328E00EAE631 /* Bus */,
 				081FAE97278E30B600EAE631 /* Common */,
 				081FAE96278E301E00EAE631 /* Stops */,
 				A8286DEE278D1930004547CC /* AR */,
 				A8286DED278D18E1004547CC /* HomeView */,
 				A251E5B52723062C008C8A6C /* Assets.xcassets */,
-				A25E20F32775CC1A00FAAE7B /* BusViewController.swift */,
 				A251E5BA2723062C008C8A6C /* Info.plist */,
 				A251E5B72723062C008C8A6C /* LaunchScreen.storyboard */,
 				A251E5B227230627008C8A6C /* Main.storyboard */,
