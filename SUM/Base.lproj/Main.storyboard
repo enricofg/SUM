@@ -559,15 +559,34 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Lc-qO-KoY">
                                 <rect key="frame" x="20" y="130" width="374" height="653"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbk-nJ-aig" userLabel="Current Location Button">
+                                <rect key="frame" x="324" y="708" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="BoB-H9-KIc"/>
+                                    <constraint firstAttribute="height" constant="45" id="Jya-yX-7wt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <imageReference key="backgroundImage" image="current-location" symbolScale="medium"/>
+                                </state>
+                                <connections>
+                                    <action selector="currentLocationButtonPressed:" destination="SbA-2A-3zH" eventType="touchUpInside" id="Dz4-sT-1kT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c6Z-ba-nkd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DOy-tY-ioe" firstAttribute="top" secondItem="obt-1h-BZn" secondAttribute="top" id="1Vd-qg-raN"/>
                             <constraint firstItem="DOy-tY-ioe" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leading" id="EYa-P9-gaV"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Jbk-nJ-aig" secondAttribute="bottom" constant="60" id="Erx-Op-NdO"/>
                             <constraint firstItem="2Lc-qO-KoY" firstAttribute="top" secondItem="DOy-tY-ioe" secondAttribute="bottom" constant="30" id="HtB-nD-lxy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b37-G9-R8f" secondAttribute="trailing" constant="35" id="J1T-yz-1tU"/>
                             <constraint firstItem="2Lc-qO-KoY" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leadingMargin" id="KGS-SC-GFo"/>
+                            <constraint firstItem="c6Z-ba-nkd" firstAttribute="trailing" secondItem="Jbk-nJ-aig" secondAttribute="trailing" constant="45" id="Tyj-uf-wFv"/>
                             <constraint firstAttribute="trailing" secondItem="DOy-tY-ioe" secondAttribute="trailing" id="ZDe-hN-wKY"/>
                             <constraint firstAttribute="bottomMargin" secondItem="2Lc-qO-KoY" secondAttribute="bottom" constant="30" id="caf-TB-32X"/>
                             <constraint firstItem="b37-G9-R8f" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leadingMargin" constant="35" id="ezQ-KE-r8e"/>
@@ -586,7 +605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4S-xb-Phe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2444.9275362318845" y="-2386.6071428571427"/>
+            <point key="canvasLocation" x="-2446.376811594203" y="-2386.6071428571427"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="Rpr-W8-uka">
@@ -661,6 +680,7 @@
         <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="current-location" width="123" height="123"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="locationIcon" width="50" height="50"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

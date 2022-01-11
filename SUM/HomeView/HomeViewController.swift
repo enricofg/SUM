@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         } else {
             print("Location services are not enabled.")
         }
-        
+                
         //home map view config parameters
         homeMapView.delegate = self
         homeMapView.isZoomEnabled = true
@@ -84,7 +84,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //set map on user's current location
-        let currentLocation:CLLocationCoordinate2D = manager.location!.coordinate
+        goToCurrentLocation()
+    }
+    
+    func goToCurrentLocation(){
+        let currentLocation:CLLocationCoordinate2D = locationManager.location!.coordinate
         let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: currentLocation, span: span)
         homeMapView.setRegion(region, animated: true)
@@ -110,10 +114,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     //function called by any map mode button
     @IBAction func mapButtonPressed(_ sender: UIButton) {
-        //sender.isSelected=true
         mapMode = sender.titleLabel!.text?.lowercased() ?? "standard"
-       
-        print(mapMode)
         
         for button in mapButtons{
             button.isSelected=false
@@ -131,6 +132,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         default:
             homeMapView.mapType = .standard
             mapButtons.first?.isSelected=true
+        }
+    }
+    
+    @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
+        //set map on user's current location
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            goToCurrentLocation()
         }
     }
 }

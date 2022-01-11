@@ -39,6 +39,8 @@ class LocationSearchTable : UITableViewController {
 }
 
 extension LocationSearchTable : UISearchResultsUpdating {
+    
+    //call to Apple MapKit API for location search
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else { return }
