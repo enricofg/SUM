@@ -601,6 +601,7 @@
                         <outletCollection property="mapButtons" destination="sfb-fX-tdk" collectionClass="NSMutableArray" id="dRM-8b-GPu"/>
                         <outletCollection property="mapButtons" destination="dJl-dp-7Jq" collectionClass="NSMutableArray" id="JX1-D5-Z2C"/>
                         <outletCollection property="mapButtons" destination="jiS-yI-a3H" collectionClass="NSMutableArray" id="oay-Ra-MKH"/>
+                        <segue destination="nB7-wa-eOQ" kind="showDetail" identifier="showSchedulesFromMap" id="HQ7-Wb-JpR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4S-xb-Phe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -673,6 +674,9 @@
             <point key="canvasLocation" x="-3355.072463768116" y="-2386.6071428571427"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HQ7-Wb-JpR"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arImage" width="512" height="512"/>
         <image name="bus.fill" catalog="system" width="128" height="122"/>

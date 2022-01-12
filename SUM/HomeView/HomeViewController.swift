@@ -24,6 +24,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     var mapMode = ""
     var resultSearchController:UISearchController? = nil
     var resultLocation:MKPlacemark? = nil
+    var selectedStop:MKStopAnnotation? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,13 +101,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     func addStops(){
-        networkManager.fetchStopsList { [weak self] (_stops) in
+        //fetchStopsList
+        networkManager.fetchStops { [weak self] (_stops) in
             let stops = _stops
             DispatchQueue.main.async {
                 for stop in stops{
                     //add stop info on map
                     print("Stop#\(stop.Stop_Id), name:\(stop.Stop_Name) -> Latitude:\(stop.Latitude!) and longitude:\(stop.Longitude!)")
-                    let annotation = MKPointAnnotation()
+                    let annotation = MKStopAnnotation()
+                    annotation.stopId=stop.Stop_Id
                     let coordinate2d = CLLocationCoordinate2DMake(stop.Latitude!, stop.Longitude!)
                     annotation.coordinate = coordinate2d
                     annotation.title = stop.Stop_Name
@@ -116,6 +119,25 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         }
     }
+    
+    //show schedules from mapkit stop
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        selectedStop = view.annotation as? MKStopAnnotation
+        self.performSegue(withIdentifier: "showSchedulesFromMap", sender: view)
+    }
+    
+    //prepare data for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
+        if segue.identifier == "showSchedulesFromMap" {
+            if (sender as? MKAnnotationView) != nil {
+                print("Selected pin: \(selectedStop?.stopId ?? 0)")
+
+                let destination = segue.destination as! StopsViewController
+                destination.receivedStop = selectedStop?.stopId
+            }
+        }
+    }
+    
     
     //function called by any map mode button
     @IBAction func mapButtonPressed(_ sender: UIButton) {
@@ -147,6 +169,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             goToCurrentLocation()
         }
     }
+}
+
+//custom subclass for mk point annotation for id usage
+class MKStopAnnotation : MKPointAnnotation {
+    var stopId : Int?
 }
 
 extension HomeViewController: HandleMapSearch {

@@ -31,6 +31,7 @@ class StopsViewController: UIViewController,CLLocationManagerDelegate
     let datePicker = UIDatePicker()
     //My location
     var locationManager: CLLocationManager?
+    var receivedStop:Int?
    
     private let latLngLabel: UILabel = {
           let label = UILabel()
@@ -43,14 +44,22 @@ class StopsViewController: UIViewController,CLLocationManagerDelegate
       
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(tableView)
         tableView.delegate=self
         tableView.dataSource=self
         networkManager.fetchStops { [weak self] (stops) in
             self?._stops = stops
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 self?.pickerView.reloadComponent(0)
 
+                //set selected stop if a stop was received
+                if self!.receivedStop != nil {
+                    let child = self!._stops!.first(where: {$0.Stop_Id == self!.receivedStop})
+                    self!.selectedRating = child?.Stop_Id ?? 0
+                    self!.txtOrigin.text = "\(child?.Stop_Name ?? "")"
+                    self!.SearchTime(_ : (Any).self)
+                }
             }
         }
         table.dataSource = self
@@ -105,6 +114,12 @@ class StopsViewController: UIViewController,CLLocationManagerDelegate
         datePicker.datePickerMode = .dateAndTime
         txtHours.inputAccessoryView = createToolBar()
         txtHours.inputView = datePicker
+        
+        //set current date if a stop was received
+        if receivedStop != nil {
+            self.txtHours.text = "\(Date())"
+        }
+        
     }
     @objc func donePressed(){
         self.txtHours.text = "\(datePicker.date)"
@@ -196,6 +211,7 @@ extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource,UIT
         {
             return  "\(_stops![row].Stop_Name)"
         }
+        
         return "\(_stops![row].Stop_Name) \(getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
     }
    
@@ -205,6 +221,7 @@ extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource,UIT
             selectedRating = _stops![row].Stop_Id
             txtOrigin.text = "\(_stops![row].Stop_Name)"
 
+            
             txtOrigin.resignFirstResponder()
         }
     }
