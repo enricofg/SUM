@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="-3357" y="652"/>
         </scene>
-        <!--Item-->
+        <!--Bus-->
         <scene sceneID="gDt-HK-ITC">
             <objects>
-                <viewController id="Te1-a0-ZtA" customClass="BusViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Bus" id="Te1-a0-ZtA" customClass="BusViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwY-Go-IGX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,7 +228,7 @@
                             <constraint firstAttribute="trailing" secondItem="qAu-62-4TV" secondAttribute="trailing" id="ybE-k3-i0Y"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="bus.fill" catalog="system" selectedImage="bus.fill" id="Se1-Tj-RfY">
+                    <tabBarItem key="tabBarItem" title="Autocarro" image="bus.fill" catalog="system" landscapeImage="bus.fill" selectedImage="bus.fill" id="Se1-Tj-RfY">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
                     <size key="freeformSize" width="414" height="1217"/>
@@ -265,11 +265,11 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="VBR-g0-QRw" kind="relationship" relationship="viewControllers" id="g9e-od-mEC"/>
-                        <segue destination="nB7-wa-eOQ" kind="relationship" relationship="viewControllers" id="Pe7-xb-vmr"/>
                         <segue destination="Udg-bV-5kl" kind="relationship" relationship="viewControllers" id="hNM-vJ-F6P"/>
-                        <segue destination="Te1-a0-ZtA" kind="relationship" relationship="viewControllers" id="gSH-Wi-BIu"/>
-                        <segue destination="kbe-Mz-2FX" kind="relationship" relationship="viewControllers" id="bYD-pR-S9W"/>
+                        <segue destination="nB7-wa-eOQ" kind="relationship" relationship="viewControllers" id="fEE-NJ-Lf5"/>
+                        <segue destination="kbe-Mz-2FX" kind="relationship" relationship="viewControllers" id="tan-vy-zPK"/>
+                        <segue destination="Te1-a0-ZtA" kind="relationship" relationship="viewControllers" id="SqA-Xz-4HQ"/>
+                        <segue destination="VBR-g0-QRw" kind="relationship" relationship="viewControllers" id="bY2-DZ-6eG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzu-Xg-1kt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -447,7 +447,7 @@
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="bottom" secondItem="0XI-tK-ae5" secondAttribute="bottom" id="lRP-5b-2gn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="AR" selectedImage="camera.circle.fill" catalog="system" id="RKA-2I-wAZ"/>
+                    <tabBarItem key="tabBarItem" title="AR" image="camera.circle.fill" catalog="system" landscapeImage="camera.circle.fill" selectedImage="camera.circle.fill" id="RKA-2I-wAZ"/>
                     <connections>
                         <outlet property="arView" destination="FAx-Tf-GHU" id="wyo-Zl-hTf"/>
                     </connections>
@@ -680,7 +680,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HQ7-Wb-JpR"/>
+        <segue reference="fEE-NJ-Lf5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arImage" width="512" height="512"/>
