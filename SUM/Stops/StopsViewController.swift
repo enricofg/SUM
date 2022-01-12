@@ -141,11 +141,8 @@ class StopsViewController: UIViewController,CLLocationManagerDelegate
                 self?.table.reloadData()
             }
         }
-
         table.isHidden = false
-        
     }
-    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (_stopsSchedules == nil)
