@@ -129,11 +129,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     //prepare data for segue
     override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
         if segue.identifier == "showSchedulesFromMap" {
-            if (sender as? MKAnnotationView) != nil {
-                print("Selected pin: \(selectedStop?.stopId ?? 0)")
-
+            if let annotationView = sender as? MKAnnotationView {
                 let destination = segue.destination as! StopsViewController
                 destination.receivedStop = selectedStop?.stopId
+                homeMapView.deselectAnnotation(annotationView as? MKAnnotation, animated: false)
             }
         }
     }
