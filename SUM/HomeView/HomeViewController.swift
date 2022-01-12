@@ -70,10 +70,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Buscar localizações"
-        searchBar.tintColor=UIColor.white
-        searchBar.barTintColor=UIColor.white        
-        //searchBar.backgroundColor=UIColor.white
+        searchBar.tintColor=UIColor.lightGray
         navigationItem.titleView = resultSearchController?.searchBar
+        
+        //change search bar field bg color
+        let searchBarTextField = searchBar.value(forKey: "searchField") as? UITextField
+        searchBarTextField?.backgroundColor = UIColor.white
         
         //search controller appearance parameters
         resultSearchController?.hidesNavigationBarDuringPresentation = false
