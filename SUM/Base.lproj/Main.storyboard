@@ -557,7 +557,7 @@
                                 </subviews>
                             </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Lc-qO-KoY">
-                                <rect key="frame" x="20" y="130" width="374" height="653"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbk-nJ-aig" userLabel="Current Location Button">
                                 <rect key="frame" x="324" y="708" width="45" height="45"/>
@@ -583,16 +583,21 @@
                             <constraint firstItem="DOy-tY-ioe" firstAttribute="top" secondItem="obt-1h-BZn" secondAttribute="top" id="1Vd-qg-raN"/>
                             <constraint firstItem="DOy-tY-ioe" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leading" id="EYa-P9-gaV"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Jbk-nJ-aig" secondAttribute="bottom" constant="60" id="Erx-Op-NdO"/>
-                            <constraint firstItem="2Lc-qO-KoY" firstAttribute="top" secondItem="DOy-tY-ioe" secondAttribute="bottom" constant="30" id="HtB-nD-lxy"/>
+                            <constraint firstItem="2Lc-qO-KoY" firstAttribute="top" secondItem="DOy-tY-ioe" secondAttribute="bottom" id="HtB-nD-lxy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b37-G9-R8f" secondAttribute="trailing" constant="35" id="J1T-yz-1tU"/>
-                            <constraint firstItem="2Lc-qO-KoY" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leadingMargin" id="KGS-SC-GFo"/>
+                            <constraint firstItem="c6Z-ba-nkd" firstAttribute="trailing" secondItem="2Lc-qO-KoY" secondAttribute="trailing" id="N1q-nI-zbf"/>
                             <constraint firstItem="c6Z-ba-nkd" firstAttribute="trailing" secondItem="Jbk-nJ-aig" secondAttribute="trailing" constant="45" id="Tyj-uf-wFv"/>
                             <constraint firstAttribute="trailing" secondItem="DOy-tY-ioe" secondAttribute="trailing" id="ZDe-hN-wKY"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="2Lc-qO-KoY" secondAttribute="bottom" constant="30" id="caf-TB-32X"/>
+                            <constraint firstItem="2Lc-qO-KoY" firstAttribute="leading" secondItem="c6Z-ba-nkd" secondAttribute="leading" id="aH6-7F-LO0"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="2Lc-qO-KoY" secondAttribute="bottom" id="caf-TB-32X"/>
                             <constraint firstItem="b37-G9-R8f" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leadingMargin" constant="35" id="ezQ-KE-r8e"/>
-                            <constraint firstItem="2Lc-qO-KoY" firstAttribute="trailing" secondItem="obt-1h-BZn" secondAttribute="trailingMargin" id="mM6-YV-bAW"/>
                             <constraint firstItem="b37-G9-R8f" firstAttribute="top" secondItem="DOy-tY-ioe" secondAttribute="bottom" constant="45" id="wL4-0F-0Yy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Jbk-nJ-aig"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="MKg-4j-kiI"/>
                     <connections>
@@ -601,6 +606,7 @@
                         <outletCollection property="mapButtons" destination="sfb-fX-tdk" collectionClass="NSMutableArray" id="dRM-8b-GPu"/>
                         <outletCollection property="mapButtons" destination="dJl-dp-7Jq" collectionClass="NSMutableArray" id="JX1-D5-Z2C"/>
                         <outletCollection property="mapButtons" destination="jiS-yI-a3H" collectionClass="NSMutableArray" id="oay-Ra-MKH"/>
+                        <segue destination="nB7-wa-eOQ" kind="showDetail" identifier="showSchedulesFromMap" id="HQ7-Wb-JpR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4S-xb-Phe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -673,6 +679,9 @@
             <point key="canvasLocation" x="-3355.072463768116" y="-2386.6071428571427"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HQ7-Wb-JpR"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arImage" width="512" height="512"/>
         <image name="bus.fill" catalog="system" width="128" height="122"/>
