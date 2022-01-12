@@ -51,6 +51,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         homeMapView.showsBuildings = true
         homeMapView.mapType = MKMapType.standard
         mapButtons.first?.isSelected=true
+        let currentLocationButton = MKUserTrackingBarButtonItem(mapView: homeMapView)
+        currentLocationButton.customView?.tintColor = UIColor.lightGray
+        self.navigationItem.rightBarButtonItem = currentLocationButton
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
         //allow map mode buttons view overlay
         homeMapView.addSubview(buttonsView)
@@ -161,13 +165,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
     }
     
-    @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
-        //set map on user's current location
-        if (CLLocationManager.locationServicesEnabled())
-        {
-            goToCurrentLocation()
-        }
-    }
+//    @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
+//        //set map on user's current location
+//        if (CLLocationManager.locationServicesEnabled())
+//        {
+//            goToCurrentLocation()
+//        }
+//    }
 }
 
 //custom subclass for mk point annotation for id usage

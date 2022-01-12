@@ -593,6 +593,11 @@
                             <constraint firstItem="b37-G9-R8f" firstAttribute="leading" secondItem="obt-1h-BZn" secondAttribute="leadingMargin" constant="35" id="ezQ-KE-r8e"/>
                             <constraint firstItem="b37-G9-R8f" firstAttribute="top" secondItem="DOy-tY-ioe" secondAttribute="bottom" constant="45" id="wL4-0F-0Yy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Jbk-nJ-aig"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="MKg-4j-kiI"/>
                     <connections>
