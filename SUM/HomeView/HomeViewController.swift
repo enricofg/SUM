@@ -48,25 +48,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         homeMapView.isZoomEnabled = true
         homeMapView.isRotateEnabled = true
         homeMapView.isScrollEnabled = true
-        homeMapView.showsBuildings = true
+        
+        //allow map mode buttons view overlay
+        homeMapView.addSubview(buttonsView)
+        
+        //map view initial map type settings
         homeMapView.mapType = MKMapType.standard
         mapButtons.first?.isSelected=true
+        
+        //current location button config
         let currentLocationButton = MKUserTrackingBarButtonItem(mapView: homeMapView)
         currentLocationButton.customView?.tintColor = UIColor.lightGray
         self.navigationItem.rightBarButtonItem = currentLocationButton
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
-        //allow map mode buttons view overlay
-        homeMapView.addSubview(buttonsView)
-        
-        if let coordinate = homeMapView.userLocation.location?.coordinate{
-            homeMapView.setCenter(coordinate, animated: true)
-        }
-        
         //add stops to map
         addStops()
         
-        //set up search bar results table
+        //set up search bar results table view
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -93,10 +92,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //set map on user's current location
+        //call current location function on location manager load
         goToCurrentLocation()
     }
     
+    //set map on user's current location
     func goToCurrentLocation(){
         let currentLocation:CLLocationCoordinate2D = locationManager.location!.coordinate
         let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
@@ -104,27 +104,32 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         homeMapView.setRegion(region, animated: true)
     }
     
+    //add stops to map function -> call get stops API
     func addStops(){
-        //fetchStopsList
         networkManager.fetchStops { [weak self] (_stops) in
             let stops = _stops
             DispatchQueue.main.async {
                 for stop in stops{
-                    //add stop info on map
-                    print("Stop#\(stop.Stop_Id), name:\(stop.Stop_Name) -> Latitude:\(stop.Latitude!) and longitude:\(stop.Longitude!)")
+                    //print("Stop#\(stop.Stop_Id), name:\(stop.Stop_Name) -> Latitude:\(stop.Latitude!) and longitude:\(stop.Longitude!)")
+                    
+                    //custom annotation class
                     let annotation = MKStopAnnotation()
                     annotation.stopId=stop.Stop_Id
-                    let coordinate2d = CLLocationCoordinate2DMake(stop.Latitude!, stop.Longitude!)
-                    annotation.coordinate = coordinate2d
+                    
+                    //set geolocation and name according to stop data
+                    let geolocation = CLLocationCoordinate2DMake(stop.Latitude!, stop.Longitude!)
+                    annotation.coordinate = geolocation
                     annotation.title = stop.Stop_Name
                     //annotation.subtitle = ""
+                    
+                    //add stop to map
                     self!.homeMapView.addAnnotation(annotation)
                 }
             }
         }
     }
     
-    //show schedules from mapkit stop
+    //show schedules from mapkit stop annotation when clicked
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         selectedStop = view.annotation as? MKStopAnnotation
         self.performSegue(withIdentifier: "showSchedulesFromMap", sender: view)
@@ -140,7 +145,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         }
     }
-    
     
     //function called by any map mode button
     @IBAction func mapButtonPressed(_ sender: UIButton) {
@@ -165,8 +169,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
     }
     
+    //custom map pins
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKUserLocation) {
+            let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "annotationPin")
+            annotationView.markerTintColor = UIColor(red: (52.0/255), green: (160.0/255), blue: (1.0/255), alpha: 1.0)
+            annotationView.glyphImage = UIImage(named: "busStopSymbol")
+            return annotationView
+        }
+        return nil
+    }
+    
 //    @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
-//        //set map on user's current location
+//        //set map to user's current location
 //        if (CLLocationManager.locationServicesEnabled())
 //        {
 //            goToCurrentLocation()
@@ -179,6 +194,7 @@ class MKStopAnnotation : MKPointAnnotation {
     var stopId : Int?
 }
 
+//zoom map on chosen search result
 extension HomeViewController: HandleMapSearch {
     func zoomInOnResult(placemark:MKPlacemark){
         resultLocation = placemark
