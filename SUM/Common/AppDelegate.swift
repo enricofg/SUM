@@ -2,8 +2,7 @@
 //  AppDelegate.swift
 //  SUM
 //
-//  Created by Jose Machado on 22/10/2021.
-//
+
 
 import UIKit
 
