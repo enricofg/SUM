@@ -142,11 +142,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G86-gU-yJw">
-                                                <rect key="frame" x="20" y="246" width="374" height="364"/>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G86-gU-yJw">
+                                                <rect key="frame" x="20" y="244" width="374" height="386"/>
                                             </mapView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TPE-gy-lPU">
-                                                <rect key="frame" x="20" y="620.5" width="40" height="39"/>
+                                                <rect key="frame" x="20" y="638.5" width="40" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="8kg-kX-2YD"/>
                                                     <constraint firstAttribute="height" constant="40" id="qxT-hQ-ldh"/>
@@ -175,7 +175,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informação adicional" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBo-TJ-BZC">
-                                                <rect key="frame" x="64" y="620" width="196.5" height="40"/>
+                                                <rect key="frame" x="64" y="638" width="196.5" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="3lz-cB-cDX"/>
                                                 </constraints>
@@ -191,18 +191,18 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" image="bus" catalog="system" title="Capacidade do autocarro"/>
                                                 <connections>
-                                                    <action selector="SearchTime:" destination="nB7-wa-eOQ" eventType="touchDown" id="fJr-NQ-jI5"/>
+                                                    <segue destination="kbe-Mz-2FX" kind="show" id="84F-fn-8Cx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="ELe-BM-XgA" firstAttribute="top" secondItem="dBo-TJ-BZC" secondAttribute="bottom" constant="46" id="0po-hr-Zrr"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dBo-TJ-BZC" secondAttribute="trailing" symbolic="YES" id="3hc-Ni-Ada"/>
+                                            <constraint firstItem="ELe-BM-XgA" firstAttribute="top" secondItem="dBo-TJ-BZC" secondAttribute="bottom" constant="28" id="0po-hr-Zrr"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dBo-TJ-BZC" secondAttribute="trailing" constant="20" symbolic="YES" id="3hc-Ni-Ada"/>
                                             <constraint firstItem="G86-gU-yJw" firstAttribute="top" secondItem="a79-aW-1P8" secondAttribute="bottom" constant="10" id="5Kz-Bm-KUH"/>
                                             <constraint firstItem="ELe-BM-XgA" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="22" id="7Iz-z4-WQm"/>
                                             <constraint firstItem="yoo-83-Pkj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="t5D-uO-ocS" secondAttribute="trailing" constant="3" id="7gn-kA-Fqc"/>
-                                            <constraint firstItem="TFT-7k-vC6" firstAttribute="top" secondItem="dBo-TJ-BZC" secondAttribute="bottom" constant="46" id="AhT-Pv-Bzi"/>
+                                            <constraint firstItem="TFT-7k-vC6" firstAttribute="top" secondItem="dBo-TJ-BZC" secondAttribute="bottom" constant="28" id="AhT-Pv-Bzi"/>
                                             <constraint firstItem="t5D-uO-ocS" firstAttribute="top" secondItem="ELe-BM-XgA" secondAttribute="bottom" constant="8" id="BDm-Ru-ZHK"/>
                                             <constraint firstItem="G86-gU-yJw" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="G2a-06-oTp"/>
                                             <constraint firstItem="ROY-VV-5l8" firstAttribute="top" secondItem="9Bb-0f-66W" secondAttribute="bottom" constant="10" id="GYl-gc-vSO"/>
@@ -212,7 +212,7 @@
                                             <constraint firstItem="Xuj-z3-UCc" firstAttribute="trailing" secondItem="G86-gU-yJw" secondAttribute="trailing" id="OoL-4p-W33"/>
                                             <constraint firstItem="9Bb-0f-66W" firstAttribute="top" secondItem="KqN-29-jKK" secondAttribute="top" constant="75" id="P68-M8-yRf"/>
                                             <constraint firstItem="dBo-TJ-BZC" firstAttribute="leading" secondItem="TPE-gy-lPU" secondAttribute="trailing" constant="4" id="PEw-zE-Fkc"/>
-                                            <constraint firstItem="TPE-gy-lPU" firstAttribute="top" secondItem="G86-gU-yJw" secondAttribute="bottom" constant="10" id="X2r-c2-YGe"/>
+                                            <constraint firstItem="TPE-gy-lPU" firstAttribute="top" secondItem="G86-gU-yJw" secondAttribute="bottom" constant="8" id="X2r-c2-YGe"/>
                                             <constraint firstItem="TFT-7k-vC6" firstAttribute="leading" secondItem="ELe-BM-XgA" secondAttribute="trailing" constant="2" id="Ybl-sf-Vzl"/>
                                             <constraint firstAttribute="bottom" secondItem="Xuj-z3-UCc" secondAttribute="bottom" constant="324" id="ZoS-bh-C6j"/>
                                             <constraint firstAttribute="height" constant="1200" id="Zxk-bg-ZVC"/>
@@ -223,11 +223,11 @@
                                             <constraint firstItem="9Bb-0f-66W" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="kLB-kz-iQP"/>
                                             <constraint firstAttribute="trailing" secondItem="9Bb-0f-66W" secondAttribute="trailing" constant="20" id="kil-1j-ejC"/>
                                             <constraint firstItem="Xuj-z3-UCc" firstAttribute="top" secondItem="t5D-uO-ocS" secondAttribute="bottom" constant="32" id="mSu-rf-fvW"/>
-                                            <constraint firstItem="yoo-83-Pkj" firstAttribute="top" secondItem="dBo-TJ-BZC" secondAttribute="bottom" constant="94" id="sPU-ey-pnB"/>
+                                            <constraint firstItem="yoo-83-Pkj" firstAttribute="top" secondItem="dBo-TJ-BZC" secondAttribute="bottom" constant="76" id="sPU-ey-pnB"/>
                                             <constraint firstItem="G86-gU-yJw" firstAttribute="top" secondItem="ROY-VV-5l8" secondAttribute="bottom" constant="11" id="u4M-rT-Dw6"/>
                                             <constraint firstItem="Xuj-z3-UCc" firstAttribute="leading" secondItem="TPE-gy-lPU" secondAttribute="leading" id="y6O-7f-eHr"/>
                                             <constraint firstAttribute="trailing" secondItem="TFT-7k-vC6" secondAttribute="trailing" constant="20" id="z5h-fG-vs1"/>
-                                            <constraint firstItem="ELe-BM-XgA" firstAttribute="top" secondItem="TPE-gy-lPU" secondAttribute="bottom" constant="46" id="zIZ-3V-bFu"/>
+                                            <constraint firstItem="ELe-BM-XgA" firstAttribute="top" secondItem="TPE-gy-lPU" secondAttribute="bottom" constant="28" id="zIZ-3V-bFu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -452,7 +452,7 @@
             <objects>
                 <viewController id="kbe-Mz-2FX" customClass="ARViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mnu-V7-ZJB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiX-cT-ZeV">
@@ -465,7 +465,7 @@
                                 <color key="barTintColor" name="AccentColor"/>
                             </toolbar>
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAx-Tf-GHU">
-                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="708"/>
                             </arView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0XI-tK-ae5"/>
@@ -481,6 +481,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="AR" image="camera.circle.fill" catalog="system" landscapeImage="camera.circle.fill" selectedImage="camera.circle.fill" id="RKA-2I-wAZ"/>
+                    <navigationItem key="navigationItem" id="PGH-pN-vqv"/>
                     <connections>
                         <outlet property="arView" destination="FAx-Tf-GHU" id="wyo-Zl-hTf"/>
                     </connections>
@@ -713,6 +714,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="84F-fn-8Cx"/>
         <segue reference="fEE-NJ-Lf5"/>
     </inferredMetricsTieBreakers>
     <resources>
