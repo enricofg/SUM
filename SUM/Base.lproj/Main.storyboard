@@ -434,6 +434,60 @@
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAx-Tf-GHU">
                                 <rect key="frame" x="0.0" y="100" width="414" height="713"/>
                             </arView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLJ-cA-H12" userLabel="Plus Button">
+                                <rect key="frame" x="349" y="648.5" width="45" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Gne-vO-hyC"/>
+                                    <constraint firstAttribute="width" constant="45" id="VpI-YP-myM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="+" backgroundImage="plus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="scaleModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="SAF-wW-eZX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-9z-a0X" userLabel="Minus Button">
+                                <rect key="frame" x="349" y="713.5" width="45" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="PpR-QJ-T4q"/>
+                                    <constraint firstAttribute="height" constant="45" id="sxQ-jc-O5S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="-" backgroundImage="minus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="scaleModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="k04-V8-6BC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-ij-u1f" userLabel="Rotate Right Button">
+                                <rect key="frame" x="20" y="713.5" width="45" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="MhV-vW-eoG"/>
+                                    <constraint firstAttribute="height" constant="45" id="jNm-MY-JlI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="right" backgroundImage="arrow.uturn.right.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="Rta-U7-6B1"/>
+                                    <action selector="scaleModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="nFW-jR-LAw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYx-gW-CWU" userLabel="Rotate Left Button">
+                                <rect key="frame" x="20" y="648.5" width="45" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="qjB-Ll-p6w"/>
+                                    <constraint firstAttribute="height" constant="45" id="y0V-y2-CVa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="left" backgroundImage="arrow.uturn.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="x2M-8s-o0A"/>
+                                    <action selector="scaleModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="L9Y-Rv-BfY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0XI-tK-ae5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -442,14 +496,26 @@
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" id="9su-S0-Eh1"/>
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="trailing" secondItem="0XI-tK-ae5" secondAttribute="trailing" id="BsW-2f-796"/>
                             <constraint firstItem="yiX-cT-ZeV" firstAttribute="trailing" secondItem="0XI-tK-ae5" secondAttribute="trailing" id="CCa-B0-f79"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="gDN-9z-a0X" secondAttribute="bottom" constant="55" id="J2l-BU-kTF"/>
                             <constraint firstItem="yiX-cT-ZeV" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" id="K0d-fy-xA6"/>
+                            <constraint firstItem="hE2-ij-u1f" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" constant="20" id="QLZ-im-5cX"/>
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="top" secondItem="yiX-cT-ZeV" secondAttribute="bottom" id="Yxt-0R-Qnv"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="BLJ-cA-H12" secondAttribute="bottom" constant="120" id="ggw-DA-oLs"/>
+                            <constraint firstItem="0XI-tK-ae5" firstAttribute="trailing" secondItem="gDN-9z-a0X" secondAttribute="trailing" constant="20" id="gnD-nN-iIQ"/>
+                            <constraint firstItem="0XI-tK-ae5" firstAttribute="trailing" secondItem="BLJ-cA-H12" secondAttribute="trailing" constant="20" id="lBh-i8-8F4"/>
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="bottom" secondItem="0XI-tK-ae5" secondAttribute="bottom" id="lRP-5b-2gn"/>
+                            <constraint firstItem="UYx-gW-CWU" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" constant="20" id="pj3-MV-2F6"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="hE2-ij-u1f" secondAttribute="bottom" constant="55" id="sGy-Hq-d24"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="UYx-gW-CWU" secondAttribute="bottom" constant="120" id="uhb-IG-OTj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="AR" image="camera.circle.fill" catalog="system" landscapeImage="camera.circle.fill" selectedImage="camera.circle.fill" id="RKA-2I-wAZ"/>
                     <connections>
                         <outlet property="arView" destination="FAx-Tf-GHU" id="wyo-Zl-hTf"/>
+                        <outletCollection property="scaleButtons" destination="BLJ-cA-H12" collectionClass="NSMutableArray" id="2XJ-r0-QxV"/>
+                        <outletCollection property="scaleButtons" destination="gDN-9z-a0X" collectionClass="NSMutableArray" id="zbb-8H-fNz"/>
+                        <outletCollection property="rotateButtons" destination="UYx-gW-CWU" collectionClass="NSMutableArray" id="AtL-lR-LuA"/>
+                        <outletCollection property="rotateButtons" destination="hE2-ij-u1f" collectionClass="NSMutableArray" id="i7V-Nf-kbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfV-mQ-HLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -684,6 +750,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arImage" width="512" height="512"/>
+        <image name="arrow.uturn.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrow.uturn.right.circle.fill" catalog="system" width="128" height="121"/>
         <image name="bus.fill" catalog="system" width="128" height="122"/>
         <image name="busIconBlack" width="50" height="50"/>
         <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
@@ -693,9 +761,11 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="locationIcon" width="50" height="50"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

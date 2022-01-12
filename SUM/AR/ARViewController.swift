@@ -12,7 +12,11 @@ import ARKit
 class ARViewController: UIViewController {
 
     @IBOutlet var arView: ARView!
+    @IBOutlet var scaleButtons: [UIButton]!
+    @IBOutlet var rotateButtons: [UIButton]!
     let networkManager = NetworkManager()
+    var bus:Entity?
+    var progressBar:Entity?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,7 @@ class ARViewController: UIViewController {
         
         // Load the BusScene from the "Experience" Reality File
         let busScene = try! ExperienceCopy.loadBusScene()
+        bus = busScene.bus!
         
         // Add the BusScene anchor to the scene
         arView.scene.anchors.append(busScene)
@@ -47,7 +52,7 @@ class ARViewController: UIViewController {
         self.view.addSubview(dislikeButton)
         
         //Remove useless bars
-        let progressBar = busScene.progress
+        progressBar = busScene.progress
         progressBar?.children.remove((progressBar?.children[0])!)
         progressBar?.children.remove((progressBar?.children[1])!)
         progressBar?.children.remove((progressBar?.children[1])!)
@@ -112,11 +117,46 @@ class ARViewController: UIViewController {
                                            alignment: .left,
                                        lineBreakMode: .byCharWrapping)
                 
-                progressBar?.children[0].children[0].children[0].components.set(valueModelComp)
-                progressBar?.children[1].children[0].components.set(barModelComp)
+                self!.progressBar?.children[0].children[0].children[0].components.set(valueModelComp)
+                self!.progressBar?.children[1].children[0].components.set(barModelComp)
             }
         }
     }
+    
+    @IBAction func scaleModel(_ sender: UIButton) {
+        let command = sender.titleLabel!.text?.lowercased() ?? ""
+        
+        switch command{
+        case "+":
+            if bus!.scale.x < 7 {
+                bus?.scale = [bus!.scale.x+0.5, bus!.scale.y+0.5, bus!.scale.z+0.5]
+                progressBar?.scale = [progressBar!.scale.x+0.5, progressBar!.scale.y+0.5, progressBar!.scale.z+0.5]
+            }
+        case "-":
+            if bus!.scale.x > 0.5 {
+                bus?.scale = [bus!.scale.x-0.5, bus!.scale.y-0.5, bus!.scale.z-0.5]
+                progressBar?.scale = [progressBar!.scale.x-0.5, progressBar!.scale.y-0.5, progressBar!.scale.z-0.5]
+            }
+        default:
+            break;
+        }
+    }
+    
+    @IBAction func rotateModel(_ sender: UIButton) {
+        let command = sender.titleLabel!.text?.lowercased() ?? ""
+        
+        switch command{
+        case "left":
+            bus?.move(to: Transform(pitch: 0, yaw: 0.5, roll: 0), relativeTo: bus!)
+            progressBar?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: progressBar!)
+        case "right":
+            bus?.move(to: Transform(pitch: 0, yaw: 0.5, roll: 0), relativeTo: bus!)
+            progressBar?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: progressBar!)
+        default:
+            break;
+        }
+    }
+        
     @objc func play(sender: UIButton!) {
            
        }
