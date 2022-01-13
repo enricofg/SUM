@@ -30,8 +30,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         super.viewDidLoad()
         
         //request Siri permissions for Shortcuts
-        //AppIntent.allowSiri()
-        //AppIntent.schedule()
+        AppIntent.allowSiri()
+        AppIntent.schedule()
         
         //request permissions
         self.locationManager.requestAlwaysAuthorization()
