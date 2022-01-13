@@ -36,4 +36,17 @@ class Helper {
         return distance
         
     }
+    
+    //Example usage: self.present(Helper.presentDialog(title: "Teste", message: "teste"), animated: true, completion: nil)
+    func presentDialog(title: String, message: String) -> UIAlertController {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+         })
+        
+        dialogMessage.addAction(ok)
+        return dialogMessage
+     //   self.present(dialogMessage, animated: true, completion: nil)
+    }
 }
