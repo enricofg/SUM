@@ -14,6 +14,7 @@ class ARViewController: UIViewController {
     @IBOutlet var arView: ARView!
     @IBOutlet var scaleButtons: [UIButton]!
     @IBOutlet var rotateButtons: [UIButton]!
+    @IBOutlet var likeButtons: [UIButton]!
     let networkManager = NetworkManager()
     var bus:Entity?
     var progressBar:Entity?
@@ -32,24 +33,6 @@ class ARViewController: UIViewController {
         
         // Add the BusScene anchor to the scene
         arView.scene.anchors.append(busScene)
-        
-        let rect1 = CGRect(x: 50, y: 150, width: 50, height: 50)
-        let rect2 = CGRect(x: 120, y: 150, width: 50, height: 50)
-
-        // Like BUTTON
-        let likeButton = UIButton(frame: rect1)
-        likeButton.setTitle("Vou", for: .normal)
-        likeButton.setImage(UIImage(named: "like"), for:[])
-        likeButton.addTarget(self, action: #selector(play), for: .touchUpInside)
-
-        // Dislike BUTTON
-        let dislikeButton = UIButton(frame: rect2)
-        dislikeButton.setTitle("Não vou", for: .normal)
-        dislikeButton.setImage(UIImage(named: "dislike"), for:[])
-        dislikeButton.addTarget(self, action: #selector(stop), for: .touchUpInside)
-       
-        self.view.addSubview(likeButton)
-        self.view.addSubview(dislikeButton)
         
         //Remove useless bars
         progressBar = busScene.progress
@@ -147,21 +130,31 @@ class ARViewController: UIViewController {
         
         switch command{
         case "left":
-            bus?.move(to: Transform(pitch: 0, yaw: 0.5, roll: 0), relativeTo: bus!)
-            progressBar?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: progressBar!)
+            bus?.move(to: Transform(pitch: 0, yaw: -0.1, roll: 0), relativeTo: bus!)
+            progressBar?.move(to: Transform(pitch: 0, yaw: -0.1, roll: 0), relativeTo: progressBar!)
         case "right":
-            bus?.move(to: Transform(pitch: 0, yaw: 0.5, roll: 0), relativeTo: bus!)
+            bus?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: bus!)
             progressBar?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: progressBar!)
         default:
             break;
         }
     }
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        let command = sender.titleLabel!.text?.lowercased() ?? ""
         
-    @objc func play(sender: UIButton!) {
-           
-       }
-       @objc func stop(sender: UIButton!) {
-       }
+        switch command{
+        case "like":
+            print("like")
+            //insert PUT API for like here
+        case "dislike":
+            print("dislike")
+            //insert PUT API for dislike here
+        default:
+            break;
+        }
+    }
+    
     //function to convert Hex value to UIColor class
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

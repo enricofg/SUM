@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0070F2E506A7765CC2262625118BB6C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		05AB6039F25E5A40A005DEB15723AFF9 /* FontAwesomeSolid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE7647AC69FDAD8986500029A6C1B8CF /* FontAwesomeSolid.ttf */; };
+		0A3B0C43B6E59A9C699E7F64413CA363 /* FontAwesomeBrands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FC898927B45D456A927FF0510D60AE4 /* FontAwesomeBrands.ttf */; };
+		0DC7A7AB83D1B0B93BAD61C1D71527B4 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14CBFEFCE7807C1D2ED4E037D075BB94 /* FontAwesome.ttf */; };
+		1EA4B7CF1FF7764B9E25D21EDD53BCF1 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7090B4A6E2AF00BF381D79FCD359D0 /* Ionicons.ttf */; };
+		2000F662D373DE61A51CA72FC6345A7A /* TypIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A387A6F44914F2A8C896AC86B92408D /* TypIcons.ttf */; };
+		3AB5A4C58A3C4DDE598ACA703A8940BF /* Stateface.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E480E6D55FFC55534FFDF739A309E4E2 /* Stateface.ttf */; };
+		3AF3A77B09CB6EA259CA8FB62A46F3B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		3E99F9F51495AF355E6DABC982D42862 /* OpenIconic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF36FF9B83F6D4699E4CBDABAD54FBA /* OpenIconic.ttf */; };
+		40E5F23329FD093A9E4DB4AB223C8E38 /* WeatherIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67C6E680A91657D0DFEDA58FD13BEAD3 /* WeatherIcons.ttf */; };
+		44326EB658C3B7F3F2211F12884EB108 /* Emoji.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 210E5AFC09D5A654B4B09DD4B1D7B246 /* Emoji.ttf */; };
+		4813C606AEC5FB83438088DFC796B848 /* FontAwesomeRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E6B581AD7188BC69A83F9F7528076A /* FontAwesomeRegular.ttf */; };
+		5475440CCFEE04EFB0BB3990C96B6602 /* Icofont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864BEC2AB5784028B0B81ECE7635FEE6 /* Icofont.ttf */; };
+		5A269FB113E2FD1F82CF8D574A3D0DFE /* SwiftIcons-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B9EF14CAFC2007E847772E87ED4284CF /* SwiftIcons-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BB540D90D0978268E60C6184921EACB /* SwiftIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1258BBB1A564847260D15CC01DA21 /* SwiftIcons.swift */; };
+		83E84010119087B2E089027E24550BA1 /* Linearicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0756B2086EB1175BA31967C9D8A4ABF9 /* Linearicons.ttf */; };
+		8868E29729BE10D7215BB4368D1FC5BA /* SwiftIcons-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F87DA4608197152B9E7352859AFA1 /* SwiftIcons-dummy.m */; };
+		9E3A33342C07DB260CC299CC47CD83D4 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A98641C74A06E5A781677F2FC5D52668 /* MaterialIcons.ttf */; };
+		A891B79CA51F16DA0A9D4A433B422E06 /* Pods-SUM-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A47194D2C044DAF18EEF09ADF4872610 /* Pods-SUM-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE106C19A03565B13C1B3A04582FC954 /* MapIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E73D86BB8F52CA623F3910F333A3A0 /* MapIcons.ttf */; };
+		CFCB6933CD8F199AEE5E29678E441FB9 /* Dripicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96D08BC56191F2651939965D4A9DA4B3 /* Dripicons.ttf */; };
+		E60B61904AB92C197168365C6F62D121 /* Pods-SUM-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A93DC4B50A72BD562490680D3B401E9 /* Pods-SUM-dummy.m */; };
+		FB7A66D380AE5759193A086A361536D7 /* SwiftIcons-SwiftIcons in Resources */ = {isa = PBXBuildFile; fileRef = E138077ACCD4D7F5A61DAC1D99E93392 /* SwiftIcons-SwiftIcons */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56CB34A580136C0542754A0AE9ECBAD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 831DE2A2E1C749797E9D44BE273531D7;
+			remoteInfo = SwiftIcons;
+		};
+		D23190E67D6D9605114EF8C6A2E2578C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFA1A15AFDB5DA9D9A98596F92997762;
+			remoteInfo = "SwiftIcons-SwiftIcons";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0266DB97FFA334FD82C582E6C53BAC96 /* SwiftIcons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftIcons.release.xcconfig; sourceTree = "<group>"; };
+		06A2A9DE68622B8429A7725BDD7B6F51 /* SwiftIcons-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftIcons-prefix.pch"; sourceTree = "<group>"; };
+		0756B2086EB1175BA31967C9D8A4ABF9 /* Linearicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Linearicons.ttf; path = Source/Fonts/Linearicons.ttf; sourceTree = "<group>"; };
+		0DC98E3E00EE9D03CC67B9E0C2F8E287 /* ResourceBundle-SwiftIcons-SwiftIcons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SwiftIcons-SwiftIcons-Info.plist"; sourceTree = "<group>"; };
+		0E8D2C4D7A7E1D3EF6FC5DFD19F2A9B1 /* SwiftIcons.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftIcons.modulemap; sourceTree = "<group>"; };
+		0EE822EC021A1AD3C4A33CFDE1BA0E5A /* SwiftIcons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftIcons-Info.plist"; sourceTree = "<group>"; };
+		13C1258BBB1A564847260D15CC01DA21 /* SwiftIcons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIcons.swift; path = Source/SwiftIcons.swift; sourceTree = "<group>"; };
+		14CBFEFCE7807C1D2ED4E037D075BB94 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = Source/Fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		18C467C6CD2C1725788DB6AD4FE48729 /* Pods-SUM */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SUM"; path = Pods_SUM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ED920D9EBE4B4EAE9C52916A393E3B8 /* SwiftIcons */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftIcons; path = SwiftIcons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		210E5AFC09D5A654B4B09DD4B1D7B246 /* Emoji.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Emoji.ttf; path = Source/Fonts/Emoji.ttf; sourceTree = "<group>"; };
+		33E6B581AD7188BC69A83F9F7528076A /* FontAwesomeRegular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesomeRegular.ttf; path = Source/Fonts/FontAwesomeRegular.ttf; sourceTree = "<group>"; };
+		493B993B2BB66155E0DDD461A0F00AF0 /* Pods-SUM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SUM.release.xcconfig"; sourceTree = "<group>"; };
+		4A387A6F44914F2A8C896AC86B92408D /* TypIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = TypIcons.ttf; path = Source/Fonts/TypIcons.ttf; sourceTree = "<group>"; };
+		52E73D86BB8F52CA623F3910F333A3A0 /* MapIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = MapIcons.ttf; path = Source/Fonts/MapIcons.ttf; sourceTree = "<group>"; };
+		5FC898927B45D456A927FF0510D60AE4 /* FontAwesomeBrands.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesomeBrands.ttf; path = Source/Fonts/FontAwesomeBrands.ttf; sourceTree = "<group>"; };
+		646BAB436CE08612E89FB548628AAF11 /* Pods-SUM-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SUM-Info.plist"; sourceTree = "<group>"; };
+		67C6E680A91657D0DFEDA58FD13BEAD3 /* WeatherIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = WeatherIcons.ttf; path = Source/Fonts/WeatherIcons.ttf; sourceTree = "<group>"; };
+		685F87DA4608197152B9E7352859AFA1 /* SwiftIcons-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftIcons-dummy.m"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8431E7E1CD00090516C9201BC4673497 /* Pods-SUM.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SUM.modulemap"; sourceTree = "<group>"; };
+		864BEC2AB5784028B0B81ECE7635FEE6 /* Icofont.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Icofont.ttf; path = Source/Fonts/Icofont.ttf; sourceTree = "<group>"; };
+		8A93DC4B50A72BD562490680D3B401E9 /* Pods-SUM-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SUM-dummy.m"; sourceTree = "<group>"; };
+		96D08BC56191F2651939965D4A9DA4B3 /* Dripicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Dripicons.ttf; path = Source/Fonts/Dripicons.ttf; sourceTree = "<group>"; };
+		9BF36FF9B83F6D4699E4CBDABAD54FBA /* OpenIconic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = OpenIconic.ttf; path = Source/Fonts/OpenIconic.ttf; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EA789999477C855D49706ED28AA1298 /* Pods-SUM-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SUM-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A47194D2C044DAF18EEF09ADF4872610 /* Pods-SUM-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SUM-umbrella.h"; sourceTree = "<group>"; };
+		A703FBCF89792ADA3AE1E48AAD6F08CA /* SwiftIcons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftIcons.debug.xcconfig; sourceTree = "<group>"; };
+		A91A05B164DE89E566143F864BFAC354 /* Pods-SUM-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SUM-frameworks.sh"; sourceTree = "<group>"; };
+		A98641C74A06E5A781677F2FC5D52668 /* MaterialIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = MaterialIcons.ttf; path = Source/Fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		B9EF14CAFC2007E847772E87ED4284CF /* SwiftIcons-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftIcons-umbrella.h"; sourceTree = "<group>"; };
+		D5D77C3C56AC03CB7122430032538147 /* Pods-SUM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SUM.debug.xcconfig"; sourceTree = "<group>"; };
+		DB1DC9F046EC4243E6A3C787F6BF6B83 /* Pods-SUM-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SUM-acknowledgements.plist"; sourceTree = "<group>"; };
+		DD7090B4A6E2AF00BF381D79FCD359D0 /* Ionicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Ionicons.ttf; path = Source/Fonts/Ionicons.ttf; sourceTree = "<group>"; };
+		E138077ACCD4D7F5A61DAC1D99E93392 /* SwiftIcons-SwiftIcons */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SwiftIcons-SwiftIcons"; path = SwiftIcons.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E480E6D55FFC55534FFDF739A309E4E2 /* Stateface.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Stateface.ttf; path = Source/Fonts/Stateface.ttf; sourceTree = "<group>"; };
+		FE7647AC69FDAD8986500029A6C1B8CF /* FontAwesomeSolid.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesomeSolid.ttf; path = Source/Fonts/FontAwesomeSolid.ttf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		024CC4A2349D1FA1423E82C10DBA00B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0070F2E506A7765CC2262625118BB6C2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87BECD89E51C23D6AADA69E15A287696 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF3A77B09CB6EA259CA8FB62A46F3B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1C86FF531BD35306F31DC753F02C78F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EF6515A002167A4E216733B74211C56 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE37BA40669F99ED30BD7BCC3D6751A4 /* Pods-SUM */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5435396FFEDC6D25FD247C79314C13B7 /* SwiftIcons */ = {
+			isa = PBXGroup;
+			children = (
+				13C1258BBB1A564847260D15CC01DA21 /* SwiftIcons.swift */,
+				AAFD025F2AE8AC6DBAFDFBB7CE9F880C /* Resources */,
+				BF8C3F457F284A8472CA5ECC0B7E1F81 /* Support Files */,
+			);
+			name = SwiftIcons;
+			path = SwiftIcons;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		67F0C9B822DC27A1D8A5D94252F47111 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18C467C6CD2C1725788DB6AD4FE48729 /* Pods-SUM */,
+				1ED920D9EBE4B4EAE9C52916A393E3B8 /* SwiftIcons */,
+				E138077ACCD4D7F5A61DAC1D99E93392 /* SwiftIcons-SwiftIcons */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAFD025F2AE8AC6DBAFDFBB7CE9F880C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96D08BC56191F2651939965D4A9DA4B3 /* Dripicons.ttf */,
+				210E5AFC09D5A654B4B09DD4B1D7B246 /* Emoji.ttf */,
+				14CBFEFCE7807C1D2ED4E037D075BB94 /* FontAwesome.ttf */,
+				5FC898927B45D456A927FF0510D60AE4 /* FontAwesomeBrands.ttf */,
+				33E6B581AD7188BC69A83F9F7528076A /* FontAwesomeRegular.ttf */,
+				FE7647AC69FDAD8986500029A6C1B8CF /* FontAwesomeSolid.ttf */,
+				864BEC2AB5784028B0B81ECE7635FEE6 /* Icofont.ttf */,
+				DD7090B4A6E2AF00BF381D79FCD359D0 /* Ionicons.ttf */,
+				0756B2086EB1175BA31967C9D8A4ABF9 /* Linearicons.ttf */,
+				52E73D86BB8F52CA623F3910F333A3A0 /* MapIcons.ttf */,
+				A98641C74A06E5A781677F2FC5D52668 /* MaterialIcons.ttf */,
+				9BF36FF9B83F6D4699E4CBDABAD54FBA /* OpenIconic.ttf */,
+				E480E6D55FFC55534FFDF739A309E4E2 /* Stateface.ttf */,
+				4A387A6F44914F2A8C896AC86B92408D /* TypIcons.ttf */,
+				67C6E680A91657D0DFEDA58FD13BEAD3 /* WeatherIcons.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B0D6F3D515918B594AB54413BB4FC46B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5435396FFEDC6D25FD247C79314C13B7 /* SwiftIcons */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF8C3F457F284A8472CA5ECC0B7E1F81 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0DC98E3E00EE9D03CC67B9E0C2F8E287 /* ResourceBundle-SwiftIcons-SwiftIcons-Info.plist */,
+				0E8D2C4D7A7E1D3EF6FC5DFD19F2A9B1 /* SwiftIcons.modulemap */,
+				685F87DA4608197152B9E7352859AFA1 /* SwiftIcons-dummy.m */,
+				0EE822EC021A1AD3C4A33CFDE1BA0E5A /* SwiftIcons-Info.plist */,
+				06A2A9DE68622B8429A7725BDD7B6F51 /* SwiftIcons-prefix.pch */,
+				B9EF14CAFC2007E847772E87ED4284CF /* SwiftIcons-umbrella.h */,
+				A703FBCF89792ADA3AE1E48AAD6F08CA /* SwiftIcons.debug.xcconfig */,
+				0266DB97FFA334FD82C582E6C53BAC96 /* SwiftIcons.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftIcons";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				B0D6F3D515918B594AB54413BB4FC46B /* Pods */,
+				67F0C9B822DC27A1D8A5D94252F47111 /* Products */,
+				0EF6515A002167A4E216733B74211C56 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE37BA40669F99ED30BD7BCC3D6751A4 /* Pods-SUM */ = {
+			isa = PBXGroup;
+			children = (
+				8431E7E1CD00090516C9201BC4673497 /* Pods-SUM.modulemap */,
+				9EA789999477C855D49706ED28AA1298 /* Pods-SUM-acknowledgements.markdown */,
+				DB1DC9F046EC4243E6A3C787F6BF6B83 /* Pods-SUM-acknowledgements.plist */,
+				8A93DC4B50A72BD562490680D3B401E9 /* Pods-SUM-dummy.m */,
+				A91A05B164DE89E566143F864BFAC354 /* Pods-SUM-frameworks.sh */,
+				646BAB436CE08612E89FB548628AAF11 /* Pods-SUM-Info.plist */,
+				A47194D2C044DAF18EEF09ADF4872610 /* Pods-SUM-umbrella.h */,
+				D5D77C3C56AC03CB7122430032538147 /* Pods-SUM.debug.xcconfig */,
+				493B993B2BB66155E0DDD461A0F00AF0 /* Pods-SUM.release.xcconfig */,
+			);
+			name = "Pods-SUM";
+			path = "Target Support Files/Pods-SUM";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0DB64C287CDC6B0C94C6202AF69BCC73 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A891B79CA51F16DA0A9D4A433B422E06 /* Pods-SUM-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		268923FBD3460C670AD0EE6724866BD5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A269FB113E2FD1F82CF8D574A3D0DFE /* SwiftIcons-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		831DE2A2E1C749797E9D44BE273531D7 /* SwiftIcons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5781B78979219ACC5D95CA3C00B01868 /* Build configuration list for PBXNativeTarget "SwiftIcons" */;
+			buildPhases = (
+				268923FBD3460C670AD0EE6724866BD5 /* Headers */,
+				46D5AD67E38E4FE17AA534278EFA87E0 /* Sources */,
+				87BECD89E51C23D6AADA69E15A287696 /* Frameworks */,
+				8029F055A257E88D68A078004DB9BCC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7E53AE7DFE9E14FD13DF6D390B7F5BD /* PBXTargetDependency */,
+			);
+			name = SwiftIcons;
+			productName = SwiftIcons;
+			productReference = 1ED920D9EBE4B4EAE9C52916A393E3B8 /* SwiftIcons */;
+			productType = "com.apple.product-type.framework";
+		};
+		8A8574D3D148102ED8752A2B11FA2D5D /* Pods-SUM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43713712ACD48D6D74047195AF8DCFA5 /* Build configuration list for PBXNativeTarget "Pods-SUM" */;
+			buildPhases = (
+				0DB64C287CDC6B0C94C6202AF69BCC73 /* Headers */,
+				9146AB7754363EF75AC58E720D883C18 /* Sources */,
+				024CC4A2349D1FA1423E82C10DBA00B8 /* Frameworks */,
+				470539F67B83AC918B05186F4FF0F350 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CCB7D9B75B8106C58C66A70DE59B811 /* PBXTargetDependency */,
+			);
+			name = "Pods-SUM";
+			productName = Pods_SUM;
+			productReference = 18C467C6CD2C1725788DB6AD4FE48729 /* Pods-SUM */;
+			productType = "com.apple.product-type.framework";
+		};
+		FFA1A15AFDB5DA9D9A98596F92997762 /* SwiftIcons-SwiftIcons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB26DFDE86B865C4421CB0F99D09B715 /* Build configuration list for PBXNativeTarget "SwiftIcons-SwiftIcons" */;
+			buildPhases = (
+				DFA9C80FF6CCE661C228D7CD7C855673 /* Sources */,
+				C1C86FF531BD35306F31DC753F02C78F /* Frameworks */,
+				AEE136D8265E50FF46D347859AA21618 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftIcons-SwiftIcons";
+			productName = SwiftIcons;
+			productReference = E138077ACCD4D7F5A61DAC1D99E93392 /* SwiftIcons-SwiftIcons */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 67F0C9B822DC27A1D8A5D94252F47111 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A8574D3D148102ED8752A2B11FA2D5D /* Pods-SUM */,
+				831DE2A2E1C749797E9D44BE273531D7 /* SwiftIcons */,
+				FFA1A15AFDB5DA9D9A98596F92997762 /* SwiftIcons-SwiftIcons */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		470539F67B83AC918B05186F4FF0F350 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8029F055A257E88D68A078004DB9BCC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB7A66D380AE5759193A086A361536D7 /* SwiftIcons-SwiftIcons in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEE136D8265E50FF46D347859AA21618 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCB6933CD8F199AEE5E29678E441FB9 /* Dripicons.ttf in Resources */,
+				44326EB658C3B7F3F2211F12884EB108 /* Emoji.ttf in Resources */,
+				0DC7A7AB83D1B0B93BAD61C1D71527B4 /* FontAwesome.ttf in Resources */,
+				0A3B0C43B6E59A9C699E7F64413CA363 /* FontAwesomeBrands.ttf in Resources */,
+				4813C606AEC5FB83438088DFC796B848 /* FontAwesomeRegular.ttf in Resources */,
+				05AB6039F25E5A40A005DEB15723AFF9 /* FontAwesomeSolid.ttf in Resources */,
+				5475440CCFEE04EFB0BB3990C96B6602 /* Icofont.ttf in Resources */,
+				1EA4B7CF1FF7764B9E25D21EDD53BCF1 /* Ionicons.ttf in Resources */,
+				83E84010119087B2E089027E24550BA1 /* Linearicons.ttf in Resources */,
+				AE106C19A03565B13C1B3A04582FC954 /* MapIcons.ttf in Resources */,
+				9E3A33342C07DB260CC299CC47CD83D4 /* MaterialIcons.ttf in Resources */,
+				3E99F9F51495AF355E6DABC982D42862 /* OpenIconic.ttf in Resources */,
+				3AB5A4C58A3C4DDE598ACA703A8940BF /* Stateface.ttf in Resources */,
+				2000F662D373DE61A51CA72FC6345A7A /* TypIcons.ttf in Resources */,
+				40E5F23329FD093A9E4DB4AB223C8E38 /* WeatherIcons.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46D5AD67E38E4FE17AA534278EFA87E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BB540D90D0978268E60C6184921EACB /* SwiftIcons.swift in Sources */,
+				8868E29729BE10D7215BB4368D1FC5BA /* SwiftIcons-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9146AB7754363EF75AC58E720D883C18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E60B61904AB92C197168365C6F62D121 /* Pods-SUM-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFA9C80FF6CCE661C228D7CD7C855673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CCB7D9B75B8106C58C66A70DE59B811 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftIcons;
+			target = 831DE2A2E1C749797E9D44BE273531D7 /* SwiftIcons */;
+			targetProxy = 56CB34A580136C0542754A0AE9ECBAD8 /* PBXContainerItemProxy */;
+		};
+		A7E53AE7DFE9E14FD13DF6D390B7F5BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftIcons-SwiftIcons";
+			target = FFA1A15AFDB5DA9D9A98596F92997762 /* SwiftIcons-SwiftIcons */;
+			targetProxy = D23190E67D6D9605114EF8C6A2E2578C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		24DDA989630326596A993B6EB1F509D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 493B993B2BB66155E0DDD461A0F00AF0 /* Pods-SUM.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SUM/Pods-SUM-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SUM/Pods-SUM.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6F415196E7762C4FC6D831526B5B39FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5D77C3C56AC03CB7122430032538147 /* Pods-SUM.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SUM/Pods-SUM-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SUM/Pods-SUM.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9664D60757BCC1CBC2E56BE71E7DA5FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0266DB97FFA334FD82C582E6C53BAC96 /* SwiftIcons.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftIcons";
+				IBSC_MODULE = SwiftIcons;
+				INFOPLIST_FILE = "Target Support Files/SwiftIcons/ResourceBundle-SwiftIcons-SwiftIcons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				PRODUCT_NAME = SwiftIcons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		A85D00CA1AFBF746D9EE14553ACBD2E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0266DB97FFA334FD82C582E6C53BAC96 /* SwiftIcons.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftIcons/SwiftIcons-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftIcons/SwiftIcons-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftIcons/SwiftIcons.modulemap";
+				PRODUCT_MODULE_NAME = SwiftIcons;
+				PRODUCT_NAME = SwiftIcons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AAF2DE6A31E18488890864A0D57F543B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A703FBCF89792ADA3AE1E48AAD6F08CA /* SwiftIcons.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftIcons/SwiftIcons-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftIcons/SwiftIcons-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftIcons/SwiftIcons.modulemap";
+				PRODUCT_MODULE_NAME = SwiftIcons;
+				PRODUCT_NAME = SwiftIcons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B594F83AF7485BAEF8E07E9684B18D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A703FBCF89792ADA3AE1E48AAD6F08CA /* SwiftIcons.debug.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftIcons";
+				IBSC_MODULE = SwiftIcons;
+				INFOPLIST_FILE = "Target Support Files/SwiftIcons/ResourceBundle-SwiftIcons-SwiftIcons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				PRODUCT_NAME = SwiftIcons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		43713712ACD48D6D74047195AF8DCFA5 /* Build configuration list for PBXNativeTarget "Pods-SUM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F415196E7762C4FC6D831526B5B39FB /* Debug */,
+				24DDA989630326596A993B6EB1F509D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
+				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5781B78979219ACC5D95CA3C00B01868 /* Build configuration list for PBXNativeTarget "SwiftIcons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAF2DE6A31E18488890864A0D57F543B /* Debug */,
+				A85D00CA1AFBF746D9EE14553ACBD2E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB26DFDE86B865C4421CB0F99D09B715 /* Build configuration list for PBXNativeTarget "SwiftIcons-SwiftIcons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B594F83AF7485BAEF8E07E9684B18D82 /* Debug */,
+				9664D60757BCC1CBC2E56BE71E7DA5FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
