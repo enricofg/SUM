@@ -60,11 +60,12 @@ class BusViewController: UIViewController, MKMapViewDelegate {
             }
         }
         
-        DataLB.text = getDate()
+        //DataLB.text = getDate()
         
         OrigemTF.inputView = pickerView1
         pickerView1.delegate = self
         pickerView1.dataSource = self
+        
         
         if(filteredBuses != nil && filteredBuses?.count != 0) {
             AutocarroTF.inputView = pickerView2
@@ -184,7 +185,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
 }
 
 
-extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
+extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -285,12 +286,6 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource, UITe
             }
         }
        
-    }
-    
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        // show UIDatePicker
-        return false
     }
 
 }
