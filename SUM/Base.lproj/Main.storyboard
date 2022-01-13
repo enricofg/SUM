@@ -468,7 +468,7 @@
                                 <rect key="frame" x="0.0" y="100" width="414" height="708"/>
                             </arView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLJ-cA-H12" userLabel="Plus Button">
-                                <rect key="frame" x="349" y="648.5" width="45" height="44"/>
+                                <rect key="frame" x="349" y="643.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Gne-vO-hyC"/>
                                     <constraint firstAttribute="width" constant="45" id="VpI-YP-myM"/>
@@ -481,7 +481,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-9z-a0X" userLabel="Minus Button">
-                                <rect key="frame" x="349" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="349" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="PpR-QJ-T4q"/>
                                     <constraint firstAttribute="height" constant="45" id="sxQ-jc-O5S"/>
@@ -494,7 +494,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-ij-u1f" userLabel="Rotate Right Button">
-                                <rect key="frame" x="20" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="20" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="MhV-vW-eoG"/>
                                     <constraint firstAttribute="height" constant="45" id="jNm-MY-JlI"/>
@@ -504,11 +504,10 @@
                                 <state key="normal" title="right" backgroundImage="arrow.uturn.right.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="Rta-U7-6B1"/>
-                                    <action selector="scaleModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="nFW-jR-LAw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYx-gW-CWU" userLabel="Rotate Left Button">
-                                <rect key="frame" x="20" y="648.5" width="45" height="44"/>
+                                <rect key="frame" x="20" y="643.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="qjB-Ll-p6w"/>
                                     <constraint firstAttribute="height" constant="45" id="y0V-y2-CVa"/>
@@ -517,12 +516,13 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="left" backgroundImage="arrow.uturn.left.circle.fill" catalog="system"/>
                                 <connections>
+                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchDown" id="HNe-yE-GJX"/>
+                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchDownRepeat" id="ZnO-Gx-i4j"/>
                                     <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="x2M-8s-o0A"/>
-                                    <action selector="scaleModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="L9Y-Rv-BfY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV5-Cw-irg" userLabel="Like Button">
-                                <rect key="frame" x="150" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="150" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="6AQ-BL-Jy5"/>
                                     <constraint firstAttribute="height" constant="45" id="oGd-pg-e7Q"/>
@@ -533,12 +533,10 @@
                                 <state key="normal" title="like" backgroundImage="hand.thumbsup.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="likeButtonPressed:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="83l-km-NUn"/>
-                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="Gr1-Lt-B8h"/>
-                                    <action selector="scaleModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="nm1-T9-3y3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-X5-R9y" userLabel="Dislike Button">
-                                <rect key="frame" x="219" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="219" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="jHL-bG-DhS"/>
                                     <constraint firstAttribute="height" constant="45" id="xYm-cI-oql"/>
@@ -549,8 +547,6 @@
                                 <state key="normal" title="dislike" backgroundImage="hand.thumbsdown.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="likeButtonPressed:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="3j2-ZK-oVz"/>
-                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="Ddi-63-W4a"/>
-                                    <action selector="scaleModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="e9X-CQ-pJs"/>
                                 </connections>
                             </button>
                         </subviews>
