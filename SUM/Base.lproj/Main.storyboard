@@ -50,14 +50,14 @@
             <objects>
                 <viewController title="Bus" id="Te1-a0-ZtA" customClass="BusViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwY-Go-IGX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnW-WV-eOZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1090"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="873"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqN-29-jKK" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KqN-29-jKK" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="950"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Bb-0f-66W">
                                                 <rect key="frame" x="20" y="75" width="374" height="110"/>
@@ -97,7 +97,7 @@
                                                                     <constraint firstAttribute="height" constant="50" id="ZQn-bw-g6d"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QR7-UH-CzS">
                                                                 <rect key="frame" x="0.0" y="60" width="264.5" height="50"/>
@@ -264,7 +264,7 @@
                     <tabBarItem key="tabBarItem" title="Autocarro" image="bus.fill" catalog="system" landscapeImage="bus.fill" selectedImage="bus.fill" id="Se1-Tj-RfY">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
-                    <size key="freeformSize" width="414" height="1217"/>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="AutocarroTF" destination="QR7-UH-CzS" id="BC8-cY-2uS"/>
                         <outlet property="DataLB" destination="yoo-83-Pkj" id="sXS-tC-c7O"/>

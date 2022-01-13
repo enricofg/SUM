@@ -57,33 +57,20 @@ class BusViewController: UIViewController, MKMapViewDelegate {
             
             DispatchQueue.main.async {
                 self?.pickerView2.reloadComponent(0)
-               
-                /*
-                self?.AutocarroTF.text = bus.first?.Bus_Name
-                if let lotacao = bus.first?.Bus_Capacity
-                {
-                    self?.lotacaoLB.text = String(lotacao)
-                }
-                 */
-
             }
         }
         
-       
-        
-        
-        
         DataLB.text = getDate()
         
-        pickerView1.delegate = self
-        pickerView2.delegate = self
-
-        pickerView1.dataSource = self
-        pickerView2.dataSource = self
-
-        
         OrigemTF.inputView = pickerView1
-        AutocarroTF.inputView = pickerView2
+        pickerView1.delegate = self
+        pickerView1.dataSource = self
+        
+        if(filteredBuses != nil && filteredBuses?.count != 0) {
+            AutocarroTF.inputView = pickerView2
+            pickerView2.delegate = self
+            pickerView2.dataSource = self
+        }
         
         
         let locationImage=UIImage(systemName: "location.fill")
@@ -102,9 +89,13 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         
         addCustomPin()
         
-     //   moveCustomPin(lineCoordinates: lineCoordinates)
+        moveCustomPin(lineCoordinates: lineCoordinates)
+        
+        
         
     }
+    
+   
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
 
@@ -133,7 +124,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
         
-   //     annotationView?.image = UIImage(named: "busIcon2")
+        annotationView?.image = UIImage(named: "busIcon2")
         
         return annotationView
     }
@@ -143,10 +134,14 @@ class BusViewController: UIViewController, MKMapViewDelegate {
            let calendar = Calendar.current
            
            let day = calendar.component(.day, from: date)
-           let month = calendar.component(.month, from: date)
+           var month = String(calendar.component(.month, from: date))
            let year = calendar.component(.year, from: date)
            let hour = calendar.component(.hour, from: date)
            let minute = calendar.component(.minute, from: date)
+        
+        if(month.count == 1){
+            month = "0\(month)"
+        }
            
            return "\(day)/\(month)/\(year) \(hour):\(minute)"
        }
@@ -189,7 +184,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
 }
 
 
-extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
+extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -217,6 +212,11 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
                 return nil
             }
             let currentLoc = locationManager?.location
+            
+            if(currentLoc == nil)
+            {
+                return  "\(_stops![row].Stop_Name)"
+            }
 
             return "\(_stops![row].Stop_Name) \(helper.getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
         } else {
@@ -240,7 +240,7 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
 
                 OrigemTF.resignFirstResponder()
                 
-                fetchSchedules{ () -> () in
+                fetchSchedules{ [self] () -> () in
                     let filteredStops = self._stopsSchedules?.filter({ StopSchedules in
                         StopSchedules.StopSchedule.contains { StopSchedule in
                             StopSchedule.Stop_Id == self.selectedRating
@@ -259,6 +259,12 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
                             Bus.Line_Id == line
                         }
                     })
+                    
+                    if(filteredBuses != nil || filteredBuses?.count != 0) {
+                        AutocarroTF.inputView = pickerView2
+                        pickerView2.delegate = self
+                        pickerView2.dataSource = self
+                    }
                                         
                 }
                
@@ -279,6 +285,12 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
             }
         }
        
+    }
+    
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        // show UIDatePicker
+        return false
     }
 
 }
