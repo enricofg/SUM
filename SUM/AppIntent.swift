@@ -10,7 +10,8 @@ import Intents
 
 class AppIntent{
     
-    class func allowSiri(){
+    class func allowSiri() -> Bool{
+        return true
         INPreferences.requestSiriAuthorization{ status in
             switch status {
             case .notDetermined,
