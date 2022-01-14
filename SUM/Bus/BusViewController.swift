@@ -20,6 +20,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
     let networkManager = NetworkManager()
     let helper = Helper()
     let customPin = MKPointAnnotation()
+    public var completionHandler: ((Int) -> Void)?
     private var _stops: [Stops]?
     private var _buses: [Bus]?
     private var _stopsSchedules: [StopSchedules]?
@@ -77,23 +78,23 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         let locationImage=UIImage(systemName: "location.fill")
         helper.addLeftImageTo(txtField: OrigemTF, andImage: locationImage!)
         
-        //Create dummy points
-        let loc1 = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
-        let loc2 = CLLocationCoordinate2D(latitude: 39.738082, longitude: -8.820454)
-        let loc3 = CLLocationCoordinate2D(latitude: 39.738524, longitude: -8.819262)
-
-        let lineCoordinates: [CLLocationCoordinate2D] = [loc1, loc2, loc3]
-
-        let polyline = MKPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
-        mapView.addOverlay(polyline)
+    }
+    
+    
+    @IBAction func CapacityBtnTap(_ sender: Any) {
+        completionHandler?(selectedRatingBus)
         
+        let arViewController = storyboard?.instantiateViewController(withIdentifier: "ar") as! ARViewController
+        self.present(arViewController, animated: true, completion: nil)
+         
         
-        addCustomPin()
-        
-        moveCustomPin(lineCoordinates: lineCoordinates)
-        
-        
-        
+        /*
+         Receive Data:
+         let busViewController = storyboard?.instantiateViewController(withIdentifier: "Bus") as! BusViewController
+        busViewController.completionHandler = { id in
+            
+        }
+         */
     }
     
    
@@ -153,6 +154,11 @@ class BusViewController: UIViewController, MKMapViewDelegate {
          locationManager?.startUpdatingLocation()
      }
     
+    private func addPolylines(lineCoordinates: [CLLocationCoordinate2D]){
+        let polyline = MKPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
+        mapView.addOverlay(polyline)
+    }
+    
     private func addCustomPin(){
         customPin.coordinate = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
         customPin.title = "Autocarro"
@@ -162,8 +168,8 @@ class BusViewController: UIViewController, MKMapViewDelegate {
     
     private func moveCustomPin(lineCoordinates: [CLLocationCoordinate2D]) {
         var index = 0
-         Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
-            UIView.animate(withDuration: 3) {
+         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+            UIView.animate(withDuration: 2) {
                 index = index + 1
                 self.customPin.coordinate = lineCoordinates[index]
             }
@@ -282,6 +288,19 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
                 lotacaoLB.text = "\(filteredBuses![row].Bus_Capacity)%"
                 
                 DataLB.text = getDate()
+                
+                //Create dummy points
+                let loc1 = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
+                let loc2 = CLLocationCoordinate2D(latitude: 39.738082, longitude: -8.820454)
+                let loc3 = CLLocationCoordinate2D(latitude: 39.738524, longitude: -8.819262)
+
+                let lineCoordinates: [CLLocationCoordinate2D] = [loc1, loc2, loc3]
+                
+                addPolylines(lineCoordinates: lineCoordinates)
+                
+                addCustomPin()
+                
+                moveCustomPin(lineCoordinates: lineCoordinates)
                
             }
         }

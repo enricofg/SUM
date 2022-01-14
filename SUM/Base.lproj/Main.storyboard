@@ -48,7 +48,7 @@
         <!--Bus-->
         <scene sceneID="gDt-HK-ITC">
             <objects>
-                <viewController title="Bus" id="Te1-a0-ZtA" customClass="BusViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Bus" title="Bus" id="Te1-a0-ZtA" customClass="BusViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwY-Go-IGX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +196,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" image="bus" catalog="system" title="Capacidade do autocarro"/>
                                                 <connections>
-                                                    <segue destination="kbe-Mz-2FX" kind="show" id="84F-fn-8Cx"/>
+                                                    <action selector="CapacityBtnTap:" destination="Te1-a0-ZtA" eventType="touchUpInside" id="U0y-vW-hu2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -457,9 +457,9 @@
         <!--AR-->
         <scene sceneID="0wz-v8-95J">
             <objects>
-                <viewController id="kbe-Mz-2FX" customClass="ARViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ar" id="kbe-Mz-2FX" customClass="ARViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mnu-V7-ZJB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiX-cT-ZeV">
@@ -472,10 +472,10 @@
                                 <color key="barTintColor" name="AccentColor"/>
                             </toolbar>
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAx-Tf-GHU">
-                                <rect key="frame" x="0.0" y="100" width="414" height="708"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
                             </arView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLJ-cA-H12" userLabel="Plus Button">
-                                <rect key="frame" x="349" y="643.5" width="45" height="44"/>
+                                <rect key="frame" x="349" y="648.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Gne-vO-hyC"/>
                                     <constraint firstAttribute="width" constant="45" id="VpI-YP-myM"/>
@@ -488,7 +488,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-9z-a0X" userLabel="Minus Button">
-                                <rect key="frame" x="349" y="708.5" width="45" height="44"/>
+                                <rect key="frame" x="349" y="713.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="PpR-QJ-T4q"/>
                                     <constraint firstAttribute="height" constant="45" id="sxQ-jc-O5S"/>
@@ -501,7 +501,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-ij-u1f" userLabel="Rotate Right Button">
-                                <rect key="frame" x="20" y="708.5" width="45" height="44"/>
+                                <rect key="frame" x="20" y="713.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="MhV-vW-eoG"/>
                                     <constraint firstAttribute="height" constant="45" id="jNm-MY-JlI"/>
@@ -514,7 +514,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYx-gW-CWU" userLabel="Rotate Left Button">
-                                <rect key="frame" x="20" y="643.5" width="45" height="44"/>
+                                <rect key="frame" x="20" y="648.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="qjB-Ll-p6w"/>
                                     <constraint firstAttribute="height" constant="45" id="y0V-y2-CVa"/>
@@ -529,7 +529,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV5-Cw-irg" userLabel="Like Button">
-                                <rect key="frame" x="130" y="698.5" width="60" height="59"/>
+                                <rect key="frame" x="130" y="703.5" width="60" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="6AQ-BL-Jy5"/>
                                     <constraint firstAttribute="height" constant="60" id="oGd-pg-e7Q"/>
@@ -543,7 +543,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-X5-R9y" userLabel="Dislike Button">
-                                <rect key="frame" x="224" y="698.5" width="60" height="59"/>
+                                <rect key="frame" x="224" y="703.5" width="60" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="jHL-bG-DhS"/>
                                     <constraint firstAttribute="height" constant="60" id="xYm-cI-oql"/>
@@ -821,7 +821,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="84F-fn-8Cx"/>
         <segue reference="HQ7-Wb-JpR"/>
     </inferredMetricsTieBreakers>
     <resources>
