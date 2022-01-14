@@ -41,7 +41,10 @@ class BusViewController: UIViewController, MKMapViewDelegate {
             self?._stops = stops
             DispatchQueue.main.async {
                 self?.pickerView1.reloadComponent(0)
-
+                if let firstStop = self?._stops?.first {
+                    self?.OrigemTF.text = firstStop.Stop_Name
+                    self?.selectedRating = firstStop.Stop_Id
+                }
             }
         }
         
@@ -56,8 +59,22 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         networkManager.fetchBus { [weak self] (bus) in
             self?._buses = bus
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 self?.pickerView2.reloadComponent(0)
+                
+                
+                if let firstBus = self?._buses?.first {
+                    self?.getBusFromStops()
+                    self?.selectedRatingBus = firstBus.Bus_Number
+                    self?.AutocarroTF.text = firstBus.Bus_Name
+                    
+                    self?.lotacaoLB.text = "\(firstBus.Bus_Capacity)%"
+                    
+                    self?.DataLB.text = self?.getDate()
+                    
+                    self?.addEverythingToMap()
+                }
+                
             }
         }
         
@@ -66,7 +83,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         OrigemTF.inputView = pickerView1
         pickerView1.delegate = self
         pickerView1.dataSource = self
-        
+
         
         if(filteredBuses != nil && filteredBuses?.count != 0) {
             AutocarroTF.inputView = pickerView2
@@ -184,6 +201,52 @@ class BusViewController: UIViewController, MKMapViewDelegate {
             self?._stopsSchedules = stopsschedules
             completed()
         }
+    }
+    
+    private func getBusFromStops(){
+        fetchSchedules{ [self] () -> () in
+            let filteredStops = self._stopsSchedules?.filter({ StopSchedules in
+                StopSchedules.StopSchedule.contains { StopSchedule in
+                    StopSchedule.Stop_Id == self.selectedRating
+                }
+            })
+            
+            var filteredLines: [Int] = []
+            
+            filteredStops?.forEach({ StopSchedules in
+                filteredLines.append(StopSchedules.Line_Id)
+            })
+            
+            
+            self.filteredBuses = self._buses?.filter({ Bus in
+                filteredLines.contains { line in
+                    Bus.Line_Id == line
+                }
+            })
+            
+            
+            if(filteredBuses != nil || filteredBuses?.count != 0) {
+                AutocarroTF.inputView = pickerView2
+                pickerView2.delegate = self
+                pickerView2.dataSource = self
+            }
+             
+        }
+    }
+    
+    private func addEverythingToMap() {
+        //Create dummy points
+        let loc1 = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
+        let loc2 = CLLocationCoordinate2D(latitude: 39.738082, longitude: -8.820454)
+        let loc3 = CLLocationCoordinate2D(latitude: 39.738524, longitude: -8.819262)
+
+        let lineCoordinates: [CLLocationCoordinate2D] = [loc1, loc2, loc3]
+        
+        addPolylines(lineCoordinates: lineCoordinates)
+        
+        addCustomPin()
+        
+        moveCustomPin(lineCoordinates: lineCoordinates)
     }
     
     
