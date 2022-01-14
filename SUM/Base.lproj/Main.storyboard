@@ -529,10 +529,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV5-Cw-irg" userLabel="Like Button">
-                                <rect key="frame" x="150" y="708.5" width="45" height="44"/>
+                                <rect key="frame" x="130" y="698.5" width="60" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="6AQ-BL-Jy5"/>
-                                    <constraint firstAttribute="height" constant="45" id="oGd-pg-e7Q"/>
+                                    <constraint firstAttribute="width" constant="60" id="6AQ-BL-Jy5"/>
+                                    <constraint firstAttribute="height" constant="60" id="oGd-pg-e7Q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
@@ -543,10 +543,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-X5-R9y" userLabel="Dislike Button">
-                                <rect key="frame" x="219" y="708.5" width="45" height="44"/>
+                                <rect key="frame" x="224" y="698.5" width="60" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="jHL-bG-DhS"/>
-                                    <constraint firstAttribute="height" constant="45" id="xYm-cI-oql"/>
+                                    <constraint firstAttribute="width" constant="60" id="jHL-bG-DhS"/>
+                                    <constraint firstAttribute="height" constant="60" id="xYm-cI-oql"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
@@ -564,19 +564,18 @@
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" id="9su-S0-Eh1"/>
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="trailing" secondItem="0XI-tK-ae5" secondAttribute="trailing" id="BsW-2f-796"/>
                             <constraint firstItem="yiX-cT-ZeV" firstAttribute="trailing" secondItem="0XI-tK-ae5" secondAttribute="trailing" id="CCa-B0-f79"/>
-                            <constraint firstItem="Lrd-X5-R9y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uV5-Cw-irg" secondAttribute="trailing" constant="24" id="CKf-NT-4TJ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="gDN-9z-a0X" secondAttribute="bottom" constant="55" id="J2l-BU-kTF"/>
-                            <constraint firstItem="uV5-Cw-irg" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" constant="150" id="Jw5-tE-YAe"/>
+                            <constraint firstItem="uV5-Cw-irg" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" constant="130" id="Jw5-tE-YAe"/>
                             <constraint firstItem="yiX-cT-ZeV" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" id="K0d-fy-xA6"/>
                             <constraint firstItem="hE2-ij-u1f" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" constant="20" id="QLZ-im-5cX"/>
-                            <constraint firstItem="0XI-tK-ae5" firstAttribute="trailing" secondItem="Lrd-X5-R9y" secondAttribute="trailing" constant="150" id="QRe-Bk-ASf"/>
+                            <constraint firstItem="0XI-tK-ae5" firstAttribute="trailing" secondItem="Lrd-X5-R9y" secondAttribute="trailing" constant="130" id="QRe-Bk-ASf"/>
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="top" secondItem="yiX-cT-ZeV" secondAttribute="bottom" id="Yxt-0R-Qnv"/>
                             <constraint firstAttribute="bottomMargin" secondItem="BLJ-cA-H12" secondAttribute="bottom" constant="120" id="ggw-DA-oLs"/>
                             <constraint firstItem="0XI-tK-ae5" firstAttribute="trailing" secondItem="gDN-9z-a0X" secondAttribute="trailing" constant="20" id="gnD-nN-iIQ"/>
                             <constraint firstItem="0XI-tK-ae5" firstAttribute="trailing" secondItem="BLJ-cA-H12" secondAttribute="trailing" constant="20" id="lBh-i8-8F4"/>
                             <constraint firstItem="FAx-Tf-GHU" firstAttribute="bottom" secondItem="0XI-tK-ae5" secondAttribute="bottom" id="lRP-5b-2gn"/>
-                            <constraint firstItem="0XI-tK-ae5" firstAttribute="bottom" secondItem="Lrd-X5-R9y" secondAttribute="bottom" constant="55" id="mnY-wT-8FH"/>
-                            <constraint firstItem="0XI-tK-ae5" firstAttribute="bottom" secondItem="uV5-Cw-irg" secondAttribute="bottom" constant="55" id="mnm-0X-WeI"/>
+                            <constraint firstItem="0XI-tK-ae5" firstAttribute="bottom" secondItem="Lrd-X5-R9y" secondAttribute="bottom" constant="50" id="mnY-wT-8FH"/>
+                            <constraint firstItem="0XI-tK-ae5" firstAttribute="bottom" secondItem="uV5-Cw-irg" secondAttribute="bottom" constant="50" id="mnm-0X-WeI"/>
                             <constraint firstItem="UYx-gW-CWU" firstAttribute="leading" secondItem="0XI-tK-ae5" secondAttribute="leading" constant="20" id="pj3-MV-2F6"/>
                             <constraint firstAttribute="bottomMargin" secondItem="hE2-ij-u1f" secondAttribute="bottom" constant="55" id="sGy-Hq-d24"/>
                             <constraint firstAttribute="bottomMargin" secondItem="UYx-gW-CWU" secondAttribute="bottom" constant="120" id="uhb-IG-OTj"/>
@@ -823,7 +822,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="84F-fn-8Cx"/>
-        <segue reference="fEE-NJ-Lf5"/>
+        <segue reference="HQ7-Wb-JpR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.uturn.left.circle.fill" catalog="system" width="128" height="121"/>

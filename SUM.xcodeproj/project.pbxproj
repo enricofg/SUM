@@ -21,7 +21,7 @@
 		A25E20F82775CF4B00FAAE7B /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E20F72775CF4B00FAAE7B /* Structures.swift */; };
 		A8286DEC278D042C004547CC /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8286DEB278D042C004547CC /* LocationSearchTable.swift */; };
 		A859C8C52783690400C64E98 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A859C8C42783690400C64E98 /* ARViewController.swift */; };
-		A85FBBCA27836DEF0036A86D /* Experience copy.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = A85FBBC627836DEF0036A86D /* Experience copy.rcproject */; };
+		A85FBBCA27836DEF0036A86D /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = A85FBBC627836DEF0036A86D /* Experience.rcproject */; };
 		A889840C2790B410005A09D7 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88983E62790B3BD005A09D7 /* Intents.framework */; };
 		A889840F2790B410005A09D7 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889840E2790B410005A09D7 /* IntentHandler.swift */; };
 		A88984162790B410005A09D7 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88983F12790B3BD005A09D7 /* IntentsUI.framework */; };
@@ -86,7 +86,7 @@
 		A25E20F72775CF4B00FAAE7B /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		A8286DEB278D042C004547CC /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		A859C8C42783690400C64E98 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
-		A85FBBC627836DEF0036A86D /* Experience copy.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = "Experience copy.rcproject"; sourceTree = "<group>"; };
+		A85FBBC627836DEF0036A86D /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
 		A88983E62790B3BD005A09D7 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		A88983F12790B3BD005A09D7 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		A889840B2790B410005A09D7 /* SUMIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SUMIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,7 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				A859C8C42783690400C64E98 /* ARViewController.swift */,
-				A85FBBC627836DEF0036A86D /* Experience copy.rcproject */,
+				A85FBBC627836DEF0036A86D /* Experience.rcproject */,
 			);
 			path = AR;
 			sourceTree = "<group>";
@@ -381,7 +381,7 @@
 				A8286DEC278D042C004547CC /* LocationSearchTable.swift in Sources */,
 				A20324C22786153B00CF033F /* Helper.swift in Sources */,
 				08453684277B730800319AF9 /* TableViewCell.swift in Sources */,
-				A85FBBCA27836DEF0036A86D /* Experience copy.rcproject in Sources */,
+				A85FBBCA27836DEF0036A86D /* Experience.rcproject in Sources */,
 				A25E20F82775CF4B00FAAE7B /* Structures.swift in Sources */,
 				A859C8C52783690400C64E98 /* ARViewController.swift in Sources */,
 				A251E5AD27230627008C8A6C /* AppDelegate.swift in Sources */,
@@ -581,7 +581,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 432YN9UKX2;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SUM/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Necessitamos de acesso à câmara para realizar a experiência AR.";
@@ -598,7 +598,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -617,7 +617,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MF3ZBSBKP;
+				DEVELOPMENT_TEAM = 432YN9UKX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SUM/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Necessitamos de acesso à câmara para realizar a experiência AR.";
@@ -634,7 +634,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUMV2;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -649,7 +649,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 432YN9UKX2;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SUMIntentsUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SUMIntentsUI;
@@ -661,7 +661,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.SUMIntentsUI;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad.SUMIntentsUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -676,7 +676,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MF3ZBSBKP;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SUMIntentsUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SUMIntentsUI;
@@ -688,7 +688,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ipleiria.pt.SUM.SUMIntentsUI;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad.SUMIntentsUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -703,7 +703,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 432YN9UKX2;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SUMIntents/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SUMIntents;
@@ -715,7 +715,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.SUMIntents;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad.SUMIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -730,7 +730,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MF3ZBSBKP;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SUMIntents/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SUMIntents;
@@ -742,7 +742,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ipleiria.pt.SUM.SUMIntents;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad.SUMIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
