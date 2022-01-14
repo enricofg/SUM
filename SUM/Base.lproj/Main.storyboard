@@ -205,6 +205,7 @@
                                                 <buttonConfiguration key="configuration" style="filled" image="bus" catalog="system" title="Capacidade do autocarro"/>
                                                 <connections>
                                                     <action selector="SearchTime:" destination="nB7-wa-eOQ" eventType="touchDown" id="fJr-NQ-jI5"/>
+                                                    <segue destination="kbe-Mz-2FX" kind="show" id="hjm-by-yjk"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -460,7 +461,7 @@
             <objects>
                 <viewController id="kbe-Mz-2FX" customClass="ARViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mnu-V7-ZJB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiX-cT-ZeV">
@@ -473,10 +474,10 @@
                                 <color key="barTintColor" name="AccentColor"/>
                             </toolbar>
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAx-Tf-GHU">
-                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="708"/>
                             </arView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLJ-cA-H12" userLabel="Plus Button">
-                                <rect key="frame" x="349" y="648.5" width="45" height="44"/>
+                                <rect key="frame" x="349" y="643.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Gne-vO-hyC"/>
                                     <constraint firstAttribute="width" constant="45" id="VpI-YP-myM"/>
@@ -489,7 +490,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-9z-a0X" userLabel="Minus Button">
-                                <rect key="frame" x="349" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="349" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="PpR-QJ-T4q"/>
                                     <constraint firstAttribute="height" constant="45" id="sxQ-jc-O5S"/>
@@ -502,7 +503,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-ij-u1f" userLabel="Rotate Right Button">
-                                <rect key="frame" x="20" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="20" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="MhV-vW-eoG"/>
                                     <constraint firstAttribute="height" constant="45" id="jNm-MY-JlI"/>
@@ -516,7 +517,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYx-gW-CWU" userLabel="Rotate Left Button">
-                                <rect key="frame" x="20" y="648.5" width="45" height="44"/>
+                                <rect key="frame" x="20" y="643.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="qjB-Ll-p6w"/>
                                     <constraint firstAttribute="height" constant="45" id="y0V-y2-CVa"/>
@@ -530,7 +531,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV5-Cw-irg" userLabel="Like Button">
-                                <rect key="frame" x="150" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="150" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="6AQ-BL-Jy5"/>
                                     <constraint firstAttribute="height" constant="45" id="oGd-pg-e7Q"/>
@@ -546,7 +547,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-X5-R9y" userLabel="Dislike Button">
-                                <rect key="frame" x="219" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="219" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="jHL-bG-DhS"/>
                                     <constraint firstAttribute="height" constant="45" id="xYm-cI-oql"/>
@@ -588,6 +589,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="AR" image="camera.circle.fill" catalog="system" landscapeImage="camera.circle.fill" selectedImage="camera.circle.fill" id="RKA-2I-wAZ"/>
+                    <navigationItem key="navigationItem" id="PXk-SA-50s"/>
                     <connections>
                         <outlet property="arView" destination="FAx-Tf-GHU" id="wyo-Zl-hTf"/>
                         <outletCollection property="scaleButtons" destination="BLJ-cA-H12" collectionClass="NSMutableArray" id="2XJ-r0-QxV"/>
@@ -826,6 +828,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="hjm-by-yjk"/>
         <segue reference="fEE-NJ-Lf5"/>
     </inferredMetricsTieBreakers>
     <resources>

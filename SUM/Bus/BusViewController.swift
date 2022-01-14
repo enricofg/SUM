@@ -279,7 +279,7 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
 
                 AutocarroTF.resignFirstResponder()
                
-                lotacaoLB.text = "\(filteredBuses![row].Bus_Capacity)"
+                lotacaoLB.text = "\(filteredBuses![row].Bus_Capacity)%"
                 
                 DataLB.text = getDate()
                
