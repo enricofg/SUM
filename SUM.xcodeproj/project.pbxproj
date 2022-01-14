@@ -21,11 +21,55 @@
 		A25E20F82775CF4B00FAAE7B /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E20F72775CF4B00FAAE7B /* Structures.swift */; };
 		A8286DEC278D042C004547CC /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8286DEB278D042C004547CC /* LocationSearchTable.swift */; };
 		A859C8C52783690400C64E98 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A859C8C42783690400C64E98 /* ARViewController.swift */; };
-		A85FBBCA27836DEF0036A86D /* Experience copy.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = A85FBBC627836DEF0036A86D /* Experience copy.rcproject */; };
+		A85FBBCA27836DEF0036A86D /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = A85FBBC627836DEF0036A86D /* Experience.rcproject */; };
+		A889840C2790B410005A09D7 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88983E62790B3BD005A09D7 /* Intents.framework */; };
+		A889840F2790B410005A09D7 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889840E2790B410005A09D7 /* IntentHandler.swift */; };
+		A88984162790B410005A09D7 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88983F12790B3BD005A09D7 /* IntentsUI.framework */; };
+		A88984192790B410005A09D7 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88984182790B410005A09D7 /* IntentViewController.swift */; };
+		A889841C2790B410005A09D7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A889841A2790B410005A09D7 /* MainInterface.storyboard */; };
+		A88984202790B410005A09D7 /* SUMIntentsUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A88984152790B410005A09D7 /* SUMIntentsUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A88984232790B410005A09D7 /* SUMIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A889840B2790B410005A09D7 /* SUMIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A889842B2790B453005A09D7 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A889842A2790B453005A09D7 /* Intents.intentdefinition */; };
+		A889842D2790B6F7005A09D7 /* ScheduleIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889842C2790B6F7005A09D7 /* ScheduleIntentHandler.swift */; };
+		A889842E2790B81B005A09D7 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A889842A2790B453005A09D7 /* Intents.intentdefinition */; };
+		A88984302790BAF7005A09D7 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889842F2790BAF6005A09D7 /* AppIntent.swift */; };
 		A8FDA453278C979500DE9F59 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FDA452278C979500DE9F59 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A889841E2790B410005A09D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A251E5A127230627008C8A6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A88984142790B410005A09D7;
+			remoteInfo = SUMIntentsUI;
+		};
+		A88984212790B410005A09D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A251E5A127230627008C8A6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A889840A2790B410005A09D7;
+			remoteInfo = SUMIntents;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A88984002790B3BE005A09D7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A88984232790B410005A09D7 /* SUMIntents.appex in Embed App Extensions */,
+				A88984202790B410005A09D7 /* SUMIntentsUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		081FAEFA2790895500EAE631 /* SUMRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SUMRelease.entitlements; sourceTree = "<group>"; };
 		0845367F277B4FB700319AF9 /* StopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsViewController.swift; sourceTree = "<group>"; };
 		08453681277B730800319AF9 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		08453682277B730800319AF9 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -42,7 +86,19 @@
 		A25E20F72775CF4B00FAAE7B /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		A8286DEB278D042C004547CC /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		A859C8C42783690400C64E98 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
-		A85FBBC627836DEF0036A86D /* Experience copy.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = "Experience copy.rcproject"; sourceTree = "<group>"; };
+		A85FBBC627836DEF0036A86D /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
+		A88983E62790B3BD005A09D7 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		A88983F12790B3BD005A09D7 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		A889840B2790B410005A09D7 /* SUMIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SUMIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A889840E2790B410005A09D7 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		A88984102790B410005A09D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A88984152790B410005A09D7 /* SUMIntentsUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SUMIntentsUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A88984182790B410005A09D7 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		A889841B2790B410005A09D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A889841D2790B410005A09D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A889842A2790B453005A09D7 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Intents.intentdefinition; path = HelloWorldIntents/Intents.intentdefinition; sourceTree = SOURCE_ROOT; };
+		A889842C2790B6F7005A09D7 /* ScheduleIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleIntentHandler.swift; sourceTree = "<group>"; };
+		A889842F2790BAF6005A09D7 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		A8FDA452278C979500DE9F59 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +107,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A88984082790B410005A09D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A889840C2790B410005A09D7 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A88984122790B410005A09D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A88984162790B410005A09D7 /* IntentsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				A251E5AB27230627008C8A6C /* SUM */,
+				A889840D2790B410005A09D7 /* SUMIntents */,
+				A88984172790B410005A09D7 /* SUMIntentsUI */,
+				A88983E52790B3BD005A09D7 /* Frameworks */,
 				A251E5AA27230627008C8A6C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				A251E5A927230627008C8A6C /* SUM.app */,
+				A889840B2790B410005A09D7 /* SUMIntents.appex */,
+				A88984152790B410005A09D7 /* SUMIntentsUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,16 +182,18 @@
 		A251E5AB27230627008C8A6C /* SUM */ = {
 			isa = PBXGroup;
 			children = (
+				A8286DEE278D1930004547CC /* AR */,
 				081FAE98278E328E00EAE631 /* Bus */,
 				081FAE97278E30B600EAE631 /* Common */,
-				081FAE96278E301E00EAE631 /* Stops */,
 				A8286DED278D18E1004547CC /* HomeView */,
-				A8286DEE278D1930004547CC /* AR */,
-				A251E5B52723062C008C8A6C /* Assets.xcassets */,
+				081FAE96278E301E00EAE631 /* Stops */,
+				081FAEFA2790895500EAE631 /* SUMRelease.entitlements */,
 				A251E5BA2723062C008C8A6C /* Info.plist */,
+				A889842F2790BAF6005A09D7 /* AppIntent.swift */,
+				A251E5AE27230627008C8A6C /* SceneDelegate.swift */,
+				A251E5B52723062C008C8A6C /* Assets.xcassets */,
 				A251E5B72723062C008C8A6C /* LaunchScreen.storyboard */,
 				A251E5B227230627008C8A6C /* Main.storyboard */,
-				A251E5AE27230627008C8A6C /* SceneDelegate.swift */,
 			);
 			path = SUM;
 			sourceTree = "<group>";
@@ -132,9 +211,39 @@
 			isa = PBXGroup;
 			children = (
 				A859C8C42783690400C64E98 /* ARViewController.swift */,
-				A85FBBC627836DEF0036A86D /* Experience copy.rcproject */,
+				A85FBBC627836DEF0036A86D /* Experience.rcproject */,
 			);
 			path = AR;
+			sourceTree = "<group>";
+		};
+		A88983E52790B3BD005A09D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A88983E62790B3BD005A09D7 /* Intents.framework */,
+				A88983F12790B3BD005A09D7 /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A889840D2790B410005A09D7 /* SUMIntents */ = {
+			isa = PBXGroup;
+			children = (
+				A88984102790B410005A09D7 /* Info.plist */,
+				A889840E2790B410005A09D7 /* IntentHandler.swift */,
+				A889842A2790B453005A09D7 /* Intents.intentdefinition */,
+				A889842C2790B6F7005A09D7 /* ScheduleIntentHandler.swift */,
+			);
+			path = SUMIntents;
+			sourceTree = "<group>";
+		};
+		A88984172790B410005A09D7 /* SUMIntentsUI */ = {
+			isa = PBXGroup;
+			children = (
+				A88984182790B410005A09D7 /* IntentViewController.swift */,
+				A889841A2790B410005A09D7 /* MainInterface.storyboard */,
+				A889841D2790B410005A09D7 /* Info.plist */,
+			);
+			path = SUMIntentsUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,15 +256,52 @@
 				A251E5A527230627008C8A6C /* Sources */,
 				A251E5A627230627008C8A6C /* Frameworks */,
 				A251E5A727230627008C8A6C /* Resources */,
+				A88984002790B3BE005A09D7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A889841F2790B410005A09D7 /* PBXTargetDependency */,
+				A88984222790B410005A09D7 /* PBXTargetDependency */,
 			);
 			name = SUM;
 			productName = SUM;
 			productReference = A251E5A927230627008C8A6C /* SUM.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A889840A2790B410005A09D7 /* SUMIntents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A88984272790B410005A09D7 /* Build configuration list for PBXNativeTarget "SUMIntents" */;
+			buildPhases = (
+				A88984072790B410005A09D7 /* Sources */,
+				A88984082790B410005A09D7 /* Frameworks */,
+				A88984092790B410005A09D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SUMIntents;
+			productName = SUMIntents;
+			productReference = A889840B2790B410005A09D7 /* SUMIntents.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A88984142790B410005A09D7 /* SUMIntentsUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A88984242790B410005A09D7 /* Build configuration list for PBXNativeTarget "SUMIntentsUI" */;
+			buildPhases = (
+				A88984112790B410005A09D7 /* Sources */,
+				A88984122790B410005A09D7 /* Frameworks */,
+				A88984132790B410005A09D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SUMIntentsUI;
+			productName = SUMIntentsUI;
+			productReference = A88984152790B410005A09D7 /* SUMIntentsUI.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -164,11 +310,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					A251E5A827230627008C8A6C = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					A889840A2790B410005A09D7 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					A88984142790B410005A09D7 = {
+						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
@@ -186,6 +338,8 @@
 			projectRoot = "";
 			targets = (
 				A251E5A827230627008C8A6C /* SUM */,
+				A889840A2790B410005A09D7 /* SUMIntents */,
+				A88984142790B410005A09D7 /* SUMIntentsUI */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +356,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A88984092790B410005A09D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A88984132790B410005A09D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A889841C2790B410005A09D7 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -212,7 +381,7 @@
 				A8286DEC278D042C004547CC /* LocationSearchTable.swift in Sources */,
 				A20324C22786153B00CF033F /* Helper.swift in Sources */,
 				08453684277B730800319AF9 /* TableViewCell.swift in Sources */,
-				A85FBBCA27836DEF0036A86D /* Experience copy.rcproject in Sources */,
+				A85FBBCA27836DEF0036A86D /* Experience.rcproject in Sources */,
 				A25E20F82775CF4B00FAAE7B /* Structures.swift in Sources */,
 				A859C8C52783690400C64E98 /* ARViewController.swift in Sources */,
 				A251E5AD27230627008C8A6C /* AppDelegate.swift in Sources */,
@@ -220,11 +389,44 @@
 				A25E20F62775CF0200FAAE7B /* NetworkManager.swift in Sources */,
 				A251E5AF27230627008C8A6C /* SceneDelegate.swift in Sources */,
 				A25E20F42775CC1A00FAAE7B /* BusViewController.swift in Sources */,
+				A88984302790BAF7005A09D7 /* AppIntent.swift in Sources */,
+				A889842E2790B81B005A09D7 /* Intents.intentdefinition in Sources */,
 				A8FDA453278C979500DE9F59 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A88984072790B410005A09D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A889842D2790B6F7005A09D7 /* ScheduleIntentHandler.swift in Sources */,
+				A889842B2790B453005A09D7 /* Intents.intentdefinition in Sources */,
+				A889840F2790B410005A09D7 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A88984112790B410005A09D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A88984192790B410005A09D7 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A889841F2790B410005A09D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A88984142790B410005A09D7 /* SUMIntentsUI */;
+			targetProxy = A889841E2790B410005A09D7 /* PBXContainerItemProxy */;
+		};
+		A88984222790B410005A09D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A889840A2790B410005A09D7 /* SUMIntents */;
+			targetProxy = A88984212790B410005A09D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A251E5B227230627008C8A6C /* Main.storyboard */ = {
@@ -241,6 +443,14 @@
 				A251E5B82723062C008C8A6C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A889841A2790B410005A09D7 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A889841B2790B410005A09D7 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -365,13 +575,19 @@
 		A251E5BE2723062C008C8A6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MF3ZBSBKP;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SUM/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Necessitamos de acesso à câmara para realizar a experiência AR.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Necessitamos saber a sua localização para carregar as paragens mais próximas de si.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Necessitamos saber a sua localização para carregar as paragens mais próximas de si.";
+				INFOPLIST_KEY_NSSiriUsageDescription = "Needs access to Siri for shortcuts.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -382,8 +598,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ipleiria.pt.SUM;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -393,13 +610,20 @@
 		A251E5BF2723062C008C8A6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SUM/SUMRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MF3ZBSBKP;
+				DEVELOPMENT_TEAM = 432YN9UKX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SUM/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Necessitamos de acesso à câmara para realizar a experiência AR.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Necessitamos saber a sua localização para carregar as paragens mais próximas de si.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Necessitamos saber a sua localização para carregar as paragens mais próximas de si.";
+				INFOPLIST_KEY_NSSiriUsageDescription = "Needs access to Siri for shortcuts.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -410,8 +634,117 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ipleiria.pt.SUM;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A88984252790B410005A09D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SUMIntentsUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SUMIntentsUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad.SUMIntentsUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A88984262790B410005A09D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SUMIntentsUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SUMIntentsUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad.SUMIntentsUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A88984282790B410005A09D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SUMIntents/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SUMIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad.SUMIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A88984292790B410005A09D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K6DVBDHKU6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SUMIntents/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SUMIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ipleiria.SUM.iPad.SUMIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,6 +768,24 @@
 			buildConfigurations = (
 				A251E5BE2723062C008C8A6C /* Debug */,
 				A251E5BF2723062C008C8A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A88984242790B410005A09D7 /* Build configuration list for PBXNativeTarget "SUMIntentsUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A88984252790B410005A09D7 /* Debug */,
+				A88984262790B410005A09D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A88984272790B410005A09D7 /* Build configuration list for PBXNativeTarget "SUMIntents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A88984282790B410005A09D7 /* Debug */,
+				A88984292790B410005A09D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

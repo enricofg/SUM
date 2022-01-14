@@ -142,7 +142,7 @@ class StopsViewController: UIViewController,CLLocationManagerDelegate
         
     }
     @IBAction func SearchTime(_ sender: Any) {
-        let currentLoc = locationManager?.location
+        //let currentLoc = locationManager?.location
        // let distance = getDistance(myPositionLatitude: (currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310)
        
         // Filter exercises by name (case and diacritic insensitive)

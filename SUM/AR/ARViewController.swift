@@ -28,7 +28,7 @@ class ARViewController: UIViewController {
         arView.session.run(arConfiguration)
         
         // Load the BusScene from the "Experience" Reality File
-        let busScene = try! ExperienceCopy.loadBusScene()
+        let busScene = try! Experience.loadBusScene()
         bus = busScene.bus!
         
         // Add the BusScene anchor to the scene

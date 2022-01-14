@@ -29,6 +29,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //request Siri permissions for Shortcuts
+        AppIntent.allowSiri()
+        AppIntent.schedule()
+        
         //request permissions
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
