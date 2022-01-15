@@ -3,6 +3,7 @@
 //  SUM
 //
 //  Created by Jose Machado on 24/12/2021.
+//  Updated by Enrico Gomes on 14/12/2021
 //
 
 import UIKit
@@ -10,7 +11,6 @@ import MapKit
 import IntentsUI
 
 class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortcutViewControllerDelegate {
-
 
     @IBOutlet weak var OrigemTF: UITextField!
     @IBOutlet weak var AutocarroTF: UITextField!
@@ -67,7 +67,8 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
                 
                 
                 if let firstBus = self?._buses?.first {
-                    self?.getBusFromStops()
+                    //self?.getBusFromStops()
+                    self?.fetchSchedules()
                     self?.selectedRatingBus = firstBus.Bus_Number
                     self?.selectedBusId = firstBus.Bus_Id
                     self?.AutocarroTF.text = firstBus.Bus_Name
@@ -200,41 +201,31 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         }
     }
     
-    private func fetchSchedules(completed: @escaping FinishedExecute) {
+    private func fetchSchedules() {
         networkManager.fetchStopsSchedule(compID: selectedRating){[weak self] (stopsschedules) in
-            self?._stopsSchedules = stopsschedules
-            completed()
-        }
-    }
-    
-    private func getBusFromStops(){
-        fetchSchedules{ [self] () -> () in
-            let filteredStops = self._stopsSchedules?.filter({ StopSchedules in
-                StopSchedules.StopSchedule.contains { StopSchedule in
-                    StopSchedule.Stop_Id == self.selectedRating
+            DispatchQueue.main.async {
+                self?._stopsSchedules = stopsschedules
+                let filteredStops = self!._stopsSchedules?.filter({ StopSchedules in
+                    StopSchedules.StopSchedule.contains { StopSchedule in
+                        StopSchedule.Stop_Id == self!.selectedRating
+                    }
+                })
+                
+                self!.filteredBuses = []
+                for stop in filteredStops!{
+                    for _bus in self!._buses! {
+                        if _bus.Line_Id==stop.Line_Id {
+                            self!.filteredBuses?.append(_bus)
+                        }
+                    }
                 }
-            })
-            
-            var filteredLines: [Int] = []
-            
-            filteredStops?.forEach({ StopSchedules in
-                filteredLines.append(StopSchedules.Line_Id)
-            })
-            
-            
-            self.filteredBuses = self._buses?.filter({ Bus in
-                filteredLines.contains { line in
-                    Bus.Line_Id == line
+                
+                if(self!.filteredBuses != nil || self!.filteredBuses?.count != 0) {
+                    self!.AutocarroTF.inputView = self!.pickerView2
+                    self!.pickerView2.delegate = self!
+                    self!.pickerView2.dataSource = self!
                 }
-            })
-            
-            
-            if(filteredBuses != nil || filteredBuses?.count != 0) {
-                AutocarroTF.inputView = pickerView2
-                pickerView2.delegate = self
-                pickerView2.dataSource = self
             }
-             
         }
     }
     
@@ -331,35 +322,7 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
 
                 OrigemTF.resignFirstResponder()
                 
-                fetchSchedules{ [self] () -> () in
-                    let filteredStops = self._stopsSchedules?.filter({ StopSchedules in
-                        StopSchedules.StopSchedule.contains { StopSchedule in
-                            StopSchedule.Stop_Id == self.selectedRating
-                        }
-                    })
-                    
-                    var filteredLines: [Int] = []
-                    
-                    filteredStops?.forEach({ StopSchedules in
-                        filteredLines.append(StopSchedules.Line_Id)
-                    })
-                    
-                    
-                    self.filteredBuses = self._buses?.filter({ Bus in
-                        filteredLines.contains { line in
-                            Bus.Line_Id == line
-                        }
-                    })
-                    
-                    if(filteredBuses != nil || filteredBuses?.count != 0) {
-                        AutocarroTF.inputView = pickerView2
-                        pickerView2.delegate = self
-                        pickerView2.dataSource = self
-                    }
-                                        
-                }
-               
-               
+                fetchSchedules()
             }
         } else {
             if (filteredBuses != nil)
