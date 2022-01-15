@@ -11,12 +11,14 @@ import MapKit
 import IntentsUI
 
 class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortcutViewControllerDelegate {
-
-    @IBOutlet weak var OrigemTF: UITextField!
-    @IBOutlet weak var AutocarroTF: UITextField!
+    
+    @IBOutlet weak var origemTF: UITextField!
+    @IBOutlet weak var autocarroTF: UITextField!
     @IBOutlet weak var lotacaoLB: UILabel!
-    @IBOutlet weak var DataLB: UILabel!
+    @IBOutlet weak var dataLB: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var additionalInfoContainer: UIStackView!
+    @IBOutlet var heightConstraintInfoContainer: NSLayoutConstraint!
     
     let networkManager = NetworkManager()
     let helper = Helper()
@@ -33,27 +35,32 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
     var pickerView2 = UIPickerView()
     var filteredBuses: [Bus]?
     var selectedBusId:Int? = nil
+    var initialInfoContainerHeight:CGFloat = 0.0
     typealias FinishedExecute = () -> ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mapView.delegate = self
+        
+        //set up info container height parameter for visibility changes
+        initialInfoContainerHeight = additionalInfoContainer.frame.height
+        
         
         networkManager.fetchStops { [weak self] (stops) in
             self?._stops = stops
             DispatchQueue.main.async {
                 self?.pickerView1.reloadComponent(0)
                 if let firstStop = self?._stops?.first {
-                    self?.OrigemTF.text = firstStop.Stop_Name
+                    self?.origemTF.text = firstStop.Stop_Name
                     self?.selectedRating = firstStop.Stop_Id
                 }
             }
         }
         
         getUserLocation()
-    
-
+        
+        
         let coordinate = CLLocationCoordinate2D(latitude: 39.73594501415817, longitude: -8.817790583959448)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: coordinate, span: span)
@@ -71,11 +78,11 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
                     self?.fetchSchedules()
                     self?.selectedRatingBus = firstBus.Bus_Number
                     self?.selectedBusId = firstBus.Bus_Id
-                    self?.AutocarroTF.text = firstBus.Bus_Name
+                    self?.autocarroTF.text = firstBus.Bus_Name
                     
                     self?.lotacaoLB.text = "\(firstBus.Bus_Capacity)%"
                     
-                    self?.DataLB.text = self?.getDate()
+                    self?.dataLB.text = self?.getDate()
                     
                     self?.addEverythingToMap()
                 }
@@ -85,20 +92,20 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         
         //DataLB.text = getDate()
         
-        OrigemTF.inputView = pickerView1
+        origemTF.inputView = pickerView1
         pickerView1.delegate = self
         pickerView1.dataSource = self
-
+        
         
         if(filteredBuses != nil && filteredBuses?.count != 0) {
-            AutocarroTF.inputView = pickerView2
+            autocarroTF.inputView = pickerView2
             pickerView2.delegate = self
             pickerView2.dataSource = self
         }
         
         
         let locationImage=UIImage(systemName: "location.fill")
-        helper.addLeftImageTo(txtField: OrigemTF, andImage: locationImage!)
+        helper.addLeftImageTo(txtField: origemTF, andImage: locationImage!)
         
     }
     
@@ -119,17 +126,17 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
             }
         }
     }
-   
+    
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-
+        
         if let routePolyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: routePolyline)
             renderer.strokeColor = UIColor.systemBlue
             renderer.lineWidth = 5
             return renderer
         }
-
+        
         return MKOverlayRenderer()
     }
     
@@ -154,27 +161,27 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
     }
     
     func getDate() -> String {
-           let date = Date()
-           let calendar = Calendar.current
-           
-           let day = calendar.component(.day, from: date)
-           var month = String(calendar.component(.month, from: date))
-           let year = calendar.component(.year, from: date)
-           let hour = calendar.component(.hour, from: date)
-           let minute = calendar.component(.minute, from: date)
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let day = calendar.component(.day, from: date)
+        var month = String(calendar.component(.month, from: date))
+        let year = calendar.component(.year, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
         
         if(month.count == 1){
             month = "0\(month)"
         }
-           
-           return "\(day)/\(month)/\(year) \(hour):\(minute)"
-       }
+        
+        return "\(day)/\(month)/\(year) \(hour):\(minute)"
+    }
     
     func getUserLocation() {
-         locationManager = CLLocationManager()
-         locationManager?.requestAlwaysAuthorization()
-         locationManager?.startUpdatingLocation()
-     }
+        locationManager = CLLocationManager()
+        locationManager?.requestAlwaysAuthorization()
+        locationManager?.startUpdatingLocation()
+    }
     
     private func addPolylines(lineCoordinates: [CLLocationCoordinate2D]){
         let polyline = MKPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
@@ -184,20 +191,20 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
     private func addCustomPin(){
         customPin.coordinate = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
         customPin.title = "Autocarro"
-    //    customPin.subtitle = "Clica para ver mais"
+        //    customPin.subtitle = "Clica para ver mais"
         mapView.addAnnotation(customPin)
     }
     
     private func moveCustomPin(lineCoordinates: [CLLocationCoordinate2D]) {
         var index = 0
-         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
             UIView.animate(withDuration: 2) {
                 index = index + 1
                 self.customPin.coordinate = lineCoordinates[index]
             }
-             if(index == 2) {
-                 timer.invalidate()
-             }
+            if(index == 2) {
+                timer.invalidate()
+            }
         }
     }
     
@@ -221,9 +228,10 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
                 }
                 
                 if(self!.filteredBuses != nil || self!.filteredBuses?.count != 0) {
-                    self!.AutocarroTF.inputView = self!.pickerView2
+                    self!.autocarroTF.inputView = self!.pickerView2
                     self!.pickerView2.delegate = self!
                     self!.pickerView2.dataSource = self!
+                } else {
                 }
             }
         }
@@ -234,7 +242,7 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         let loc1 = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
         let loc2 = CLLocationCoordinate2D(latitude: 39.738082, longitude: -8.820454)
         let loc3 = CLLocationCoordinate2D(latitude: 39.738524, longitude: -8.819262)
-
+        
         let lineCoordinates: [CLLocationCoordinate2D] = [loc1, loc2, loc3]
         
         addPolylines(lineCoordinates: lineCoordinates)
@@ -263,8 +271,28 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
     func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
+    //toggle visibility of additional info container
+    func toggleAdditionalInfo(hide:Bool){
+        DispatchQueue.main.async {
+            if hide {
+                UIView.transition(with: self.additionalInfoContainer, duration: 0.75,
+                                  options: .allowAnimatedContent,
+                                  animations: {
+                    self.additionalInfoContainer.isHidden = hide
+                    self.heightConstraintInfoContainer.constant = 0.0
+                })
+            } else {
+                UIView.transition(with: self.additionalInfoContainer, duration: 0.75,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                    self.heightConstraintInfoContainer.constant = self.initialInfoContainerHeight
+                    self.additionalInfoContainer.isHidden = hide
+                })
+            }
+        }
+    }
 }
-
 
 extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     
@@ -285,74 +313,63 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
             }
             return filteredBuses!.count
         }
-       
+        
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        toggleAdditionalInfo(hide:true)
         if(pickerView == pickerView1){
             if (_stops == nil)
             {
                 return nil
             }
+            
             let currentLoc = locationManager?.location
             
             if(currentLoc == nil)
             {
                 return  "\(_stops![row].Stop_Name)"
             }
-
+            
             return "\(_stops![row].Stop_Name) \(helper.getDistance(myPositionLatitude:(currentLoc?.coordinate.latitude)!, myPositionLongitude: (currentLoc?.coordinate.longitude)!, pointPositionLatitude: 59.326354, pointPositionLongitude: 18.072310))"
         } else {
             if (filteredBuses == nil)
             {
                 return nil
             }
-            
             return filteredBuses![row].Bus_Name
         }
-       
     }
-   
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        toggleAdditionalInfo(hide:true)
         if(pickerView == pickerView1){
             if (_stops != nil)
             {
                 selectedRating = _stops![row].Stop_Id
-                OrigemTF.text = "\(_stops![row].Stop_Name)"
-                AutocarroTF.text = ""
-
-                OrigemTF.resignFirstResponder()
+                origemTF.text = "\(_stops![row].Stop_Name)"
+                autocarroTF.text = ""
+                
+                origemTF.resignFirstResponder()
                 
                 fetchSchedules()
             }
         } else {
             if (filteredBuses != nil)
             {
+                
                 selectedRatingBus = filteredBuses![row].Bus_Number
                 selectedBusId = filteredBuses![row].Bus_Id
-                AutocarroTF.text = "\(filteredBuses![row].Bus_Name)"
-
-                AutocarroTF.resignFirstResponder()
-               
+                autocarroTF.text = "\(filteredBuses![row].Bus_Name)"
+                
+                autocarroTF.resignFirstResponder()
+                
                 lotacaoLB.text = "\(filteredBuses![row].Bus_Capacity)%"
+                toggleAdditionalInfo(hide:false)
                 
-                DataLB.text = getDate()
+                dataLB.text = getDate()
                 
-                //Create dummy points
-                let loc1 = CLLocationCoordinate2D(latitude: 39.737271, longitude: -8.821294)
-                let loc2 = CLLocationCoordinate2D(latitude: 39.738082, longitude: -8.820454)
-                let loc3 = CLLocationCoordinate2D(latitude: 39.738524, longitude: -8.819262)
-
-                let lineCoordinates: [CLLocationCoordinate2D] = [loc1, loc2, loc3]
-                
-                addPolylines(lineCoordinates: lineCoordinates)
-                
-                addCustomPin()
-                
-                moveCustomPin(lineCoordinates: lineCoordinates)
-               
+                addEverythingToMap()
             }
         }
-       
     }
-
 }
