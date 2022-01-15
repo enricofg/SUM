@@ -81,11 +81,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="current-location" translatesAutoresizingMaskIntoConstraints="NO" id="gRy-Pi-I8Q">
-                                <rect key="frame" x="20" y="231.5" width="40" height="38"/>
+                                <rect key="frame" x="20" y="231.5" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Ie6-Gc-r1n"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="JeR-sV-BgT"/>
-                                    <constraint firstAttribute="height" constant="38" id="VVj-nQ-lMM"/>
+                                    <constraint firstAttribute="width" constant="40" id="hVt-SX-qhV"/>
+                                    <constraint firstAttribute="height" constant="40" id="zyc-dE-s8V"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -112,7 +111,6 @@
                             <constraint firstItem="Ixk-9L-S1A" firstAttribute="leading" secondItem="gRy-Pi-I8Q" secondAttribute="trailing" constant="7" id="n9u-mD-Fhe"/>
                             <constraint firstItem="da5-aH-1c6" firstAttribute="top" secondItem="kyv-rd-357" secondAttribute="top" id="o0M-Gz-8ic"/>
                             <constraint firstItem="kyv-rd-357" firstAttribute="leading" secondItem="Ng4-rJ-2Rr" secondAttribute="leading" id="ssh-AY-DJh"/>
-                            <constraint firstItem="NY1-cb-OCH" firstAttribute="trailing" secondItem="Ixk-9L-S1A" secondAttribute="trailing" constant="327" id="vv0-TW-IXF"/>
                             <constraint firstItem="Ixk-9L-S1A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3yX-mq-yko" secondAttribute="leading" symbolic="YES" id="yZ9-Kf-PcW"/>
                             <constraint firstItem="IpV-ae-gKA" firstAttribute="top" secondItem="da5-aH-1c6" secondAttribute="bottom" constant="10" id="yri-dc-0as"/>
                         </constraints>
