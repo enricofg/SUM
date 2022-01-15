@@ -280,13 +280,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se deseja visualizar os horários do autocarro mais próximo de si com a ajuda da Siri, carregue no botão abaixo:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6s1-u6-Q7s">
-                                                <rect key="frame" x="20" y="896" width="374" height="61"/>
+                                                <rect key="frame" x="20" y="916" width="374" height="61"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlL-eG-ndA" userLabel="Add Shortcut Button">
-                                                <rect key="frame" x="20" y="977" width="374" height="60"/>
+                                                <rect key="frame" x="20" y="997" width="374" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="pKf-Qg-ufG"/>
                                                 </constraints>
@@ -472,7 +472,7 @@
                                 <rect key="frame" x="20" y="340" width="374" height="444"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ken-os-MKr" userLabel="Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="ken-os-MKr" userLabel="Cell">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ken-os-MKr" id="wCs-Bx-Ujf">
@@ -927,9 +927,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fEE-NJ-Lf5"/>
         <segue reference="Ygc-Vv-cXW"/>
-        <segue reference="HQ7-Wb-JpR"/>
+        <segue reference="fEE-NJ-Lf5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.uturn.left.circle.fill" catalog="system" width="128" height="121"/>
