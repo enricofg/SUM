@@ -111,7 +111,8 @@
                             <constraint firstItem="Ixk-9L-S1A" firstAttribute="leading" secondItem="gRy-Pi-I8Q" secondAttribute="trailing" constant="7" id="n9u-mD-Fhe"/>
                             <constraint firstItem="da5-aH-1c6" firstAttribute="top" secondItem="kyv-rd-357" secondAttribute="top" id="o0M-Gz-8ic"/>
                             <constraint firstItem="kyv-rd-357" firstAttribute="leading" secondItem="Ng4-rJ-2Rr" secondAttribute="leading" id="ssh-AY-DJh"/>
-                            <constraint firstItem="Ixk-9L-S1A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3yX-mq-yko" secondAttribute="leading" symbolic="YES" id="yZ9-Kf-PcW"/>
+                            <constraint firstAttribute="trailing" secondItem="Ixk-9L-S1A" secondAttribute="trailing" constant="347" id="uiM-fg-xrB"/>
+                            <constraint firstItem="Ixk-9L-S1A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3yX-mq-yko" secondAttribute="leading" id="yZ9-Kf-PcW"/>
                             <constraint firstItem="IpV-ae-gKA" firstAttribute="top" secondItem="da5-aH-1c6" secondAttribute="bottom" constant="10" id="yri-dc-0as"/>
                         </constraints>
                     </view>

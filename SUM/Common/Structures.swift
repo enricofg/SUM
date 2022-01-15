@@ -9,6 +9,7 @@ import Foundation
 
 
 struct Bus: Decodable {
+    var Bus_Id: Int
     var Bus_Name: String
     var Bus_Number: Int
     var Bus_Capacity: Int
