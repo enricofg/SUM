@@ -281,6 +281,25 @@
                                                     <action selector="CapacityBtnTap:" destination="Te1-a0-ZtA" eventType="touchUpInside" id="U0y-vW-hu2"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se deseja visualizar os horários do autocarro mais próximo de si com a ajuda da Siri, carregue no botão abaixo:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6s1-u6-Q7s">
+                                                <rect key="frame" x="20" y="896" width="374" height="61"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlL-eG-ndA" userLabel="Add Shortcut Button">
+                                                <rect key="frame" x="20" y="977" width="374" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="pKf-Qg-ufG"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Adicionar atalho" imagePadding="7">
+                                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="addShortcut:" destination="Te1-a0-ZtA" eventType="touchUpInside" id="T6I-x5-96U"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -300,20 +319,26 @@
                                             <constraint firstItem="9Bb-0f-66W" firstAttribute="top" secondItem="KqN-29-jKK" secondAttribute="top" constant="75" id="P68-M8-yRf"/>
                                             <constraint firstItem="dBo-TJ-BZC" firstAttribute="leading" secondItem="TPE-gy-lPU" secondAttribute="trailing" constant="4" id="PEw-zE-Fkc"/>
                                             <constraint firstItem="TFT-7k-vC6" firstAttribute="baseline" secondItem="ELe-BM-XgA" secondAttribute="baseline" id="UPV-SK-qOY"/>
+                                            <constraint firstItem="6s1-u6-Q7s" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="Wes-Xl-Xe5"/>
                                             <constraint firstItem="TPE-gy-lPU" firstAttribute="top" secondItem="G86-gU-yJw" secondAttribute="bottom" constant="8" id="X2r-c2-YGe"/>
+                                            <constraint firstItem="IlL-eG-ndA" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="XpB-4d-s2Y"/>
                                             <constraint firstItem="TFT-7k-vC6" firstAttribute="leading" secondItem="ELe-BM-XgA" secondAttribute="trailing" constant="2" id="Ybl-sf-Vzl"/>
                                             <constraint firstAttribute="bottom" secondItem="Xuj-z3-UCc" secondAttribute="bottom" constant="324" id="ZoS-bh-C6j"/>
                                             <constraint firstAttribute="height" constant="1200" id="Zxk-bg-ZVC"/>
                                             <constraint firstItem="Xuj-z3-UCc" firstAttribute="leading" secondItem="G86-gU-yJw" secondAttribute="leading" id="aKf-rV-VBa"/>
                                             <constraint firstItem="t5D-uO-ocS" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="aqY-Jk-y5Z"/>
                                             <constraint firstItem="Xuj-z3-UCc" firstAttribute="leading" secondItem="a79-aW-1P8" secondAttribute="leading" id="iNt-6d-zHh"/>
+                                            <constraint firstItem="IlL-eG-ndA" firstAttribute="top" secondItem="6s1-u6-Q7s" secondAttribute="bottom" constant="20" id="iRR-Ud-luQ"/>
                                             <constraint firstItem="ROY-VV-5l8" firstAttribute="leading" secondItem="a79-aW-1P8" secondAttribute="trailing" constant="4" id="k6M-tS-Rj3"/>
                                             <constraint firstItem="9Bb-0f-66W" firstAttribute="leading" secondItem="KqN-29-jKK" secondAttribute="leading" constant="20" id="kLB-kz-iQP"/>
                                             <constraint firstAttribute="trailing" secondItem="9Bb-0f-66W" secondAttribute="trailing" constant="20" id="kil-1j-ejC"/>
                                             <constraint firstItem="Xuj-z3-UCc" firstAttribute="top" secondItem="t5D-uO-ocS" secondAttribute="bottom" constant="32" id="mSu-rf-fvW"/>
+                                            <constraint firstAttribute="trailing" secondItem="IlL-eG-ndA" secondAttribute="trailing" constant="20" id="oHF-hc-VMp"/>
                                             <constraint firstAttribute="trailing" secondItem="yoo-83-Pkj" secondAttribute="trailing" constant="20" id="pFv-oe-6CL"/>
                                             <constraint firstItem="yoo-83-Pkj" firstAttribute="leading" secondItem="t5D-uO-ocS" secondAttribute="trailing" constant="3" id="q2T-Mx-qIC"/>
+                                            <constraint firstAttribute="trailing" secondItem="6s1-u6-Q7s" secondAttribute="trailing" constant="20" id="sGE-1d-IDC"/>
                                             <constraint firstItem="G86-gU-yJw" firstAttribute="top" secondItem="ROY-VV-5l8" secondAttribute="bottom" constant="9" id="u4M-rT-Dw6"/>
+                                            <constraint firstItem="6s1-u6-Q7s" firstAttribute="top" secondItem="Xuj-z3-UCc" secondAttribute="bottom" constant="20" id="vGu-8a-Z0e"/>
                                             <constraint firstItem="Xuj-z3-UCc" firstAttribute="leading" secondItem="TPE-gy-lPU" secondAttribute="leading" id="y6O-7f-eHr"/>
                                             <constraint firstAttribute="trailing" secondItem="TFT-7k-vC6" secondAttribute="trailing" constant="20" id="z5h-fG-vs1"/>
                                             <constraint firstItem="ELe-BM-XgA" firstAttribute="top" secondItem="TPE-gy-lPU" secondAttribute="bottom" constant="28" id="zIZ-3V-bFu"/>
@@ -534,7 +559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCZ-Xj-lMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3355" y="-1672"/>
+            <point key="canvasLocation" x="-3355.072463768116" y="-1672.0982142857142"/>
         </scene>
         <!--AR-->
         <scene sceneID="0wz-v8-95J">
@@ -924,6 +949,7 @@
         <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

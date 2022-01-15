@@ -111,7 +111,7 @@ class ARViewController: UIViewController {
         
         switch command{
         case "+":
-            if bus!.scale.x < 7 {
+            if bus!.scale.x < 1 {
                 bus?.scale = [bus!.scale.x+0.5, bus!.scale.y+0.5, bus!.scale.z+0.5]
                 progressBar?.scale = [progressBar!.scale.x+0.5, progressBar!.scale.y+0.5, progressBar!.scale.z+0.5]
             }

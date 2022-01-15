@@ -7,8 +7,9 @@
 
 import UIKit
 import MapKit
+import IntentsUI
 
-class BusViewController: UIViewController, MKMapViewDelegate {
+class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortcutViewControllerDelegate {
 
 
     @IBOutlet weak var OrigemTF: UITextField!
@@ -19,6 +20,7 @@ class BusViewController: UIViewController, MKMapViewDelegate {
     
     let networkManager = NetworkManager()
     let helper = Helper()
+    let scheduleIntent = ScheduleIntent()
     let customPin = MKPointAnnotation()
     public var completionHandler: ((Int) -> Void)?
     private var _stops: [Stops]?
@@ -249,8 +251,25 @@ class BusViewController: UIViewController, MKMapViewDelegate {
         moveCustomPin(lineCoordinates: lineCoordinates)
     }
     
+    //button for adding Siri get schedule shortcut to Shortcuts
+    @IBAction func addShortcut(_ sender: UIButton) {
+        if let shortcut = INShortcut(intent: scheduleIntent) {
+            let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+            viewController.modalPresentationStyle = .overCurrentContext
+            viewController.delegate = self // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
+            present(viewController, animated: true, completion: nil)
+        }
+    }
     
-
+    //if add shortcut is done -> dismiss modal
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    //if add shortcut is canceled -> dismiss modal
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
 
 
