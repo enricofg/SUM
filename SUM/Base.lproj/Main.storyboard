@@ -49,9 +49,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Município de Pombal, Largo do Cardal,  3100-440 Pombal" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpV-ae-gKA">
-                                <rect key="frame" x="70" y="229" width="324" height="40"/>
+                                <rect key="frame" x="70" y="229" width="324" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="cj1-7Q-rwk"/>
+                                    <constraint firstAttribute="height" constant="60" id="G7C-kW-p3C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -80,10 +80,10 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="current-location" translatesAutoresizingMaskIntoConstraints="NO" id="gRy-Pi-I8Q">
-                                <rect key="frame" x="20" y="231.5" width="40" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="location.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gRy-Pi-I8Q">
+                                <rect key="frame" x="20" y="242" width="40" height="39"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="hVt-SX-qhV"/>
+                                    <constraint firstAttribute="width" constant="40" id="cZa-0o-8h1"/>
                                     <constraint firstAttribute="height" constant="40" id="zyc-dE-s8V"/>
                                 </constraints>
                             </imageView>
@@ -93,26 +93,25 @@
                         <constraints>
                             <constraint firstItem="Ng4-rJ-2Rr" firstAttribute="top" secondItem="fAx-g0-gDJ" secondAttribute="bottom" constant="20" id="4JE-s1-7pu"/>
                             <constraint firstItem="3yX-mq-yko" firstAttribute="trailing" secondItem="NY1-cb-OCH" secondAttribute="trailing" constant="20" id="7gg-vO-nce"/>
+                            <constraint firstItem="IpV-ae-gKA" firstAttribute="leading" secondItem="gRy-Pi-I8Q" secondAttribute="trailing" constant="10" id="7wN-QD-aL1"/>
                             <constraint firstItem="3yX-mq-yko" firstAttribute="trailing" secondItem="da5-aH-1c6" secondAttribute="trailing" constant="20" id="BL6-Kp-ZIu"/>
-                            <constraint firstItem="gRy-Pi-I8Q" firstAttribute="leading" secondItem="3yX-mq-yko" secondAttribute="leading" constant="20" id="J0M-OJ-tIp"/>
                             <constraint firstAttribute="trailing" secondItem="fAx-g0-gDJ" secondAttribute="trailing" id="J0z-IS-KMS"/>
-                            <constraint firstItem="3yX-mq-yko" firstAttribute="trailing" secondItem="IpV-ae-gKA" secondAttribute="trailing" constant="20" id="NYd-Gj-kip"/>
                             <constraint firstItem="IpV-ae-gKA" firstAttribute="leading" secondItem="gRy-Pi-I8Q" secondAttribute="trailing" constant="10" id="Nhl-8b-nOC"/>
                             <constraint firstItem="Ixk-9L-S1A" firstAttribute="top" secondItem="Bpy-hl-g6z" secondAttribute="top" constant="277" id="Rcw-5k-uXO"/>
+                            <constraint firstItem="gRy-Pi-I8Q" firstAttribute="leading" secondItem="3yX-mq-yko" secondAttribute="leading" constant="20" id="RqS-wf-0Vs"/>
                             <constraint firstItem="NY1-cb-OCH" firstAttribute="top" secondItem="fAx-g0-gDJ" secondAttribute="bottom" constant="20" id="Tnc-sg-Tep"/>
                             <constraint firstItem="fAx-g0-gDJ" firstAttribute="top" secondItem="Bpy-hl-g6z" secondAttribute="top" id="W9b-lm-8hy"/>
+                            <constraint firstItem="gRy-Pi-I8Q" firstAttribute="top" secondItem="kyv-rd-357" secondAttribute="bottom" constant="20" id="XCn-FU-54s"/>
                             <constraint firstItem="kyv-rd-357" firstAttribute="trailing" secondItem="Ng4-rJ-2Rr" secondAttribute="trailing" id="YqH-zb-Ylo"/>
-                            <constraint firstItem="gRy-Pi-I8Q" firstAttribute="top" secondItem="kyv-rd-357" secondAttribute="bottom" constant="10" id="aOh-e3-QqR"/>
                             <constraint firstItem="Ng4-rJ-2Rr" firstAttribute="leading" secondItem="3yX-mq-yko" secondAttribute="leading" constant="20" id="bx3-sE-2Nh"/>
                             <constraint firstItem="fAx-g0-gDJ" firstAttribute="leading" secondItem="Bpy-hl-g6z" secondAttribute="leading" id="dTa-bT-Kg3"/>
                             <constraint firstItem="da5-aH-1c6" firstAttribute="leading" secondItem="kyv-rd-357" secondAttribute="trailing" constant="10" id="ezR-Wg-XVi"/>
+                            <constraint firstAttribute="trailing" secondItem="IpV-ae-gKA" secondAttribute="trailing" constant="20" id="i02-9Y-qYy"/>
                             <constraint firstItem="NY1-cb-OCH" firstAttribute="leading" secondItem="Ng4-rJ-2Rr" secondAttribute="trailing" constant="10" id="joY-jJ-Ais"/>
                             <constraint firstItem="da5-aH-1c6" firstAttribute="top" secondItem="NY1-cb-OCH" secondAttribute="bottom" constant="10" id="mkr-3P-JIk"/>
-                            <constraint firstItem="Ixk-9L-S1A" firstAttribute="leading" secondItem="gRy-Pi-I8Q" secondAttribute="trailing" constant="7" id="n9u-mD-Fhe"/>
                             <constraint firstItem="da5-aH-1c6" firstAttribute="top" secondItem="kyv-rd-357" secondAttribute="top" id="o0M-Gz-8ic"/>
                             <constraint firstItem="kyv-rd-357" firstAttribute="leading" secondItem="Ng4-rJ-2Rr" secondAttribute="leading" id="ssh-AY-DJh"/>
                             <constraint firstAttribute="trailing" secondItem="Ixk-9L-S1A" secondAttribute="trailing" constant="347" id="uiM-fg-xrB"/>
-                            <constraint firstItem="Ixk-9L-S1A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3yX-mq-yko" secondAttribute="leading" id="yZ9-Kf-PcW"/>
                             <constraint firstItem="IpV-ae-gKA" firstAttribute="top" secondItem="da5-aH-1c6" secondAttribute="bottom" constant="10" id="yri-dc-0as"/>
                         </constraints>
                     </view>
@@ -942,6 +941,7 @@
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mail" catalog="system" width="128" height="93"/>
         <image name="map" catalog="system" width="128" height="110"/>
