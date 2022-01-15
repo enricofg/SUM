@@ -71,9 +71,8 @@ class ARViewController: UIViewController {
         
         progressBar?.children[0].children[0].children[0].components.set(valueModelComp)
         progressBar?.children[1].children[0].components.set(barModelComp)
-    
-        print("Chosen bus: \(loadBus!)")
         
+        print("Chosen bus: \(loadBus ?? 9999)")
         //if no bus was sent to be loaded, then load number 5
         if loadBus==nil{
             loadBus=5 //random choice -> TODO: change to nearest bus

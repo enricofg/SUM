@@ -32,6 +32,7 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
     var pickerView1 = UIPickerView()
     var pickerView2 = UIPickerView()
     var filteredBuses: [Bus]?
+    var selectedBusId:Int? = nil
     typealias FinishedExecute = () -> ()
     
     override func viewDidLoad() {
@@ -68,6 +69,7 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
                 if let firstBus = self?._buses?.first {
                     self?.getBusFromStops()
                     self?.selectedRatingBus = firstBus.Bus_Number
+                    self?.selectedBusId = firstBus.Bus_Id
                     self?.AutocarroTF.text = firstBus.Bus_Name
                     
                     self?.lotacaoLB.text = "\(firstBus.Bus_Capacity)%"
@@ -101,16 +103,16 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
     
     //load AR with chosen Bus
     @IBAction func CapacityBtnTap(_ sender: Any) {
-        completionHandler?(selectedRatingBus)
+        //completionHandler?(selectedBusId)
         self.performSegue(withIdentifier: "loadARFromBuses", sender: view)
     }
     
     //prepare data for AR view
     override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
         if segue.identifier == "loadARFromBuses" {
-            if selectedRatingBus>0{
+            if selectedBusId!>0{
                 let destination = segue.destination as! ARViewController
-                destination.loadBus = selectedRatingBus
+                destination.loadBus = selectedBusId
             } else {
                 print("No bus was chosen.") //TODO: warn user
             }
@@ -256,7 +258,7 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         if let shortcut = INShortcut(intent: scheduleIntent) {
             let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
             viewController.modalPresentationStyle = .overCurrentContext
-            viewController.delegate = self // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
+            viewController.delegate = self
             present(viewController, animated: true, completion: nil)
         }
     }
@@ -363,6 +365,7 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
             if (filteredBuses != nil)
             {
                 selectedRatingBus = filteredBuses![row].Bus_Number
+                selectedBusId = filteredBuses![row].Bus_Id
                 AutocarroTF.text = "\(filteredBuses![row].Bus_Name)"
 
                 AutocarroTF.resignFirstResponder()
