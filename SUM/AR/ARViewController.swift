@@ -18,6 +18,7 @@ class ARViewController: UIViewController {
     let networkManager = NetworkManager()
     var bus:Entity?
     var progressBar:Entity?
+    var loadBus:Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +72,15 @@ class ARViewController: UIViewController {
         progressBar?.children[0].children[0].children[0].components.set(valueModelComp)
         progressBar?.children[1].children[0].components.set(barModelComp)
     
+        print("Chosen bus: \(loadBus!)")
+        
+        //if no bus was sent to be loaded, then load number 5
+        if loadBus==nil{
+            loadBus=5 //random choice -> TODO: change to nearest bus
+        }
+        
         //HTTP Request
-        networkManager.fetchBus(busNumber: 5) { [weak self] (bus) in
+        networkManager.fetchBus(busNumber: loadBus) { [weak self] (bus) in
             DispatchQueue.main.async {
                 
                 //Handle requested data

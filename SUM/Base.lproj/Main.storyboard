@@ -336,7 +336,7 @@
                                             <constraint firstItem="yoo-83-Pkj" firstAttribute="leading" secondItem="t5D-uO-ocS" secondAttribute="trailing" constant="3" id="q2T-Mx-qIC"/>
                                             <constraint firstAttribute="trailing" secondItem="6s1-u6-Q7s" secondAttribute="trailing" constant="20" id="sGE-1d-IDC"/>
                                             <constraint firstItem="G86-gU-yJw" firstAttribute="top" secondItem="ROY-VV-5l8" secondAttribute="bottom" constant="9" id="u4M-rT-Dw6"/>
-                                            <constraint firstItem="6s1-u6-Q7s" firstAttribute="top" secondItem="Xuj-z3-UCc" secondAttribute="bottom" constant="20" id="vGu-8a-Z0e"/>
+                                            <constraint firstItem="6s1-u6-Q7s" firstAttribute="top" secondItem="Xuj-z3-UCc" secondAttribute="bottom" constant="40" id="vGu-8a-Z0e"/>
                                             <constraint firstItem="Xuj-z3-UCc" firstAttribute="leading" secondItem="TPE-gy-lPU" secondAttribute="leading" id="y6O-7f-eHr"/>
                                             <constraint firstAttribute="trailing" secondItem="TFT-7k-vC6" secondAttribute="trailing" constant="20" id="z5h-fG-vs1"/>
                                             <constraint firstItem="ELe-BM-XgA" firstAttribute="top" secondItem="TPE-gy-lPU" secondAttribute="bottom" constant="28" id="zIZ-3V-bFu"/>
@@ -383,6 +383,7 @@
                         <outlet property="OrigemTF" destination="Duq-nL-msD" id="aoY-f4-ZPI"/>
                         <outlet property="lotacaoLB" destination="TFT-7k-vC6" id="W5r-Kv-yQq"/>
                         <outlet property="mapView" destination="G86-gU-yJw" id="bSB-ym-39g"/>
+                        <segue destination="kbe-Mz-2FX" kind="showDetail" identifier="loadARFromBuses" id="Ygc-Vv-cXW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aON-nG-cqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -564,7 +565,7 @@
             <objects>
                 <viewController storyboardIdentifier="ar" id="kbe-Mz-2FX" customClass="ARViewController" customModule="SUM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mnu-V7-ZJB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiX-cT-ZeV">
@@ -577,10 +578,10 @@
                                 <color key="barTintColor" name="AccentColor"/>
                             </toolbar>
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAx-Tf-GHU">
-                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="708"/>
                             </arView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLJ-cA-H12" userLabel="Plus Button">
-                                <rect key="frame" x="349" y="648.5" width="45" height="44"/>
+                                <rect key="frame" x="349" y="643.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Gne-vO-hyC"/>
                                     <constraint firstAttribute="width" constant="45" id="VpI-YP-myM"/>
@@ -593,7 +594,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-9z-a0X" userLabel="Minus Button">
-                                <rect key="frame" x="349" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="349" y="708.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="PpR-QJ-T4q"/>
                                     <constraint firstAttribute="height" constant="45" id="sxQ-jc-O5S"/>
@@ -606,9 +607,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-ij-u1f" userLabel="Rotate Right Button">
-                                <rect key="frame" x="20" y="713.5" width="45" height="44"/>
+                                <rect key="frame" x="20" y="708.5" width="45" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="MhV-vW-eoG"/>
+                                    <constraint firstAttribute="width" constant="45" id="MhV-vW-eoG"/>
                                     <constraint firstAttribute="height" constant="45" id="jNm-MY-JlI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
@@ -619,7 +620,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYx-gW-CWU" userLabel="Rotate Left Button">
-                                <rect key="frame" x="20" y="648.5" width="45" height="44"/>
+                                <rect key="frame" x="20" y="643.5" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="qjB-Ll-p6w"/>
                                     <constraint firstAttribute="height" constant="45" id="y0V-y2-CVa"/>
@@ -634,9 +635,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV5-Cw-irg" userLabel="Like Button">
-                                <rect key="frame" x="130" y="703.5" width="60" height="59"/>
+                                <rect key="frame" x="130" y="698.5" width="60" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="6AQ-BL-Jy5"/>
+                                    <constraint firstAttribute="width" constant="60" id="6AQ-BL-Jy5"/>
                                     <constraint firstAttribute="height" constant="60" id="oGd-pg-e7Q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
@@ -648,9 +649,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-X5-R9y" userLabel="Dislike Button">
-                                <rect key="frame" x="224" y="703.5" width="60" height="59"/>
+                                <rect key="frame" x="224" y="698.5" width="60" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="jHL-bG-DhS"/>
+                                    <constraint firstAttribute="width" constant="60" id="jHL-bG-DhS"/>
                                     <constraint firstAttribute="height" constant="60" id="xYm-cI-oql"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
@@ -927,6 +928,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="fEE-NJ-Lf5"/>
+        <segue reference="Ygc-Vv-cXW"/>
+        <segue reference="HQ7-Wb-JpR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.uturn.left.circle.fill" catalog="system" width="128" height="121"/>
