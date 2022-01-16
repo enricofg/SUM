@@ -11,17 +11,15 @@ import Intents
 class ScheduleIntentHandler:NSObject, ScheduleIntentHandling{
 
     let networkManager = NetworkManager()
-    var busId:Int?
     var selectedBus:Bus?=nil
     var busStop:Stops?=nil
     var busSchedule:StopSchedule?=nil
     
     func handle(intent: ScheduleIntent, completion: @escaping (ScheduleIntentResponse) -> Void) {
         //get bus
-        networkManager.fetchBus(busNumber: busId)  { [weak self] (_bus) in
+        networkManager.fetchBus(busNumber: intent.busId?.intValue )  { [weak self] (_bus) in
             self?.selectedBus=_bus.first
             DispatchQueue.main.async { [self] in
-                
                 //get first stop
                 self!.networkManager.fetchStops { [weak self] (stops) in
                     DispatchQueue.main.async { [self] in
@@ -32,7 +30,7 @@ class ScheduleIntentHandler:NSObject, ScheduleIntentHandling{
                             self!.busSchedule=stopsschedules.first?.StopSchedule.first
                             DispatchQueue.main.async {
                                 if self!.busSchedule != nil {
-                                    completion(.success(schedule: "The bus \(self!.selectedBus?.Bus_Name ?? "") will stop at the \(self!.busStop?.Stop_Name ?? "") at \(self!.busSchedule?.Schedule_Time ?? "")."))
+                                    completion(.success(schedule: "The bus \(self!.selectedBus?.Bus_Name ?? "") with id \(intent.busId?.intValue ?? 9999) will stop at the \(self!.busStop?.Stop_Name ?? "") at \(self!.busSchedule?.Schedule_Time ?? "")."))
                                 } else {
                                     completion(.success(schedule: "No bus schedule information could be found."))
                                 }
@@ -45,13 +43,11 @@ class ScheduleIntentHandler:NSObject, ScheduleIntentHandling{
     }
     
     func resolveBusId(for intent: ScheduleIntent, with completion: @escaping (ScheduleBusIdResolutionResult) -> Void) {
-        guard let id = intent.busId else {
+        guard let busId = intent.busId?.intValue else {
            completion(ScheduleBusIdResolutionResult.needsValue())
            return
         }
-        
-        busId=Int(id)
-        completion(ScheduleBusIdResolutionResult.success(with: Int(id)))
+        completion(ScheduleBusIdResolutionResult.success(with: busId))
     }
 }
 

@@ -14,7 +14,7 @@ class NetworkManager {
     func fetchBus(busNumber: Int? = nil, completionHandler: @escaping ([Bus]) -> Void) {
         var url = URL(string: domainUrl + "api/buses")!
         
-        if busNumber ?? -1>=0 {
+        if busNumber ?? -1 >= 0 {
             url = URL(string: domainUrl + "api/buses/\(busNumber ?? 0)")!
             print(url)
         }
