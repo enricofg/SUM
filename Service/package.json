@@ -1,0 +1,14 @@
+{
+  "name": "teste",
+  "version": "",
+  "description": "",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "author": "",
+  "dependencies": {
+    "swagger-node-express": "~2.0",
+    "swagger-ui-express": "^4.3.0",
+    "tedious": "^9.0.1"
+  }
+}

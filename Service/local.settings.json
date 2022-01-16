@@ -1,0 +1,12 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "db_server": "smarturbanmoving.database.windows.net",
+    "db_database": "smarturbanmoving",
+    "db_user": "UrbanMoving",
+    "db_password": "Zxcvbnm00",
+    "AzureWebJobs.buses.Disabled": "false"
+  }
+}

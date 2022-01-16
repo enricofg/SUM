@@ -1,0 +1,4 @@
+Cheio
+lixo
+Médio
+Vazio

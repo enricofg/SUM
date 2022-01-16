@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "Logótipo_Politécnico_Leiria_01.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "lossless",
+    "template-rendering-intent" : "original"
+  }
+}
