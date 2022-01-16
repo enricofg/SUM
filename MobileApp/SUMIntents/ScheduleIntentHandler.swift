@@ -9,10 +9,49 @@ import Foundation
 import Intents
 
 class ScheduleIntentHandler:NSObject, ScheduleIntentHandling{
+
+    let networkManager = NetworkManager()
+    var busId:Int?
+    var selectedBus:Bus?=nil
+    var busStop:Stops?=nil
+    var busSchedule:StopSchedule?=nil
     
     func handle(intent: ScheduleIntent, completion: @escaping (ScheduleIntentResponse) -> Void) {
-        completion(.success(schedule: "Rua António Gaspar Serrano at 07:30:00")) //TODO: get real information
+        //get bus
+        networkManager.fetchBus(busNumber: busId)  { [weak self] (_bus) in
+            self?.selectedBus=_bus.first
+            DispatchQueue.main.async { [self] in
+                
+                //get first stop
+                self!.networkManager.fetchStops { [weak self] (stops) in
+                    DispatchQueue.main.async { [self] in
+                        self!.busStop=stops.first
+                        
+                        //get first schedule for stop
+                        self!.networkManager.fetchStopsSchedule(compID: self!.busStop!.Stop_Id){[weak self] (stopsschedules) in
+                            self!.busSchedule=stopsschedules.first?.StopSchedule.first
+                            DispatchQueue.main.async {
+                                if self!.busSchedule != nil {
+                                    completion(.success(schedule: "The bus \(self!.selectedBus?.Bus_Name ?? "") will stop at the \(self!.busStop?.Stop_Name ?? "") at \(self!.busSchedule?.Schedule_Time ?? "")."))
+                                } else {
+                                    completion(.success(schedule: "No bus schedule information could be found."))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
-    
+    func resolveBusId(for intent: ScheduleIntent, with completion: @escaping (ScheduleBusIdResolutionResult) -> Void) {
+        guard let id = intent.busId else {
+           completion(ScheduleBusIdResolutionResult.needsValue())
+           return
+        }
+        
+        busId=Int(id)
+        completion(ScheduleBusIdResolutionResult.success(with: Int(id)))
+    }
 }
+
