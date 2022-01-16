@@ -8,16 +8,15 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var button: UIButton!
+    @IBOutlet weak var btnShare: UIButton!
     static let identifier = "TableViewCell"
     
     static func nib() -> UINib {
         return UINib(nibName: "TableViewCell", bundle: nil)
     }
-    @IBOutlet var button: UIButton!
-    @IBOutlet weak var btnShare: UIButton!
     
-
     func configure(with title: String){
         button.setTitle(title, for: .normal)
     }
@@ -27,11 +26,10 @@ class TableViewCell: UITableViewCell {
         button.setTitleColor(.link, for: .normal)
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
-    }
-    
+    }    
 }

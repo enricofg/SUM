@@ -37,6 +37,5 @@ class AppIntent{
                 print("Interaction donated successfully.")
             }
         }
-        
     }
 }

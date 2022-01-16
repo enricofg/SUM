@@ -14,7 +14,7 @@ protocol HandleMapSearch {
 }
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    
     @IBOutlet var homeMapView: MKMapView!
     @IBOutlet var mapButtons: [UIButton]!
     @IBOutlet var buttonsView: UIStackView!
@@ -46,7 +46,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         } else {
             print("Location services are not enabled.")
         }
-                
+        
         //home map view config parameters
         homeMapView.delegate = self
         homeMapView.isZoomEnabled = true
@@ -183,14 +183,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
         return nil
     }
-    
-//    @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
-//        //set map to user's current location
-//        if (CLLocationManager.locationServicesEnabled())
-//        {
-//            goToCurrentLocation()
-//        }
-//    }
 }
 
 //custom subclass for mk point annotation for id usage

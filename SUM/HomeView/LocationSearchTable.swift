@@ -12,7 +12,7 @@ class LocationSearchTable : UITableViewController {
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     var handleMapSearchDelegate:HandleMapSearch? = nil
-
+    
     func parseAddress(selectedItem:MKPlacemark) -> String {
         // put a space between street and number
         let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
@@ -41,10 +41,10 @@ class LocationSearchTable : UITableViewController {
 extension LocationSearchTable : UISearchResultsUpdating {    
     //call Apple MapKit API for location search
     func updateSearchResults(for searchController: UISearchController) {
-    
+        
         //make sure map view is properly set up
         guard let mapView = mapView,
-            let searchBarText = searchController.searchBar.text else { return }
+              let searchBarText = searchController.searchBar.text else { return }
         
         //create search request
         let request = MKLocalSearch.Request()

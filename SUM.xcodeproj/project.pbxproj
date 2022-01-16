@@ -19,6 +19,8 @@
 		A25E20F42775CC1A00FAAE7B /* BusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E20F32775CC1A00FAAE7B /* BusViewController.swift */; };
 		A25E20F62775CF0200FAAE7B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E20F52775CF0200FAAE7B /* NetworkManager.swift */; };
 		A25E20F82775CF4B00FAAE7B /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E20F72775CF4B00FAAE7B /* Structures.swift */; };
+		A81B03B027946217003AEE28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B03AF27946217003AEE28 /* NetworkManager.swift */; };
+		A81B03B227946221003AEE28 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B03B127946221003AEE28 /* Structures.swift */; };
 		A8286DEC278D042C004547CC /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8286DEB278D042C004547CC /* LocationSearchTable.swift */; };
 		A859C8C52783690400C64E98 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A859C8C42783690400C64E98 /* ARViewController.swift */; };
 		A85FBBCA27836DEF0036A86D /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = A85FBBC627836DEF0036A86D /* Experience.rcproject */; };
@@ -85,6 +87,8 @@
 		A25E20F32775CC1A00FAAE7B /* BusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusViewController.swift; sourceTree = "<group>"; };
 		A25E20F52775CF0200FAAE7B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A25E20F72775CF4B00FAAE7B /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
+		A81B03AF27946217003AEE28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A81B03B127946221003AEE28 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		A8286DEB278D042C004547CC /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		A859C8C42783690400C64E98 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		A85FBBC627836DEF0036A86D /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
@@ -133,9 +137,9 @@
 		081FAE96278E301E00EAE631 /* Stops */ = {
 			isa = PBXGroup;
 			children = (
+				0845367F277B4FB700319AF9 /* StopsViewController.swift */,
 				08453682277B730800319AF9 /* TableViewCell.swift */,
 				08453681277B730800319AF9 /* TableViewCell.xib */,
-				0845367F277B4FB700319AF9 /* StopsViewController.swift */,
 			);
 			path = Stops;
 			sourceTree = "<group>";
@@ -143,10 +147,12 @@
 		081FAE97278E30B600EAE631 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A25E20F72775CF4B00FAAE7B /* Structures.swift */,
-				A20324C12786153B00CF033F /* Helper.swift */,
 				A251E5AC27230627008C8A6C /* AppDelegate.swift */,
+				A889842F2790BAF6005A09D7 /* AppIntent.swift */,
+				A20324C12786153B00CF033F /* Helper.swift */,
 				A25E20F52775CF0200FAAE7B /* NetworkManager.swift */,
+				A251E5AE27230627008C8A6C /* SceneDelegate.swift */,
+				A25E20F72775CF4B00FAAE7B /* Structures.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -191,8 +197,6 @@
 				081FAE96278E301E00EAE631 /* Stops */,
 				081FAEFA2790895500EAE631 /* SUMRelease.entitlements */,
 				A251E5BA2723062C008C8A6C /* Info.plist */,
-				A889842F2790BAF6005A09D7 /* AppIntent.swift */,
-				A251E5AE27230627008C8A6C /* SceneDelegate.swift */,
 				A251E5B52723062C008C8A6C /* Assets.xcassets */,
 				A251E5B72723062C008C8A6C /* LaunchScreen.storyboard */,
 				A251E5B227230627008C8A6C /* Main.storyboard */,
@@ -234,6 +238,8 @@
 				A889840E2790B410005A09D7 /* IntentHandler.swift */,
 				A889842A2790B453005A09D7 /* Intents.intentdefinition */,
 				A889842C2790B6F7005A09D7 /* ScheduleIntentHandler.swift */,
+				A81B03AF27946217003AEE28 /* NetworkManager.swift */,
+				A81B03B127946221003AEE28 /* Structures.swift */,
 			);
 			path = SUMIntents;
 			sourceTree = "<group>";
@@ -401,6 +407,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81B03B227946221003AEE28 /* Structures.swift in Sources */,
+				A81B03B027946217003AEE28 /* NetworkManager.swift in Sources */,
 				A889842D2790B6F7005A09D7 /* ScheduleIntentHandler.swift in Sources */,
 				A889842B2790B453005A09D7 /* Intents.intentdefinition in Sources */,
 				A889840F2790B410005A09D7 /* IntentHandler.swift in Sources */,

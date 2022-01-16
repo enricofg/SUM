@@ -10,7 +10,7 @@ import RealityKit
 import ARKit
 
 class ARViewController: UIViewController {
-
+    
     @IBOutlet var arView: ARView!
     @IBOutlet var scaleButtons: [UIButton]!
     @IBOutlet var rotateButtons: [UIButton]!
@@ -22,7 +22,7 @@ class ARViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Configure the AR session for horizontal plane tracking
         let arConfiguration = ARWorldTrackingConfiguration()
         arConfiguration.planeDetection = .horizontal
@@ -63,25 +63,23 @@ class ARViewController: UIViewController {
         
         //Set default 3D model parameters
         valueModelComp.mesh = .generateText("\(description)",
-                                                extrusionDepth: 0.001,
-                                        font: .systemFont(ofSize: 0.03),
-                              containerFrame: CGRect(),
-                                   alignment: .left,
-                               lineBreakMode: .byCharWrapping)
+                                            extrusionDepth: 0.001,
+                                            font: .systemFont(ofSize: 0.03),
+                                            containerFrame: CGRect(),
+                                            alignment: .left,
+                                            lineBreakMode: .byCharWrapping)
         
         progressBar?.children[0].children[0].children[0].components.set(valueModelComp)
         progressBar?.children[1].children[0].components.set(barModelComp)
         
-        print("Chosen bus: \(loadBus ?? 9999)")
-        //if no bus was sent to be loaded, then load number 5
+        //if no bus was sent to be loaded from Buses view, then load number 5
         if loadBus==nil{
-            loadBus=5 //random choice -> TODO: change to nearest bus
+            loadBus=5 //random choice of id -> TODO: change to nearest bus
         }
         
         //HTTP Request
         networkManager.fetchBus(busNumber: loadBus) { [weak self] (bus) in
             DispatchQueue.main.async {
-                
                 //Handle requested data
                 capacity = bus.first?.Bus_Capacity ?? 0
                 if(capacity<40){
@@ -97,15 +95,15 @@ class ARViewController: UIViewController {
                     description="Cheio - Lotação: \(capacity)%"
                     barEntity.scale = [1,1.5+Float(capacity/100),1]
                 }
-                    barModelComp.materials[0] = barMaterial
+                barModelComp.materials[0] = barMaterial
                 
                 //Set 3D model updated parameters
                 valueModelComp.mesh = .generateText("\(description)",
-                                                        extrusionDepth: 0.001,
-                                                font: .systemFont(ofSize: 0.03),
-                                      containerFrame: CGRect(),
-                                           alignment: .left,
-                                       lineBreakMode: .byCharWrapping)
+                                                    extrusionDepth: 0.001,
+                                                    font: .systemFont(ofSize: 0.03),
+                                                    containerFrame: CGRect(),
+                                                    alignment: .left,
+                                                    lineBreakMode: .byCharWrapping)
                 
                 self!.progressBar?.children[0].children[0].children[0].components.set(valueModelComp)
                 self!.progressBar?.children[1].children[0].components.set(barModelComp)
@@ -165,18 +163,18 @@ class ARViewController: UIViewController {
     //function to convert Hex value to UIColor class
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
+        
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
         }
-
+        
         if ((cString.count) != 6) {
             return UIColor.gray
         }
-
+        
         var rgbValue:UInt64 = 0
         Scanner(string: cString).scanHexInt64(&rgbValue)
-
+        
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -184,6 +182,4 @@ class ARViewController: UIViewController {
             alpha: CGFloat(1.0)
         )
     }
-    
-    
 }

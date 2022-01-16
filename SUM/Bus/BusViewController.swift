@@ -45,8 +45,7 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         
         //set up info container height parameter for visibility changes
         initialInfoContainerHeight = additionalInfoContainer.frame.height
-        
-        
+                
         networkManager.fetchStops { [weak self] (stops) in
             self?._stops = stops
             DispatchQueue.main.async {
@@ -59,7 +58,6 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         }
         
         getUserLocation()
-        
         
         let coordinate = CLLocationCoordinate2D(latitude: 39.73594501415817, longitude: -8.817790583959448)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
@@ -90,8 +88,6 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
             }
         }
         
-        //DataLB.text = getDate()
-        
         origemTF.inputView = pickerView1
         pickerView1.delegate = self
         pickerView1.dataSource = self
@@ -109,13 +105,12 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         
     }
     
-    //load AR with chosen Bus
+    //load AR View with chosen Bus
     @IBAction func CapacityBtnTap(_ sender: Any) {
-        //completionHandler?(selectedBusId)
         self.performSegue(withIdentifier: "loadARFromBuses", sender: view)
     }
     
-    //prepare data for AR view
+    //prepare data for AR View
     override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
         if segue.identifier == "loadARFromBuses" {
             if selectedBusId!>0{
@@ -126,7 +121,6 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
             }
         }
     }
-    
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
@@ -148,7 +142,6 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
         
         if(annotationView == nil) {
-            //Create the view
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
             annotationView?.canShowCallout = true
         } else {
@@ -262,12 +255,12 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
         }
     }
     
-    //if add shortcut is done -> dismiss modal
+    //if add Siri shortcut is done -> dismiss modal
     func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
     
-    //if add shortcut is canceled -> dismiss modal
+    //if add Siri shortcut is canceled -> dismiss modal
     func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
@@ -299,6 +292,7 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(pickerView == pickerView1){
             if (_stops == nil)
@@ -313,10 +307,10 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
             }
             return filteredBuses!.count
         }
-        
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        toggleAdditionalInfo(hide:true)
+        toggleAdditionalInfo(hide:true) //hide info container when stop picker is selected
         if(pickerView == pickerView1){
             if (_stops == nil)
             {
@@ -341,7 +335,7 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        toggleAdditionalInfo(hide:true)
+        toggleAdditionalInfo(hide:true) //hide info container when stop picker is selected
         if(pickerView == pickerView1){
             if (_stops != nil)
             {
@@ -364,7 +358,7 @@ extension BusViewController : UIPickerViewDelegate, UIPickerViewDataSource{
                 autocarroTF.resignFirstResponder()
                 
                 lotacaoLB.text = "\(filteredBuses![row].Bus_Capacity)%"
-                toggleAdditionalInfo(hide:false)
+                toggleAdditionalInfo(hide:false) //show info container after bus information is set
                 
                 dataLB.text = getDate()
                 

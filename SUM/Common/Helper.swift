@@ -11,15 +11,6 @@ import UIKit
 
 
 class Helper {
-    
-    /*
-    func getUserLocation(locationManager: CLLocationManager?) {
-         locationManager = CLLocationManager()
-         locationManager?.requestAlwaysAuthorization()
-         locationManager?.startUpdatingLocation()
-     }
-     */
-    
     func addLeftImageTo(txtField: UITextField, andImage img:UIImage){
         let leftImageView = UIImageView(frame:CGRect(x:0.0,y:0.0,width:img.size.width,height:img.size.height))
         leftImageView.image = img;
@@ -31,22 +22,20 @@ class Helper {
     {
         let deviceLocation = CLLocation(latitude: myPositionLatitude , longitude: myPositionLongitude)
         let pointLocation = CLLocation(latitude: pointPositionLatitude ?? myPositionLatitude, longitude: pointPositionLongitude ?? myPositionLongitude)
-
+        
         let distance = deviceLocation.distance(from: pointLocation) / 1000
         return distance
         
     }
     
-    //Example usage: self.present(Helper.presentDialog(title: "Teste", message: "teste"), animated: true, completion: nil)
     func presentDialog(title: String, message: String) -> UIAlertController {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             print("Ok button tapped")
-         })
+        })
         
         dialogMessage.addAction(ok)
         return dialogMessage
-     //   self.present(dialogMessage, animated: true, completion: nil)
     }
 }

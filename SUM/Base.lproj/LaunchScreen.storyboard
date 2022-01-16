@@ -29,7 +29,7 @@
                                             <constraint firstAttribute="width" constant="250" id="b4H-Ep-E1R"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logótipo_Politécnico_Leiria_01" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-xM-QNR">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logótipo_Politécnico_Leiria_01" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-xM-QNR">
                                         <rect key="frame" x="87" y="638" width="200" height="174"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="4jW-wa-ETf"/>
@@ -58,7 +58,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logótipo_Politécnico_Leiria_01" width="2063" height="813"/>
+        <image name="Logótipo_Politécnico_Leiria_01" width="2063" height="813"/>
         <image name="Smart Urban Moving-logos" width="1200" height="1200"/>
         <image name="busimage" width="626" height="418"/>
         <systemColor name="systemBackgroundColor">
