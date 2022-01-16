@@ -58,5 +58,12 @@ struct StopSchedule: Decodable{
     var Schedule_Time : String
 }
 
-
-
+struct TimeBusLine: Decodable{
+    var Bus_Id : Int
+    var Bus_Name : String
+    var Line_Id : Int
+    var Line_Name : String
+    var Stop_Id : Int
+    var Stop_Name : String
+    var Schedule_Time : String
+}
