@@ -9,45 +9,37 @@ import Foundation
 import Intents
 
 class ScheduleIntentHandler:NSObject, ScheduleIntentHandling{
-
+    
     let networkManager = NetworkManager()
-    var selectedBus:Bus?=nil
-    var busStop:Stops?=nil
-    var busSchedule:StopSchedule?=nil
+    var timeBusLine:TimeBusLine?=nil
     
     func handle(intent: ScheduleIntent, completion: @escaping (ScheduleIntentResponse) -> Void) {
-        //get bus
-        networkManager.fetchBus(busNumber: intent.busId?.intValue )  { [weak self] (_bus) in
-            self?.selectedBus=_bus.first
+        networkManager.nextTimeBusLine(stopID: intent.stopId?.intValue ?? 0, lineID: intent.lineId?.intValue ?? 0, currentDate: Date()) { [weak self] (timeBusLine) in
+            self?.timeBusLine=timeBusLine.first
             DispatchQueue.main.async { [self] in
-                //get first stop
-                self!.networkManager.fetchStops { [weak self] (stops) in
-                    DispatchQueue.main.async { [self] in
-                        self!.busStop=stops.first
-                        
-                        //get first schedule for stop
-                        self!.networkManager.fetchStopsSchedule(compID: self!.busStop!.Stop_Id){[weak self] (stopsschedules) in
-                            self!.busSchedule=stopsschedules.first?.StopSchedule.first
-                            DispatchQueue.main.async {
-                                if self!.busSchedule != nil {
-                                    completion(.success(schedule: "The bus \(self!.selectedBus?.Bus_Name ?? "") with id \(intent.busId?.intValue ?? 9999) will stop at the \(self!.busStop?.Stop_Name ?? "") at \(self!.busSchedule?.Schedule_Time ?? "")."))
-                                } else {
-                                    completion(.success(schedule: "No bus schedule information could be found."))
-                                }
-                            }
-                        }
-                    }
+                if self!.timeBusLine != nil {
+                    completion(.success(schedule: "The bus \(self!.timeBusLine?.Bus_Name ?? "") will stop at the \( self!.timeBusLine?.Stop_Name ?? "") at \(self!.timeBusLine?.Schedule_Time ?? "")."))
+                } else {
+                    completion(.success(schedule: "No bus schedule information could be found."))
                 }
             }
         }
     }
     
-    func resolveBusId(for intent: ScheduleIntent, with completion: @escaping (ScheduleBusIdResolutionResult) -> Void) {
-        guard let busId = intent.busId?.intValue else {
-           completion(ScheduleBusIdResolutionResult.needsValue())
+    func resolveLineId(for intent: ScheduleIntent, with completion: @escaping (ScheduleLineIdResolutionResult) -> Void) {
+        guard let lineId = intent.lineId?.intValue else {
+           completion(ScheduleLineIdResolutionResult.needsValue())
            return
         }
-        completion(ScheduleBusIdResolutionResult.success(with: busId))
+        completion(ScheduleLineIdResolutionResult.success(with: lineId))
+    }
+    
+    func resolveStopId(for intent: ScheduleIntent, with completion: @escaping (ScheduleStopIdResolutionResult) -> Void) {
+        guard let stopId = intent.stopId?.intValue else {
+           completion(ScheduleStopIdResolutionResult.needsValue())
+           return
+        }
+        completion(ScheduleStopIdResolutionResult.success(with: stopId))
     }
 }
 

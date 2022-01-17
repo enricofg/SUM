@@ -22,23 +22,23 @@
 			<key>INIntentConfigurable</key>
 			<true/>
 			<key>INIntentDescription</key>
-			<string>Get the schedule with id bus Id</string>
+			<string>Get the schedule for the next bus of a determined line and stop.</string>
 			<key>INIntentDescriptionID</key>
 			<string>EFqnJz</string>
 			<key>INIntentInput</key>
-			<string>busId</string>
+			<string>lineId</string>
 			<key>INIntentKeyParameter</key>
-			<string>busId</string>
+			<string>lineId</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>2</integer>
+			<integer>4</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
-				<key>busId</key>
+				<key>lineId,stopId</key>
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Get schedule for bus ${busId}</string>
+					<string>Get schedule for the next bus from line ${lineId} and stop ${stopId}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>L5Tcqg</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
@@ -49,18 +49,20 @@
 			<string>Schedule</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>busId</key>
+				<key>lineId,stopId</key>
 				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
 					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Get the schedule of bus with  ${busId}</string>
+					<string>Get the schedule for the next bus of line ${lineId} and stop ${stopId}.</string>
 					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>j1Q0os</string>
+					<string>pmAc1r</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Get schedule for bus ${busId}</string>
+					<string>Get schedule for the next bus from line ${lineId} and stop ${stopId}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>krQLyK</string>
+					<string>PG5Oth</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>
@@ -69,7 +71,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Bus Id</string>
+					<string>Line</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>cfDX5R</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -82,7 +84,7 @@
 						<string>Field</string>
 					</dict>
 					<key>INIntentParameterName</key>
-					<string>busId</string>
+					<string>lineId</string>
 					<key>INIntentParameterPromptDialogs</key>
 					<array>
 						<dict>
@@ -95,7 +97,7 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>What bus Id should I look for?</string>
+							<string>What line should I look for?</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>NnL2ue</string>
 							<key>INIntentParameterPromptDialogType</key>
@@ -139,6 +141,83 @@
 							<string>${displayName} can’t be lower than ${minimumValue}.</string>
 							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
 							<string>D7WnFl</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Stop</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>aBV7TA</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataMaximumValue</key>
+						<integer>10000</integer>
+						<key>INIntentParameterMetadataType</key>
+						<string>Field</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>stopId</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>What stop should I look for?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>xacFrj</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>4</integer>
+					<key>INIntentParameterType</key>
+					<string>Integer</string>
+					<key>INIntentParameterUnsupportedReasons</key>
+					<array>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>negativeNumbersNotSupported</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can’t be negative.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>GqXFZQ</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>greaterThanMaximumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can’t be higher than ${maximumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>bZzCxa</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>lessThanMinimumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can’t be lower than ${minimumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>RLAOUt</string>
 						</dict>
 					</array>
 				</dict>

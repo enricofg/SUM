@@ -80,4 +80,71 @@ class NetworkManager {
         })
         task.resume()
     }
+    
+    func fetchLines(completionHandler: @escaping ([Lines]) -> Void) {
+        let url = URL(string: domainUrl + "api/lines")!
+        
+        
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            if let error = error {
+                print("Error with fetching stops: \(error)")
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let toDos = try JSONDecoder().decode([Lines].self, from: data)
+                    completionHandler(toDos)
+                } catch let decoderError {
+                    print(decoderError)
+                }
+            }
+        })
+        task.resume()
+    }
+    
+    func fetchLine(compID : Int,  completionHandler: @escaping ([Lines]) -> Void) {
+        
+        let url = URL(string: domainUrl + "api/lines/"+String(compID))!
+        
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            if let error = error {
+                print("Error with fetching stops: \(error)")
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let toDos = try JSONDecoder().decode([Lines].self, from: data)
+                    completionHandler(toDos)
+                } catch let decoderError {
+                    print(decoderError)
+                }
+            }
+        })
+        task.resume()
+    }
+    
+    func nextTimeBusLine(stopID : Int,lineID : Int, currentDate : Date  , completionHandler: @escaping ([TimeBusLine]) -> Void) {
+    
+        let unixDate = Int(currentDate.timeIntervalSince1970)
+        let url = URL(string: domainUrl + "api/nexttime_bus_line/"+String(stopID)+"/"+String(lineID)+"/"+String(unixDate))!
+        print("URL: \(url)")
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            if let error = error {
+                print("Error with fetching stops: \(error)")
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let toDos = try JSONDecoder().decode([TimeBusLine].self, from: data)
+                    completionHandler(toDos)
+                } catch let decoderError {
+                    print(decoderError)
+                }
+            }
+        })
+        task.resume()
+    }
 }
