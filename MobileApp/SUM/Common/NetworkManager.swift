@@ -135,7 +135,7 @@ class NetworkManager {
 
     func nextTimeBusLine(stopID : Int,lineID : Int, currentDate : Date, completionHandler: @escaping ([TimeBusLine]) -> Void) {
     
-        let unixDate = currentDate.timeIntervalSince1970
+        let unixDate = Int(currentDate.timeIntervalSince1970)
         let url = URL(string: domainUrl + "api/nexttime_bus_line/"+String(stopID)+"/"+String(lineID)+"/"+String(unixDate))!
         
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
