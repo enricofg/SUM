@@ -106,6 +106,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: currentLocation, span: span)
         homeMapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
     }
     
     //add stops to map function -> call get stops API
