@@ -633,7 +633,8 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="right" backgroundImage="arrow.uturn.right.circle.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="Rta-U7-6B1"/>
+                                    <action selector="buttonRotateDown:" destination="kbe-Mz-2FX" eventType="touchDown" id="5fk-ky-QvG"/>
+                                    <action selector="buttonRotateUp:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="N0P-1b-bZG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYx-gW-CWU" userLabel="Rotate Left Button">
@@ -646,9 +647,8 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="left" backgroundImage="arrow.uturn.left.circle.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchDown" id="HNe-yE-GJX"/>
-                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchDownRepeat" id="ZnO-Gx-i4j"/>
-                                    <action selector="rotateModel:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="x2M-8s-o0A"/>
+                                    <action selector="buttonRotateDown:" destination="kbe-Mz-2FX" eventType="touchDown" id="YZ0-Tk-vOf"/>
+                                    <action selector="buttonRotateUp:" destination="kbe-Mz-2FX" eventType="touchUpInside" id="Rov-A6-SMT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV5-Cw-irg" userLabel="Like Button">
@@ -708,12 +708,6 @@
                     <navigationItem key="navigationItem" id="PGH-pN-vqv"/>
                     <connections>
                         <outlet property="arView" destination="FAx-Tf-GHU" id="wyo-Zl-hTf"/>
-                        <outletCollection property="scaleButtons" destination="BLJ-cA-H12" collectionClass="NSMutableArray" id="2XJ-r0-QxV"/>
-                        <outletCollection property="scaleButtons" destination="gDN-9z-a0X" collectionClass="NSMutableArray" id="zbb-8H-fNz"/>
-                        <outletCollection property="rotateButtons" destination="UYx-gW-CWU" collectionClass="NSMutableArray" id="AtL-lR-LuA"/>
-                        <outletCollection property="rotateButtons" destination="hE2-ij-u1f" collectionClass="NSMutableArray" id="i7V-Nf-kbD"/>
-                        <outletCollection property="likeButtons" destination="Lrd-X5-R9y" collectionClass="NSMutableArray" id="Q2v-An-1JJ"/>
-                        <outletCollection property="likeButtons" destination="uV5-Cw-irg" collectionClass="NSMutableArray" id="XfG-Sy-pk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfV-mQ-HLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

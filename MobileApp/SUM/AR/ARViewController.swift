@@ -12,13 +12,11 @@ import ARKit
 class ARViewController: UIViewController {
     
     @IBOutlet var arView: ARView!
-    @IBOutlet var scaleButtons: [UIButton]!
-    @IBOutlet var rotateButtons: [UIButton]!
-    @IBOutlet var likeButtons: [UIButton]!
     let networkManager = NetworkManager()
     var bus:Entity?
     var progressBar:Entity?
     var loadBus:Int? = nil
+    var timer:Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,19 +128,33 @@ class ARViewController: UIViewController {
         }
     }
     
-    @IBAction func rotateModel(_ sender: UIButton) {
+    @IBAction func buttonRotateDown(_ sender: UIButton) {
         let command = sender.titleLabel!.text?.lowercased() ?? ""
         
         switch command{
         case "left":
-            bus?.move(to: Transform(pitch: 0, yaw: -0.1, roll: 0), relativeTo: bus!)
-            progressBar?.move(to: Transform(pitch: 0, yaw: -0.1, roll: 0), relativeTo: progressBar!)
+            //rotateLeft()
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(rotateLeft), userInfo: nil, repeats: true)
         case "right":
-            bus?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: bus!)
-            progressBar?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: progressBar!)
+            //rotateRight()
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(rotateRight), userInfo: nil, repeats: true)
         default:
             break;
         }
+    }
+    
+    @IBAction func buttonRotateUp(_ sender: UIButton) {
+        timer?.invalidate()
+    }
+    
+    @objc func rotateLeft(){
+        bus?.move(to: Transform(pitch: 0, yaw: -0.1, roll: 0), relativeTo: bus!)
+        progressBar?.move(to: Transform(pitch: 0, yaw: -0.1, roll: 0), relativeTo: progressBar!)
+    }
+    
+    @objc func rotateRight(){
+        bus?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: bus!)
+        progressBar?.move(to: Transform(pitch: 0, yaw: 0.1, roll: 0), relativeTo: progressBar!)
     }
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
