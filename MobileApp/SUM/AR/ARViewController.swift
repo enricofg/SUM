@@ -3,7 +3,7 @@
 //  SUM
 //
 //  Created by Enrico Florentino Gomes on 03/01/2022.
-//
+//  Updated by Luis Sousa on 18/01/2022
 
 import UIKit
 import RealityKit
@@ -17,6 +17,7 @@ class ARViewController: UIViewController {
     var progressBar:Entity?
     var loadBus:Int? = nil
     var timer:Timer?
+    var capacity = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class ARViewController: UIViewController {
         ///Default Params:
         //Control variables
         var description = "Erro - Falha ao carregar"
-        var capacity = 0
+   
         
         //3D Model variables - Bar
         let barEntity : Entity = (progressBar?.children[1].children[0])!
@@ -77,21 +78,21 @@ class ARViewController: UIViewController {
         
         //HTTP Request
         networkManager.fetchBus(busNumber: loadBus) { [weak self] (bus) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 //Handle requested data
-                capacity = bus.first?.Bus_Capacity ?? 0
-                if(capacity<40){
+                self!.capacity = bus.first!.Bus_Capacity
+                if(self!.capacity<40){
                     barMaterial.color = .init(tint: (self?.hexStringToUIColor(hex: "#3e9a2c"))!).self
-                    description="Vazio - Lotação: \(capacity)%"
-                    barEntity.scale = [1,1+Float(capacity/80),1]
-                } else if (capacity>=40&&capacity<=60) {
-                    barMaterial.color = .init(tint: (self?.hexStringToUIColor(hex: "#e1cd00"))!).self
-                    description="Médio - Lotação: \(capacity)%"
-                    barEntity.scale = [1,1.25+Float(capacity/90),1]
+                    description="Vazio - Lotação: \(self!.capacity)%"
+                    barEntity.scale = [1,1+Float(self!.capacity/80),1]
+                } else if (self!.capacity>=40&&self!.capacity<=60) {
+                    barMaterial.color = .init(tint: (self!.hexStringToUIColor(hex: "#e1cd00"))).self
+                    description="Médio - Lotação: \(self!.capacity)%"
+                    barEntity.scale = [1,1.25+Float(self!.capacity/90),1]
                 } else {
-                    barMaterial.color = .init(tint: (self?.hexStringToUIColor(hex: "#bb1111"))!).self
-                    description="Cheio - Lotação: \(capacity)%"
-                    barEntity.scale = [1,1.5+Float(capacity/100),1]
+                    barMaterial.color = .init(tint: (self!.hexStringToUIColor(hex: "#bb1111"))).self
+                    description="Cheio - Lotação: \(self!.capacity)%"
+                    barEntity.scale = [1,1.5+Float(self!.capacity/100),1]
                 }
                 barModelComp.materials[0] = barMaterial
                 
@@ -163,10 +164,13 @@ class ARViewController: UIViewController {
         switch command{
         case "like":
             print("like")
+            let uploadDataModel = UserBusAR_Feedback(Bus_Id: Int(bus!.id), Bus_Name: bus!.name, Takes_Bus: 1, Bus_Ocupation: capacity)
+            networkManager.putMethod(userFeedback: uploadDataModel)
             //insert PUT API for like here
         case "dislike":
             print("dislike")
-            //insert PUT API for dislike here
+            let uploadDataModel = UserBusAR_Feedback(Bus_Id: Int(bus!.id), Bus_Name: bus!.name, Takes_Bus: 0, Bus_Ocupation: capacity)
+            networkManager.putMethod(userFeedback: uploadDataModel)
         default:
             break;
         }

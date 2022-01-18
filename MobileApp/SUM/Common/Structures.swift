@@ -67,3 +67,9 @@ struct TimeBusLine: Decodable{
     var Stop_Name : String
     var Schedule_Time : String
 }
+struct UserBusAR_Feedback: Codable {
+    let Bus_Id: Int
+    let Bus_Name: String
+    let Takes_Bus: Int
+    let Bus_Ocupation: Int
+}

@@ -178,20 +178,11 @@ class NetworkManager {
         task.resume()
     }
     
-    func putMethod() {
-        let url = URL(string: domainUrl + "api/userbusstatus/")!
-        
-        // Create model
-        struct UploadData: Codable {
-            let name: String
-            let job: String
-        }
-        
-        // Add data to the model
-        let uploadDataModel = UploadData(name: "Nicole", job: "iOS Developer")
+    func putMethod(userFeedback : UserBusAR_Feedback ) {
+        let url = URL(string: domainUrl + "api/userbusar_feedback/")!
         
         // Convert model to JSON data
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+        guard let jsonData = try? JSONEncoder().encode(userFeedback) else {
             print("Error: Trying to convert model to JSON data")
             return
         }

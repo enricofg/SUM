@@ -40,7 +40,7 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
         mapView.delegate = self
         
         //set up info container height parameter for visibility changes
@@ -56,6 +56,7 @@ class BusViewController: UIViewController, MKMapViewDelegate, INUIAddVoiceShortc
                 }
             }
         }
+  
         
         getUserLocation()
         

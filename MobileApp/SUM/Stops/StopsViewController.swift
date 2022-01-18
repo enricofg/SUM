@@ -43,7 +43,7 @@ class StopsViewController: UIViewController,CLLocationManagerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.addSubview(tableView)
         tableView.delegate=self
         tableView.dataSource=self
@@ -58,7 +58,10 @@ class StopsViewController: UIViewController,CLLocationManagerDelegate
                     self!.selectedRating = child?.Stop_Id ?? 0
                     self!.txtOrigin.text = "\(child?.Stop_Name ?? "")"
                     self!.SearchTime(_ : (Any).self)
+                    
                 }
+                self?.pickerView.selectRow(0, inComponent: 0, animated: true)
+
             }
         }
         
@@ -81,7 +84,9 @@ class StopsViewController: UIViewController,CLLocationManagerDelegate
         addLeftImageTo(txtField: txtOrigin, andImage: locationImage!)
         let hourImage=UIImage(systemName: "calendar")
         addLeftImageTo(txtField: txtHours, andImage: hourImage!)
+    
     }
+    
     
     func createToolBar() -> UIToolbar {
         let toolbar = UIToolbar()
@@ -164,6 +169,7 @@ extension StopsViewController : UIPickerViewDelegate, UIPickerViewDataSource,UIT
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (_stops == nil)
