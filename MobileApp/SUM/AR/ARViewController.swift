@@ -166,7 +166,8 @@ class ARViewController: UIViewController {
             print("like")
             let uploadDataModel = UserBusAR_Feedback(Bus_Id: Int(bus!.id), Bus_Name: bus!.name, Takes_Bus: 1, Bus_Ocupation: capacity)
             networkManager.putMethod(userFeedback: uploadDataModel)
-            //insert PUT API for like here
+            showModal()
+
         case "dislike":
             print("dislike")
             let uploadDataModel = UserBusAR_Feedback(Bus_Id: Int(bus!.id), Bus_Name: bus!.name, Takes_Bus: 0, Bus_Ocupation: capacity)
@@ -176,6 +177,23 @@ class ARViewController: UIViewController {
         }
     }
     
+    func showModal()
+    {
+        //insert PUT API for like here
+        // Create new Alert
+        var dialogMessage = UIAlertController(title: "Ok", message: "Obrigado pelo seu feedback, ", preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+         })
+        
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+
+        // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
     //function to convert Hex value to UIColor class
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
