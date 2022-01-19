@@ -167,11 +167,11 @@ class ARViewController: UIViewController {
             let uploadDataModel = UserBusAR_Feedback(Bus_Id: Int(bus!.id), Bus_Name: bus!.name, Takes_Bus: 1, Bus_Ocupation: capacity)
             networkManager.putMethod(userFeedback: uploadDataModel)
             showModal()
-
         case "dislike":
             print("dislike")
             let uploadDataModel = UserBusAR_Feedback(Bus_Id: Int(bus!.id), Bus_Name: bus!.name, Takes_Bus: 0, Bus_Ocupation: capacity)
             networkManager.putMethod(userFeedback: uploadDataModel)
+            showModal()
         default:
             break;
         }
