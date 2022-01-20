@@ -2,10 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSSiriUsageDescription</key>
+	<string>A aplicação necessita de acesso à Siri.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>ScheduleIntent</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Necessitamos saber a sua localização para carregar as paragens mais próximas de si.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Necessitamos saber a sua localização para carregar as paragens mais próximas de si.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Necessitamos de acesso à câmara para realizar a experiência AR.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
